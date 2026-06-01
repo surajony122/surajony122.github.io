@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Suraj Kumar — Senior Shopify Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0d0d0d;
+  --bg2:#141414;
+  --bg3:#1a1a1a;
+  --border:#1e2a1e;
+  --border2:#2a3a2a;
+  --text:#f0f0f0;
+  --text2:#8a9a8a;
+  --text3:#4a5a4a;
+  --accent:#b5f020;
+  --accent2:#96cc10;
+  --blue:#b5f020;
+  --teal:#7acc20;
+  --amber:#f5a623;
+  --purple:#a78bfa;
+  --pink:#f472b6;
+  --r:12px;
+  --r2:8px;
+  --font-head:'Syne',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(13,13,13,0.88);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-logo{font-family:var(--font-head);font-size:18px;font-weight:700;letter-spacing:-0.5px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:13px;padding:7px 18px;border:0.5px solid var(--accent);color:var(--accent);border-radius:var(--r2);transition:background .2s,color .2s}
+.nav-cta:hover{background:var(--accent);color:#0d0d0d}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 2.5rem;padding-top:60px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:4rem;align-items:center;max-width:1100px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--accent);border:0.5px solid var(--accent);border-radius:20px;padding:5px 14px;margin-bottom:1.5rem;letter-spacing:0.5px;text-transform:uppercase}
+.hero-badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--font-head);font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:1.2rem}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:16px;color:var(--text2);max-width:520px;line-height:1.8;margin-bottom:2rem}
+.hero-links{display:flex;gap:12px;flex-wrap:wrap}
+.hero-link{display:flex;align-items:center;gap:7px;padding:10px 20px;border:0.5px solid var(--border2);border-radius:var(--r2);font-size:13px;color:var(--text2);transition:all .2s}
+.hero-link:hover{border-color:var(--accent);color:var(--accent)}
+.hero-link svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
+.stat{background:var(--bg2);padding:1.5rem;text-align:center}
+.stat-n{font-family:var(--font-head);font-size:36px;font-weight:800;color:var(--accent);line-height:1}
+.stat-l{font-size:12px;color:var(--text2);margin-top:6px;text-transform:uppercase;letter-spacing:0.5px}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.hero-bg-circle{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.1}
+.c1{width:600px;height:600px;background:#b5f020;top:-200px;right:-100px}
+.c2{width:400px;height:400px;background:#4a8020;bottom:-100px;left:-150px}
+
+/* SECTION */
+section{padding:6rem 2.5rem;max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:.6rem;font-weight:500}
+.section-title{font-family:var(--font-head);font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:2.5rem}
+.section-title span{color:var(--text2)}
+.divider{width:100%;height:0.5px;background:var(--border);margin:0 2.5rem}
+
+/* ABOUT / SKILLS */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text p{color:var(--text2);line-height:1.9;font-size:15px;margin-bottom:1rem}
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.skill-group{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.2rem}
+.skill-group h4{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:.8rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--bg3);color:var(--text2);border:0.5px solid var(--border)}
+.tag.accent{background:rgba(181,240,32,0.08);color:var(--accent);border-color:rgba(181,240,32,0.3)}
+.tag.blue{background:rgba(181,240,32,0.07);color:var(--blue);border-color:rgba(181,240,32,0.28)}
+.tag.teal{background:rgba(122,204,32,0.08);color:var(--teal);border-color:rgba(122,204,32,0.25)}
+
+/* SHOPIFY PLUS */
+.plus-card{background:linear-gradient(135deg,rgba(181,240,32,0.05),rgba(181,240,32,0.02));border:0.5px solid rgba(181,240,32,0.3);border-radius:var(--r);padding:2rem;margin-bottom:3rem}
+.plus-header{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
+.plus-header h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--accent)}
+.plus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.plus-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.6}
+.plus-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
+.proj-card{background:var(--bg2);padding:1.8rem;display:flex;flex-direction:column;gap:12px;transition:background .2s;position:relative}
+.proj-card:hover{background:var(--bg3)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start}
+.proj-name{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:3px}
+.proj-url{font-size:12px;color:var(--blue);display:flex;align-items:center;gap:4px}
+.proj-url:hover{text-decoration:underline}
+.cat-badge{font-size:10px;padding:3px 9px;border-radius:20px;letter-spacing:0.3px;text-transform:uppercase;font-weight:500;flex-shrink:0}
+.cat-fashion{background:rgba(181,240,32,0.08);color:#b5f020;border:0.5px solid rgba(181,240,32,0.2)}
+.cat-beauty{background:rgba(181,240,32,0.06);color:#96cc10;border:0.5px solid rgba(181,240,32,0.18)}
+.cat-furniture{background:rgba(181,240,32,0.08);color:#c8f060;border:0.5px solid rgba(181,240,32,0.22)}
+.cat-travel{background:rgba(122,204,32,0.1);color:var(--teal);border:0.5px solid rgba(122,204,32,0.25)}
+.cat-accessories{background:rgba(181,240,32,0.1);color:var(--blue);border:0.5px solid rgba(181,240,32,0.28)}
+.contrib-list{list-style:none;padding:0}
+.contrib-list li{font-size:12.5px;color:var(--text2);padding:3px 0 3px 14px;position:relative;line-height:1.6}
+.contrib-list li::before{content:"–";position:absolute;left:0;color:var(--text3)}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:0.5px solid var(--border)}
+.complexity{display:flex;align-items:center;gap:5px}
+.cx-dot{width:7px;height:7px;border-radius:50%}
+.cx-filled{background:var(--accent)}
+.cx-empty{background:var(--border2)}
+.cx-label{font-size:11px;color:var(--text3);margin-left:2px}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+.ptag{font-size:10px;padding:2px 8px;border-radius:20px;background:var(--bg3);color:var(--text3);border:0.5px solid var(--border)}
+.timeline-badge{font-size:11px;color:var(--accent);background:rgba(181,240,32,0.08);padding:3px 9px;border-radius:20px;border:0.5px solid rgba(181,240,32,0.25)}
+
+/* EXPERIENCE */
+.exp-timeline{position:relative;padding-left:1.5rem}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:0.5px;background:var(--border)}
+.exp-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.exp-item::before{content:'';position:absolute;left:-1.5rem;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:.8rem}
+.exp-company{font-family:var(--font-head);font-size:17px;font-weight:700}
+.exp-role{font-size:13px;color:var(--text2);margin-top:2px}
+.exp-date{font-size:12px;color:var(--accent);background:rgba(181,240,32,0.08);border:0.5px solid rgba(181,240,32,0.25);padding:3px 10px;border-radius:20px}
+.exp-list{list-style:none;padding:0}
+.exp-list li{font-size:13px;color:var(--text2);padding:3px 0 3px 16px;position:relative;line-height:1.7}
+.exp-list li::before{content:"→";position:absolute;left:0;color:var(--text3);font-size:11px;top:5px}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.edu-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.5rem}
+.edu-year{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.4rem}
+.edu-school{font-family:var(--font-head);font-size:16px;font-weight:700;margin-bottom:4px}
+.edu-degree{font-size:13px;color:var(--text2)}
+
+/* CV SECTION */
+.cv-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.cv-info h3{font-family:var(--font-head);font-size:20px;font-weight:700;margin-bottom:6px}
+.cv-info p{font-size:13px;color:var(--text2);line-height:1.7}
+.cv-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cv-btn{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--r2);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+.cv-btn.primary{background:var(--accent);color:#0d0d0d;border:0.5px solid var(--accent)}
+.cv-btn.primary:hover{background:var(--accent2)}
+.cv-btn.secondary{background:transparent;color:var(--text2);border:0.5px solid var(--border2)}
+.cv-btn.secondary:hover{border-color:var(--text2);color:var(--text)}
+.cv-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:12px}
+.contact-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text2);padding:12px 16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r2);transition:border-color .2s}
+.contact-item:hover{border-color:var(--border2)}
+.contact-item svg{width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.8;flex-shrink:0}
+.contact-item a{color:var(--text);transition:color .2s}
+.contact-item a:hover{color:var(--accent)}
+.availability{background:rgba(181,240,32,0.08);border:0.5px solid rgba(181,240,32,0.25);border-radius:var(--r);padding:1.8rem}
+.avail-dot{display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-right:8px;animation:pulse 2s infinite}
+.availability h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--accent);margin-bottom:.8rem}
+.availability p{font-size:13px;color:var(--text2);line-height:1.8}
+
+/* FOOTER */
+footer{border-top:0.5px solid var(--border);padding:2rem 2.5rem;text-align:center;font-size:12px;color:var(--text3)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(20px);animation:fadeIn .6s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+.delay-3{animation-delay:.3s}
+
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-stats{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .skills-cols{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  nav{padding:0 1.2rem}
+  .nav-links{display:none}
+  section{padding:4rem 1.2rem}
+  .hero{padding:0 1.2rem;padding-top:60px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Suraj<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-circle c1"></div>
+    <div class="hero-bg-circle c2"></div>
+  </div>
+  <div class="hero-grid">
+    <div class="fade-in">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Open to opportunities</div>
+      <h1>Senior<br/>Shopify<br/><span>Developer</span></h1>
+      <p class="hero-sub">4+ years building high-performance eCommerce solutions for 150+ brands. Expert in custom theme development, Shopify CLI apps, Shopify Plus, and CRO-driven development.</p>
+      <div class="hero-links">
+        <a href="https://github.com/surajony122" target="_blank" class="hero-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://surajony.my.canva.site/" target="_blank" class="hero-link">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Portfolio Site
+        </a>
+        <a href="mailto:skpjony@gmail.com" class="hero-link">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a href="tel:+919968034137" class="hero-link">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+          +91-9968034137
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats fade-in delay-2">
+      <div class="stat"><div class="stat-n">4+</div><div class="stat-l">Years exp.</div></div>
+      <div class="stat"><div class="stat-n">150+</div><div class="stat-l">Brands</div></div>
+      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Stores managed</div></div>
+      <div class="stat"><div class="stat-n">Plus</div><div class="stat-l">Shopify Plus</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT & SKILLS -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="section-title">Skills & <span>expertise</span></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Senior Shopify Developer with 4+ years of experience delivering and scaling high-performing eCommerce solutions across 150+ brands. Specialised in custom theme development, Shopify CLI app builds, AI-assisted workflows, and performance optimisation.</p>
+      <p>Strong expertise in CRO-driven development to maximise conversions and user experience. Proven ability as a team lead to bridge clients, designers, and developers while managing multiple projects simultaneously with high code quality and on-time delivery.</p>
+      <p>Experienced in Figma-to-Shopify implementation, custom coded themes from scratch, and full Dawn OS 2.0 customisation across diverse niches including fashion, jewellery, health, furniture, and travel.</p>
+    </div>
+    <div class="skills-cols">
+      <div class="skill-group">
+        <h4>Shopify core</h4>
+        <div class="skill-tags">
+          <span class="tag accent">Liquid</span>
+          <span class="tag accent">Dawn / OS 2.0</span>
+          <span class="tag accent">Shopify CLI</span>
+          <span class="tag">Metafields</span>
+          <span class="tag">Metaobjects</span>
+          <span class="tag">Sections Everywhere</span>
+          <span class="tag">Hydrogen</span>
+          <span class="tag accent">Shopify Plus</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Custom apps</h4>
+        <div class="skill-tags">
+          <span class="tag blue">App Bridge</span>
+          <span class="tag blue">Polaris UI</span>
+          <span class="tag blue">Node.js</span>
+          <span class="tag">OAuth 2.0</span>
+          <span class="tag">Webhooks</span>
+          <span class="tag">REST API</span>
+          <span class="tag">GraphQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Frontend</h4>
+        <div class="skill-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JS ES6+</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag teal">Core Web Vitals</span>
+          <span class="tag">Figma to Shopify</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Backend & tools</h4>
+        <div class="skill-tags">
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Payment Gateways</span>
+          <span class="tag">Logistics APIs</span>
+          <span class="tag">Cursor AI</span>
+          <span class="tag">ChatGPT</span>
+          <span class="tag">WooCommerce</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SHOPIFY PLUS -->
+<section id="shopifyplus" style="padding-top:4rem;padding-bottom:2rem">
+  <div class="section-label">Shopify Plus</div>
+  <div class="section-title">Plus <span>experience</span></div>
+  <div class="plus-card">
+    <div class="plus-header">
+      <svg width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <h3>Shopify Plus certified work</h3>
+    </div>
+    <div class="plus-grid">
+      <div class="plus-item"><span class="plus-dot"></span><span>Launchpad for scheduled campaign automation and theme publishing</span></div>
+      <div class="plus-item"><span class="plus-dot"></span><span>Shopify Flow for advanced backend workflow automation</span></div>
+      <div class="plus-item"><span class="plus-dot"></span><span>Checkout UI Extensions for fully custom checkout experiences</span></div>
+      <div class="plus-item"><span class="plus-dot"></span><span>B2B / wholesale channel configuration and pricing rules</span></div>
+      <div class="plus-item"><span class="plus-dot"></span><span>High-traffic store management with strict performance budgets</span></div>
+      <div class="plus-item"><span class="plus-dot"></span><span>Plus-exclusive APIs for advanced discount logic and multistore setups</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding-top:2rem">
+  <div class="section-label">Portfolio — Shopify store examples</div>
+  <div class="section-title">Projects & <span>contributions</span></div>
+
+  <div class="projects-grid">
+
+    <!-- Odette -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Odette</div>
+          <a href="https://odette.in" target="_blank" class="proj-url">odette.in ↗</a>
+        </div>
+        <span class="cat-badge cat-fashion">Fashion</span>
+      </div>
+      <ul class="contrib-list">
+        <li>Ongoing brand website maintenance — bug fixes, section updates & content refreshes</li>
+        <li>Performance monitoring and speed audits with each release cycle</li>
+        <li>CRO-focused PDP layout improvements to boost conversion rates</li>
+        <li>Metafield-driven dynamic content blocks across product & collection pages</li>
+        <li>Third-party app integrations and compatibility updates</li>
+        <li>Responsive QA across devices with each deployment</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
+          <span class="cx-label">High</span>
+        </div>
+        <span class="timeline-badge">Ongoing</span>
+        <div class="proj-tags"><span class="ptag">Liquid</span><span class="ptag">CRO</span><span class="ptag">Maintenance</span></div>
+      </div>
+    </div>
+
+    <!-- Avimee Herbal -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Avimee Herbal</div>
+          <a href="https://avimeeherbal.com" target="_blank" class="proj-url">avimeeherbal.com ↗</a>
+        </div>
+        <span class="cat-badge cat-beauty">Beauty & Health</span>
+      </div>
+      <ul class="contrib-list">
+        <li>New campaign launch — live bundle sections with dynamic pricing via metafields</li>
+        <li>Custom metafield setup for ingredient highlights, certifications & usage guides</li>
+        <li>Third-party custom checkout integration for enhanced checkout flow</li>
+        <li>Subscription app integration with recurring billing logic</li>
+        <li>Quiz-based product recommender built with Liquid & JS</li>
+        <li>Core Web Vitals performance tuning — lazy loading, critical CSS, image compression</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
+          <span class="cx-label">High</span>
+        </div>
+        <span class="timeline-badge">~4 weeks</span>
+        <div class="proj-tags"><span class="ptag">Metafields</span><span class="ptag">Checkout</span><span class="ptag">Bundles</span></div>
+      </div>
+    </div>
+
+    <!-- Cellbell -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Cellbell</div>
+          <a href="https://cellbell.in" target="_blank" class="proj-url">cellbell.in ↗</a>
+        </div>
+        <span class="cat-badge cat-furniture">Furniture</span>
+      </div>
+      <ul class="contrib-list">
+        <li>Custom navigation — mega menu with category imagery and sub-collections</li>
+        <li>Custom product configurator section for variant-based selection</li>
+        <li>Metaobject-driven product specification comparison tables</li>
+        <li>Logistics API integration for live delivery estimate display</li>
+        <li>Custom cart drawer with dynamic upsell logic</li>
+        <li>OS 2.0 theme build with advanced Liquid templating</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span>
+          <span class="cx-label">Very High</span>
+        </div>
+        <span class="timeline-badge">~5 weeks</span>
+        <div class="proj-tags"><span class="ptag">Mega Menu</span><span class="ptag">Metaobjects</span><span class="ptag">Logistics API</span></div>
+      </div>
+    </div>
+
+    <!-- Trapin -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Trapin</div>
+          <a href="https://trapin.in" target="_blank" class="proj-url">trapin.in ↗</a>
+        </div>
+        <span class="cat-badge cat-travel">Travel</span>
+      </div>
+      <ul class="contrib-list">
+        <li>Figma to Shopify — pixel-perfect implementation from designer handoff to live store</li>
+        <li>Custom product page built on Dawn theme with unique travel-package layout</li>
+        <li>Dynamic itinerary display sections via metafields for trip details</li>
+        <li>Mobile-first responsive layout matching Figma spec precisely</li>
+        <li>Booking flow customisation and CRO-optimised product page structure</li>
+        <li>Dawn theme extended with custom Liquid sections and JavaScript enhancements</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span><span class="cx-dot cx-empty"></span>
+          <span class="cx-label">Medium–High</span>
+        </div>
+        <span class="timeline-badge">~3 weeks</span>
+        <div class="proj-tags"><span class="ptag">Figma→Shopify</span><span class="ptag">Dawn</span><span class="ptag">Custom PDP</span></div>
+      </div>
+    </div>
+
+    <!-- Zeraki Jewels -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Zeraki Jewels</div>
+          <a href="https://zerakijewels.com" target="_blank" class="proj-url">zerakijewels.com ↗</a>
+        </div>
+        <span class="cat-badge cat-accessories">Jewellery</span>
+      </div>
+      <ul class="contrib-list">
+        <li>Jewellery-specific PDP — metal type & gemstone swatch selector</li>
+        <li>Ring size guide modal with custom illustration integration</li>
+        <li>Gift packaging add-on flow at cart level</li>
+        <li>Custom collection filtering by material, gemstone, price & occasion</li>
+        <li>Loyalty and rewards app integration tailored to jewellery repeat purchase behaviour</li>
+        <li>High-resolution image optimisation for jewellery photography assets</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
+          <span class="cx-label">High</span>
+        </div>
+        <span class="timeline-badge">~3 weeks</span>
+        <div class="proj-tags"><span class="ptag">Swatch Selector</span><span class="ptag">Jewellery UX</span><span class="ptag">Loyalty</span></div>
+      </div>
+    </div>
+
+    <!-- House of Gulab -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">House of Gulab</div>
+          <a href="https://houseofgulab.com" target="_blank" class="proj-url">houseofgulab.com ↗</a>
+        </div>
+        <span class="cat-badge cat-fashion">Fashion</span>
+      </div>
+      <ul class="contrib-list">
+        <li>Fully custom coded theme — built from scratch without a base theme</li>
+        <li>Product-wise custom templates — unique layouts per product category (sarees, dupattas, sets)</li>
+        <li>Heritage brand aesthetic with bespoke typography and layout system</li>
+        <li>Custom size guide modal with regional sizing chart integration</li>
+        <li>Pre-order flow implemented via metafields for limited collection drops</li>
+        <li>Payment gateway setup & on-page SEO audit with structured data markup</li>
+      </ul>
+      <div class="proj-footer">
+        <div class="complexity">
+          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span>
+          <span class="cx-label">Very High</span>
+        </div>
+        <span class="timeline-badge">~5 weeks</span>
+        <div class="proj-tags"><span class="ptag">Custom Theme</span><span class="ptag">Product Templates</span><span class="ptag">Pre-order</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="section-title">Professional <span>history</span></div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-head">
+        <div>
+          <div class="exp-company">Digisidekick</div>
+          <div class="exp-role">Senior Shopify Developer & Team Lead</div>
+        </div>
+        <span class="exp-date">Feb 2023 – Feb 2026</span>
+      </div>
+      <ul class="exp-list">
+        <li>Led dev & design team across 15+ concurrent stores — managed sprints, code reviews & quality standards</li>
+        <li>Acted as client-facing technical lead, bridging requirements between clients, designers & analysts</li>
+        <li>Built custom Shopify apps using CLI, App Bridge & Polaris UI for advanced store functionality</li>
+        <li>Developed OS 2.0 themes with Liquid, JS & CSS using sections, metafields & metaobjects</li>
+        <li>Implemented Figma-to-Shopify pixel-perfect builds, including custom product page designs</li>
+        <li>Integrated AI tools (Cursor AI, ChatGPT) into dev workflow, reducing build time by ~30%</li>
+        <li>Managed Shopify Plus stores — Launchpad, Flow automation, Checkout UI Extensions & B2B configs</li>
+        <li>Delivered CRO improvements across client stores through structured A/B and heuristic analysis</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-head">
+        <div>
+          <div class="exp-company">Uniqoe Media</div>
+          <div class="exp-role">Web Developer – Shopify Specialist</div>
+        </div>
+        <span class="exp-date">Nov 2021 – Dec 2022</span>
+      </div>
+      <ul class="exp-list">
+        <li>Built and customised Shopify storefronts with tailored Liquid templates aligned to brand identity</li>
+        <li>Integrated third-party apps and configured eCommerce, SEO & security plugins</li>
+        <li>Delivered WordPress/WooCommerce solutions alongside Shopify projects for agency clients</li>
+        <li>Collaborated in cross-functional sprints with clients, designers & project managers</li>
+        <li>Maintained ongoing stores — performance monitoring, bug fixes & feature additions</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Qualifications</div>
+  <div class="section-title">Education <span>background</span></div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2017 – 2020</div>
+      <div class="edu-school">Hierank Business School</div>
+      <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2017</div>
+      <div class="edu-school">R.S.S International School</div>
+      <div class="edu-degree">12th Standard – Science Stream (PCM)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RESUME / CV -->
+<section id="resume">
+  <div class="section-label">Resume</div>
+  <div class="section-title">Download <span>CV</span></div>
+  <div class="cv-card">
+    <div class="cv-info">
+      <h3>Suraj Kumar — Senior Shopify Developer</h3>
+      <p>4+ years · 150+ brands · Shopify Plus · Team Lead · Noida, India<br/>Available for full-time remote roles, freelance projects & Shopify Plus consulting.</p>
+    </div>
+    <div class="cv-btns">
+      <a href="https://surajony.my.canva.site/" target="_blank" class="cv-btn primary">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        View portfolio
+      </a>
+      <a href="https://github.com/surajony122" target="_blank" class="cv-btn secondary">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Get in <span>touch</span></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:skpjony@gmail.com">skpjony@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+        <a href="tel:+919968034137">+91-9968034137</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/surajony122" target="_blank">github.com/surajony122</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <a href="https://surajony.my.canva.site/" target="_blank">surajony.my.canva.site</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Noida, India</span>
+      </div>
+    </div>
+    <div class="availability">
+      <h3><span class="avail-dot"></span>Open to opportunities</h3>
+      <p>Currently available for full-time remote roles, freelance Shopify projects, and Shopify Plus consulting engagements. Comfortable working across IST and overlapping timezones.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Suraj Kumar · Senior Shopify Developer · Noida, India</p>
+</footer>
+
+</body>
+</html>
