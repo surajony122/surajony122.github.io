@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Suraj Kumar — Shopify Developer & Full-Stack App Architect</title>
+<meta name="description" content="Senior Shopify Developer & Full-Stack App Architect with 4+ years scaling 150+ eCommerce brands. Custom Remix/Node.js Shopify Apps, Dawn OS 2.0 Themes, Shopify Plus & CRO engineering — shop the services, build your scope."/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#111111;
+  --ink-soft:#444444;
+  --gray:#767676;
+  --gray-soft:#999999;
+  --line:#ededed;
+  --bg:#ffffff;
+  --bg-soft:#fafafa;
+  --green:#0b8a5e;
+  --amber:#c9a227;
+  --font-serif:'Bodoni Moda', Georgia, serif;
+  --font-sans:'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit}
+img{display:block;max-width:100%}
+ul{list-style:none}
+::selection{background:#111111;color:#fff}
+.wrap{max-width:1440px;margin:0 auto}
+
+/* ---------- utility bar ---------- */
+.utility-bar{display:flex;align-items:center;justify-content:center;gap:28px;height:34px;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);white-space:nowrap;overflow:hidden;padding:0 16px}
+.utility-bar .sep{color:#d8d8d8}
+.dot-live{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;margin-right:7px;animation:pulseDot 2s infinite ease-in-out;vertical-align:middle}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid var(--line)}
+.nav-wrap{display:flex;align-items:center;gap:20px;padding:20px 40px}
+.nav-links{display:flex;flex:1 1 0;min-width:0;gap:22px;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.nav-links a:hover{color:var(--gray)}
+.wordmark{border:0;background:none;cursor:pointer;padding:0;flex:0 0 auto;font-family:var(--font-serif);font-size:27px;letter-spacing:.32em;text-transform:uppercase;transform:scaleX(.86);white-space:nowrap;color:var(--ink)}
+.nav-actions{display:flex;flex:1 1 0;min-width:0;justify-content:flex-end;align-items:center;gap:18px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.cart-btn{display:flex;align-items:center;gap:6px}
+.cart-count{font-variant-numeric:tabular-nums;border:1px solid var(--ink);border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;font-size:9px}
+.cart-count.bump{animation:bump .3s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.hire-btn{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:9px 16px}
+.hire-btn:hover{background:var(--gray);border-color:var(--gray)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--ink);transition:all .15s ease;white-space:nowrap}
+.btn-solid{background:var(--ink);color:#fff}
+.btn-solid:hover{background:var(--gray);border-color:var(--gray)}
+.btn-outline{background:#fff;color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-sm{padding:9px 16px;font-size:9px}
+.btn-text{border:0;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);text-decoration:underline;padding:0}
+.btn-text:hover{color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:76vh;border-bottom:1px solid var(--line)}
+.hero-media{position:relative;border-right:1px solid var(--line);min-height:440px;overflow:hidden;background:#f2f2f2}
+.hero-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hero-media-tag{position:absolute;left:0;bottom:0;background:#fff;border-top:1px solid var(--line);border-right:1px solid var(--line);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);padding:8px 14px;display:flex;align-items:center;gap:6px}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;padding:56px 48px 0}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.6vw,74px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin:16px 0 24px}
+.lede{font-size:13.5px;line-height:1.75;color:var(--ink-soft);max-width:44ch;margin-bottom:26px}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:26px}
+.tag-row span{border:1px solid var(--line);padding:7px 12px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.hero-contact{font-size:11.5px;color:var(--gray);display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.hero-contact a{color:var(--ink);font-weight:500;text-decoration:underline}
+.stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.stat-row > div{padding:20px 20px 20px 0}
+.stat-n{font-family:var(--font-serif);font-size:30px}
+.stat-l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+
+/* ---------- marquee ---------- */
+.marquee{border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0}
+.marquee-label{text-align:center;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-soft);margin-bottom:12px}
+.marquee-track{display:flex;gap:0;width:max-content;animation:scrollMarquee 42s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.brand-pill{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);padding:0 22px;border-right:1px solid var(--line);white-space:nowrap}
+
+/* ---------- section header ---------- */
+.section-shell{padding:88px 40px 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:14px;gap:24px;flex-wrap:wrap}
+.section-head h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);text-transform:uppercase;letter-spacing:.02em}
+.section-cap{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);text-align:right;white-space:nowrap}
+.section-note{font-size:12.5px;color:var(--gray);max-width:60ch;margin-top:16px}
+
+/* ---------- case explorer (flagship interactive) ---------- */
+.explorer-tabs{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-bottom:0;margin-top:32px}
+.explorer-tab{flex:1 1 auto;padding:13px 14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--line);color:var(--gray);white-space:nowrap}
+.explorer-tab:last-child{border-right:0}
+.explorer-tab.active{background:var(--ink);color:#fff}
+.explorer-body{border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr)}
+.explorer-media{position:relative;aspect-ratio:4/5;background:#f2f2f2;border-right:1px solid var(--line);overflow:hidden}
+.explorer-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.explorer-info{padding:34px 32px}
+.explorer-cap{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.explorer-title{font-family:var(--font-serif);font-size:30px;text-transform:uppercase;margin-bottom:6px}
+.explorer-metric{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--ink);padding:4px 10px;margin-bottom:22px}
+.explorer-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;margin-bottom:26px}
+.explorer-cols h4{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:7px;margin-bottom:12px}
+.explorer-cols li{font-size:12px;line-height:1.7;color:#555;padding-left:14px;position:relative;margin-bottom:6px}
+.explorer-cols li::before{content:'—';position:absolute;left:0;color:var(--gray-soft)}
+.explorer-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- product grid (major services) ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
+.svc-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 28px 28px;display:flex;flex-direction:column;gap:16px;transition:background .15s ease}
+.svc-card:hover{background:var(--bg-soft)}
+.svc-media{position:relative;aspect-ratio:4/5;background:#f2f2f2;overflow:hidden}
+.svc-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.svc-ribbon{position:absolute;top:10px;left:10px;background:#fff;border:1px solid var(--ink);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;z-index:2}
+.svc-num{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+.svc-title{font-size:16.5px;font-weight:500;letter-spacing:.005em}
+.svc-desc{font-size:12px;line-height:1.65;color:#666}
+.svc-price{display:flex;align-items:baseline;gap:8px;font-size:12px;margin-top:2px}
+.svc-price .was{text-decoration:line-through;color:var(--gray-soft)}
+.svc-price .now{font-weight:600;font-size:15px}
+.svc-price .save{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.svc-timeline{font-size:10.5px;color:var(--gray);letter-spacing:.05em;margin-top:auto}
+.svc-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.svc-view{border:1px solid var(--line);color:var(--gray);padding:13px 14px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase}
+.svc-view:hover{border-color:var(--ink);color:var(--ink)}
+.svc-add{border:1px solid var(--ink);background:#fff;color:var(--ink);padding:13px;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.svc-add:hover{background:var(--ink);color:#fff}
+.svc-detail{margin-top:6px;padding-top:18px;border-top:1px solid var(--line)}
+.svc-detail[hidden]{display:none}
+.svc-detail-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:16px}
+.svc-detail-cols h5{font-size:9px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.svc-detail-cols li{font-size:11px;line-height:1.65;color:#555;padding-left:12px;position:relative;margin-bottom:5px}
+.svc-detail-cols li::before{content:'—';position:absolute;left:0;color:var(--gray-soft)}
+.svc-stack{display:flex;gap:6px;flex-wrap:wrap}
+.svc-stack span{border:1px solid var(--line);padding:5px 9px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+
+/* ---------- minor services list ---------- */
+.minor-grid{display:grid;grid-template-columns:1fr 1fr}
+.minor-col:first-child{border-right:1px solid var(--line)}
+.minor-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.minor-col:first-child .minor-row{padding-right:28px}
+.minor-col:last-child .minor-row{padding-left:28px}
+.minor-name{font-size:13.5px;font-weight:500}
+.minor-desc{font-size:11px;color:var(--gray);margin-top:4px}
+.minor-price{font-size:11px;color:var(--ink);margin-top:5px}
+.minor-price .was{text-decoration:line-through;color:var(--gray-soft);margin-right:6px}
+.minor-add{border:1px solid var(--ink);background:none;padding:9px 14px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.minor-add:hover{background:var(--ink);color:#fff}
+
+/* ---------- capability grid ---------- */
+.cap-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cap-tile{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.cap-icon{width:20px;height:20px;color:var(--ink)}
+.cap-title{font-size:12.5px;font-weight:600}
+.cap-desc{font-size:11px;color:var(--gray);line-height:1.55}
+
+/* ---------- case studies (editorial) ---------- */
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.filter-tab{border:1px solid var(--line);padding:8px 16px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.filter-tab.active{border-color:var(--ink);background:var(--ink);color:#fff}
+.case-editorial{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:48px;padding:44px 0;border-bottom:1px solid var(--line)}
+.case-editorial.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)}
+.case-editorial.flip .case-media{order:2}
+.case-media{position:relative;aspect-ratio:3/4;background:#f2f2f2;overflow:hidden}
+.case-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.case-head-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:6px}
+.case-name{font-family:var(--font-serif);font-weight:400;font-size:32px;text-transform:uppercase}
+.case-link{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.case-link:hover{color:var(--ink)}
+.case-meta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:26px}
+.case-cols{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.case-cols h4{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:7px;margin-bottom:12px}
+.case-cols li{font-size:12px;line-height:1.7;color:#555;padding-left:14px;position:relative;margin-bottom:6px}
+.case-cols li::before{content:'—';position:absolute;left:0;color:var(--gray-soft)}
+.case-compact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-top:6px}
+.case-compact{padding:28px}
+.case-compact:nth-child(1){padding-left:0;border-right:1px solid var(--line)}
+.case-compact:nth-child(2){border-right:1px solid var(--line)}
+.case-compact:nth-child(3){padding-right:0}
+.case-compact h4{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.case-compact-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.case-compact-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+.case-compact p{font-size:11.5px;line-height:1.7;color:#666}
+.case-compact strong{font-weight:600;color:var(--ink)}
+.is-hidden{display:none!important}
+
+/* ---------- personal projects ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.proj-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:10px}
+.proj-title{font-size:15px;font-weight:600}
+.proj-desc{font-size:11.5px;color:var(--gray);line-height:1.6;flex:1}
+.proj-tags{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-soft)}
+
+/* ---------- reviews ---------- */
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.review-card{border-right:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;gap:16px}
+.review-card:last-child{border-right:0}
+.stars{letter-spacing:.3em;font-size:12px;color:#c9a227}
+.review-quote{font-family:var(--font-serif);font-size:16.5px;line-height:1.5}
+.review-foot{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:auto}
+
+/* ---------- brands ---------- */
+.brand-group-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin:34px 0 0}
+.brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:16px}
+.brand-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px;display:flex;flex-direction:column;gap:6px}
+.brand-cell-name{font-family:var(--font-serif);font-size:22px;text-transform:uppercase;letter-spacing:.04em}
+.brand-cell-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.brand-cell:hover{background:var(--bg-soft)}
+.brand-photo-card{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:block}
+.brand-photo-media{position:relative;aspect-ratio:9/16;background:#f2f2f2;overflow:hidden}
+.brand-photo-media img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0;transition:transform .4s ease}
+.brand-photo-card:hover .brand-photo-media img{transform:scale(1.03)}
+.brand-photo-info{padding:16px 18px}
+.brand-photo-name{font-family:var(--font-serif);font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+.brand-photo-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.brand-photo-overlay{position:absolute;inset:0;background:rgba(15,15,15,.93);opacity:0;pointer-events:none;transition:opacity .22s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:#fff;z-index:3}
+.brand-photo-card:hover .brand-photo-overlay{opacity:1}
+.brand-photo-overlay-name{font-family:var(--font-serif);font-size:20px;text-transform:uppercase;line-height:1.15;margin-bottom:12px}
+.brand-photo-overlay-row{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-bottom:10px}
+.brand-photo-overlay-row strong{display:block;color:#fff;font-weight:500;font-size:12px;letter-spacing:.01em;text-transform:none;margin-top:3px;line-height:1.4}
+.brand-photo-overlay-cta{font-size:9px;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.2);padding-top:12px}
+.brand-photo-badge{position:absolute;top:10px;left:10px;background:#111;color:#fff;font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;z-index:2}
+
+/* ---------- cart drawer ---------- */
+.drawer-overlay{position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:90;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.drawer-overlay.active{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;background:#fff;border-left:1px solid var(--ink);z-index:95;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.active{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--ink)}
+.drawer-head h3{font-family:var(--font-serif);font-size:20px;text-transform:uppercase}
+.drawer-close{font-size:18px;line-height:1}
+.drawer-meter{padding:12px 24px;border-bottom:1px solid var(--line);font-size:10.5px;letter-spacing:.06em;color:var(--gray)}
+.meter-track{width:100%;height:3px;background:var(--line);margin-top:8px}
+.meter-fill{height:100%;background:var(--ink);width:0%;transition:width .3s ease}
+.drawer-items{flex:1;overflow-y:auto;padding:0 24px}
+.drawer-empty{padding:60px 0;text-align:center;color:var(--gray);font-size:12px;line-height:1.7}
+.drawer-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.drawer-line-name{font-size:13px;font-weight:600}
+.drawer-line-meta{font-size:10px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.drawer-line-price{font-size:12px;font-weight:600;margin-top:6px}
+.drawer-remove{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);text-decoration:underline;white-space:nowrap}
+.drawer-remove:hover{color:var(--ink)}
+.drawer-foot{border-top:1px solid var(--ink);padding:18px 24px 24px}
+.promo-row{display:flex;gap:8px;margin-bottom:8px}
+.promo-input{flex:1;border:1px solid var(--line);padding:10px 12px;font-size:11.5px;font-family:inherit;outline:none}
+.promo-input:focus{border-color:var(--ink)}
+.promo-msg{font-size:10.5px;min-height:14px;margin-bottom:10px}
+.promo-msg.ok{color:var(--green)}
+.promo-msg.err{color:#c0392b}
+.summary-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;color:var(--ink-soft)}
+.summary-row.total{font-size:14px;font-weight:700;color:var(--ink);border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.drawer-cta{width:100%;margin-top:12px}
+
+/* ---------- confirm panel ---------- */
+.confirm-panel{position:absolute;inset:0;background:#fff;z-index:5;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.confirm-panel.show{display:flex}
+.confirm-circle{width:52px;height:52px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.confirm-title{font-family:var(--font-serif);font-size:24px;text-transform:uppercase;margin-bottom:10px}
+.confirm-text{font-size:12.5px;color:var(--gray);line-height:1.6;margin-bottom:26px;max-width:32ch}
+.confirm-actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:220px}
+
+/* ---------- toast ---------- */
+.toast-stack{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{background:var(--ink);color:#fff;font-size:11.5px;padding:11px 18px;display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(10px);transition:all .25s ease;white-space:nowrap}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ---------- footer ---------- */
+footer{margin-top:96px;border-top:1px solid var(--ink);padding:56px 40px 40px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
+.footer-word{font-family:var(--font-serif);font-size:26px;letter-spacing:.3em;text-transform:uppercase;transform:scaleX(.86);transform-origin:left}
+.footer-blurb{font-size:12px;line-height:1.7;color:#666;max-width:34ch;margin-top:18px}
+.footer-col{display:grid;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;align-content:start}
+.footer-col-label{color:var(--gray);font-size:9px;letter-spacing:.2em;margin-bottom:6px}
+.footer-col a:hover{color:var(--gray)}
+.footer-bottom{grid-column:1/-1;border-top:1px solid var(--line);padding-top:22px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+/* ---------- mobile sticky ---------- */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--ink);padding:12px 16px;align-items:center;justify-content:space-between;z-index:80}
+.mobile-bar-name{font-size:12px;font-weight:600}
+.mobile-bar-status{font-size:9px;color:var(--green);display:flex;align-items:center;gap:5px;margin-top:2px}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .hero-media{min-height:320px;border-right:0;border-bottom:1px solid var(--line)}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .cap-grid{grid-template-columns:1fr 1fr}
+  .case-editorial,.case-editorial.flip{grid-template-columns:1fr}
+  .case-editorial.flip .case-media{order:0}
+  .case-compact-grid{grid-template-columns:1fr}
+  .case-compact{border-right:0!important;border-bottom:1px solid var(--line);padding:24px 0!important}
+  .brand-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  footer{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .explorer-body{grid-template-columns:1fr}
+  .explorer-cols,.svc-detail-cols,.case-cols{grid-template-columns:1fr;gap:16px}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .nav-wrap{padding:16px 20px}
+  .hero-copy{padding:36px 22px 0}
+  .section-shell{padding:56px 20px 0}
+  .utility-bar{gap:14px;padding:0 12px}
+  .utility-bar span:nth-child(5),.utility-bar span:nth-child(6){display:none}
+  .grid-3,.cap-grid,.minor-grid,.brand-grid,.proj-grid{grid-template-columns:1fr}
+  .minor-col:first-child{border-right:0}
+  .minor-col:first-child .minor-row,.minor-col:last-child .minor-row{padding:18px 0}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .explorer-body{grid-template-columns:1fr}
+  .explorer-tabs{overflow-x:auto}
+  .review-grid{grid-template-columns:1fr}
+  .review-card{border-right:0;border-bottom:1px solid var(--line)}
+  footer{grid-template-columns:1fr;padding:40px 20px 32px}
+  .drawer{width:100%}
+  .mobile-bar{display:flex}
+  body{padding-bottom:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <span><span class="dot-live"></span>Open to opportunities</span>
+  <span class="sep">/</span>
+  <span>Noida, India — remote, IST overlap</span>
+  <span class="sep">/</span>
+  <span>Shopify Plus certified work</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <nav class="nav-links">
+      <a href="#major">Services</a>
+      <a href="#work">Case Studies</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#brands">Brands</a>
+      <a href="work.html">All Client Work</a>
+    </nav>
+    <button class="wordmark" onclick="window.scrollTo({top:0,behavior:'smooth'})">Suraj</button>
+    <div class="nav-actions">
+      <a href="mailto:skpjony@gmail.com">Contact</a>
+      <button class="cart-btn" onclick="toggleDrawer(true)">
+        Cart <span class="cart-count" id="navCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media">
+    <img loading="lazy" decoding="async" src="https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200" alt="Live Shopify store built by Suraj Kumar — Only Natural Gemstones"/>
+    <div class="hero-media-tag">onlynaturalgemstones.com — live build</div>
+  </div>
+  <div class="hero-copy">
+    <div>
+      <div class="eyebrow">Collection 2026 — Shopify Engineering</div>
+      <h1 class="display">Senior<br/>Shopify<br/>Developer</h1>
+      <p class="lede">4+ years building high-performance eCommerce for 150+ brands. Custom Remix/Node.js Shopify apps, Dawn 16.0 OS 2.0 themes, Shopify Plus and CRO-driven development. Select the services you need — the cart becomes your scope.</p>
+      <div class="tag-row">
+        <span>Liquid / OS 2.0</span>
+        <span>Shopify CLI</span>
+        <span>Plus</span>
+        <span>Hydrogen</span>
+        <span>Node / GraphQL</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#major" class="btn btn-solid">Shop Services</a>
+        <a href="#work" class="btn btn-outline">View Live Work</a>
+      </div>
+      <div class="hero-contact">
+        <span>Direct: <a href="mailto:skpjony@gmail.com">skpjony@gmail.com</a></span>
+        <span>·</span>
+        <span><a href="tel:+919968034137">+91 9968034137</a></span>
+        <span>·</span>
+        <span>Noida, India</span>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div><div class="stat-n">4+</div><div class="stat-l">Years</div></div>
+      <div><div class="stat-n">150+</div><div class="stat-l">Brands</div></div>
+      <div><div class="stat-n">15+</div><div class="stat-l">Stores led</div></div>
+      <div><div class="stat-n">34%</div><div class="stat-l">Avg CRO lift</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND MARQUEE -->
+<div class="marquee">
+  <div class="marquee-label">Trusted by 150+ leading DTC brands</div>
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="brand-pill">Only Natural Gemstones</span>
+    <span class="brand-pill">Odette</span>
+    <span class="brand-pill">Avimee Herbal</span>
+    <span class="brand-pill">Cellbell</span>
+    <span class="brand-pill">Trapin</span>
+    <span class="brand-pill">Zeraki Jewels</span>
+    <span class="brand-pill">House of Gulab</span>
+    <span class="brand-pill">Sudathi</span>
+    <span class="brand-pill">Ekastories</span>
+  </div>
+</div>
+
+<!-- LIVE CASE STUDY EXPLORER (interactive, replaces the generic gemstone customizer demo) -->
+<section class="section-shell" id="flagship">
+  <div class="section-head">
+    <h2>Live Case Study Explorer</h2>
+    <span class="section-cap">Switch brands to see the build behind it</span>
+  </div>
+  <p class="section-note">A quick way to see the frontend and backend work behind real client stores — pick a brand below. <em>(This section will get a fuller interactive UI demo once the reference design is in — happy to match a screenshot you send over.)</em></p>
+
+  <div class="explorer-tabs" id="explorerTabs"></div>
+  <div class="explorer-body" id="explorerBody"></div>
+</section>
+
+<!-- MAJOR SERVICES -->
+<section class="section-shell" id="major">
+  <div class="section-head">
+    <h2>Major Services</h2>
+    <span class="section-cap">Open one for detail — add to cart to build a scope</span>
+  </div>
+  <div class="grid-3" id="majorGrid"></div>
+</section>
+
+<!-- MINOR SERVICES -->
+<section class="section-shell" id="minor-services">
+  <div class="section-head">
+    <h2>Minor Services</h2>
+    <span class="section-cap">Add-ons — stackable with any build</span>
+  </div>
+  <div class="minor-grid" id="minorGrid"></div>
+</section>
+
+<!-- FRONTEND CAPABILITIES -->
+<section class="section-shell" id="frontend-services">
+  <div class="section-head">
+    <h2>Frontend Capabilities</h2>
+    <span class="section-cap">The UI layer — theming, layout, performance</span>
+  </div>
+  <div class="cap-grid" id="feGrid"></div>
+</section>
+
+<!-- BACKEND CAPABILITIES -->
+<section class="section-shell" id="backend-services">
+  <div class="section-head">
+    <h2>Backend Capabilities</h2>
+    <span class="section-cap">The engine room — apps, APIs, data</span>
+  </div>
+  <div class="cap-grid" id="beGrid"></div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section-shell" id="work">
+  <div class="section-head">
+    <h2>Case Studies</h2>
+    <span class="section-cap">Frontend and backend, split per store</span>
+  </div>
+  <div class="filter-tabs" id="filterTabs">
+    <button class="filter-tab active" data-cat="all">All</button>
+    <button class="filter-tab" data-cat="jewellery">Jewellery</button>
+    <button class="filter-tab" data-cat="fashion">Fashion</button>
+    <button class="filter-tab" data-cat="beauty">Beauty</button>
+    <button class="filter-tab" data-cat="furniture">Furniture</button>
+  </div>
+
+  <div id="caseEditorials"></div>
+  <div class="case-compact-grid" id="caseCompacts"></div>
+</section>
+
+<!-- PERSONAL PROJECTS -->
+<section class="section-shell" id="projects">
+  <div class="section-head">
+    <h2>Personal Projects</h2>
+    <span class="section-cap">Independent work — outside client engagements</span>
+  </div>
+  <div class="proj-grid" id="projGrid"></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-shell" id="reviews">
+  <div class="section-head">
+    <h2>Reviews</h2>
+    <span class="section-cap">Verified merchant feedback</span>
+  </div>
+  <div class="review-grid" id="reviewGrid"></div>
+</section>
+
+<!-- BRANDS -->
+<section class="section-shell" id="brands" style="padding-bottom:88px">
+  <div class="section-head">
+    <h2>Client Work</h2>
+    <span class="section-cap">70+ documented live builds</span>
+  </div>
+  <p class="section-note">A sample of stores shipped across four years of Shopify &amp; WordPress engagements — fashion, jewellery, beauty, home and more.</p>
+
+  <div class="grid-3" id="brandPhotoGrid" style="margin-top:32px;border-top:1px solid var(--line);border-left:1px solid var(--line)"></div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="work.html" class="btn btn-solid">View All 70+ Client Projects →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-word">Suraj</div>
+    <p class="footer-blurb">Senior Shopify Developer & Team Lead. Available for full-time remote roles, freelance projects and Shopify Plus consulting.</p>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-label">Contact</div>
+    <a href="mailto:skpjony@gmail.com">skpjony@gmail.com</a>
+    <a href="tel:+919968034137">+91-9968034137</a>
+    <span style="color:var(--gray)">Noida, India</span>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-label">Elsewhere</div>
+    <a href="https://github.com/surajony122" target="_blank">GitHub</a>
+    <a href="https://surajony.my.canva.site/" target="_blank">Portfolio Deck</a>
+    <a href="https://wa.me/919968034137" target="_blank">WhatsApp</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-label">Experience</div>
+    <span>Digisidekick — 2023–2026</span>
+    <span>Uniqoe Media — 2021–2022</span>
+    <span style="color:var(--gray)">BCA, Hierank Business School</span>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Suraj Kumar</span>
+    <span>Full-Stack Shopify App Architect</span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+<div class="drawer" id="drawer">
+  <div class="confirm-panel" id="confirmPanel">
+    <div class="confirm-circle">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="confirm-title">Scope Sent</div>
+    <p class="confirm-text">I've received your request and will get back to you within 24 hours.</p>
+    <div class="confirm-actions">
+      <button class="btn btn-solid" onclick="resetAfterCheckout()">Start a New Scope</button>
+      <button class="btn btn-outline" onclick="closeConfirm()">Keep Browsing</button>
+    </div>
+  </div>
+
+  <div class="drawer-head">
+    <h3>Your Scope</h3>
+    <button class="drawer-close" onclick="toggleDrawer(false)">✕</button>
+  </div>
+
+  <div class="drawer-meter">
+    <span id="meterText">Add <strong>1 service</strong> to start your proposal</span>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+  </div>
+
+  <div class="drawer-items" id="drawerItems">
+    <div class="drawer-empty">Your scope is empty.<br/>Click "+ Add to Scope" on any service to build a custom proposal.</div>
+  </div>
+
+  <div class="drawer-foot">
+    <div class="promo-row">
+      <input type="text" id="promoInput" class="promo-input" placeholder="Promo code (try FIRST10)"/>
+      <button class="btn btn-outline btn-sm" onclick="applyPromo()">Apply</button>
+    </div>
+    <div class="promo-msg" id="promoMsg"></div>
+
+    <div class="summary-row"><span id="itemCountLabel">0 items</span><strong id="subtotalLabel">₹0</strong></div>
+    <div class="summary-row" id="discountRow" style="display:none"><span>Discount</span><strong id="discountLabel">-₹0</strong></div>
+    <div class="summary-row total"><span>Est. Total</span><strong id="totalLabel">₹0</strong></div>
+    <div class="summary-row"><span>Est. Delivery</span><strong id="deliveryLabel">Custom Timeline</strong></div>
+
+    <button class="btn btn-solid drawer-cta" onclick="checkoutWhatsApp()">Checkout Scope via WhatsApp ↗</button>
+    <button class="btn btn-outline drawer-cta" onclick="checkoutEmail()">Send Scope via Email ✉</button>
+  </div>
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <div>
+    <div class="mobile-bar-name">Suraj Kumar</div>
+    <div class="mobile-bar-status"><span class="dot-live" style="margin:0"></span>Available for Hire</div>
+  </div>
+  <div style="display:flex;gap:8px">
+    <button class="btn btn-outline btn-sm" onclick="toggleDrawer(true)">Cart (<span id="mobileCount">0</span>)</button>
+    <a href="https://wa.me/919968034137" target="_blank" class="btn btn-solid btn-sm">WhatsApp</a>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script>
+/* ================= DATA ================= */
+const IMG = {
+  ong:'https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200',
+  odette:'https://cdn.shopify.com/s/files/1/0267/7728/8764/files/universal_banner_odette.jpg?v=1771929171&width=1200',
+  avimee:'https://avimeeherbal.com/cdn/shop/files/website_banner_copy_c94ba59f-a27f-4b11-9e8c-68ebdf6d7182.png?v=1779436118&width=1200',
+  cellbell:'https://cellbell.in/cdn/shop/files/CellbellCrownLuxuary1.png?width=1200',
+  gulab:'https://houseofgulab.com/cdn/shop/files/hog_dalnaaz_banner_14_nov.webp?crop=center&height=940&v=1764996063&width=1200',
+  zeraki:'https://zerakijewels.com/cdn/shop/files/zeraki_1_6da80424-f224-4e9d-b467-e25b7a0c0f93.png?v=1714111727&width=1200'
+};
+const IMG_CYCLE = [IMG.odette, IMG.ong, IMG.cellbell, IMG.avimee, IMG.gulab, IMG.zeraki];
+
+const MAJOR = [
+  { id:'m1', num:'01', title:'Shopify Website Developer', desc:'End-to-end Shopify website development — setup, theme build, apps, payments and launch, handled start to finish.', was:140000, now:95000, timeline:'4–6 Weeks', ribbon:'Bestseller',
+    fe:['Full OS 2.0 theme setup & customization','Responsive, mobile-first build','App & payment gateway integration','Launch QA across devices'],
+    be:['Store setup & configuration','Third-party app wiring','Domain, SSL & redirects','Post-launch handover docs'],
+    stack:['Liquid','OS 2.0','Payments','QA'] },
+  { id:'m2', num:'02', title:'Full-Stack Shopify Apps (Remix/Node)', desc:'Custom embedded Shopify apps with App Bridge, Polaris UI, Prisma ORM, PostgreSQL and authenticated App Proxies.', was:85000, now:58000, timeline:'2–4 Weeks', ribbon:null,
+    fe:['Embedded admin UI in Polaris','App Bridge navigation & modals','Merchant onboarding screens','Theme app extensions'],
+    be:['Node.js service with OAuth 2.0','Webhook handling & retries','REST & GraphQL Admin API','Prisma + PostgreSQL data layer'],
+    stack:['Remix','Node.js','Prisma','GraphQL'] },
+  { id:'m3', num:'03', title:'Shopify Plus Migration & Setup', desc:'Migrate from Magento/WooCommerce/legacy platforms to Shopify Plus with zero data loss and a clean redirect map.', was:110000, now:75000, timeline:'3–4 Weeks', ribbon:null,
+    fe:['Redesigned templates on Plus','Checkout UI Extensions','B2B storefront surfaces','Cross-device QA post-migration'],
+    be:['Zero-data-loss migration scripts','Clean 301 redirect map','Shopify Flow automation','Multistore/B2B pricing rules'],
+    stack:['Plus','Flow','Checkout Ext.','B2B'] },
+  { id:'m4', num:'04', title:'Full CRO Audit & Funnel Rebuild', desc:'Homepage + PDP + Cart optimization bundled with a full funnel audit, A/B test setup and trust-trigger rollout.', was:58000, now:38000, timeline:'1–2 Weeks', ribbon:'Best Value',
+    fe:['Homepage above-fold rebuild','PDP gallery & buy-box overhaul','Cart/upsell surface redesign','Trust-trigger placement'],
+    be:['Full funnel audit & heuristics review','A/B test instrumentation','Analytics/event tracking setup','Release-over-release reporting'],
+    stack:['CRO','A/B Testing','Analytics','CWV'] },
+  { id:'m5', num:'05', title:'Bespoke Dawn 16.0 / OS 2.0 Theme', desc:'Pixel-perfect Figma-to-Shopify theme builds using clean Liquid, custom sections, metafield schemas and atomic cart bundling.', was:55000, now:36000, timeline:'2–3 Weeks', ribbon:'Most Popular',
+    fe:['Pixel-perfect Figma-to-Liquid build','Custom sections everywhere','Responsive QA across devices','Micro-interactions & motion'],
+    be:['Metafield & metaobject schema design','Atomic parent-child cart bundling','Theme settings for safe editing','Performance budget on new sections'],
+    stack:['Dawn','OS 2.0','Metafields','Sections'] },
+  { id:'m6', num:'06', title:'Full Store Redesign (Figma-to-Shopify)', desc:'Complete visual overhaul of an existing store — new Figma design system, rebuilt sections, kept your SEO and data intact.', was:60000, now:42000, timeline:'2–3 Weeks', ribbon:null,
+    fe:['Complete visual overhaul on existing store','New design system implementation','Rebuilt sections & templates','Mobile-first QA'],
+    be:['SEO & data preserved through rebuild','Redirect hygiene','App & metafield compatibility pass','Structured data refresh'],
+    stack:['Figma','Liquid','SEO','QA'] },
+  { id:'m7', num:'07', title:'Custom Product Customizer Engine', desc:'A live 3-way customizer — flow, material and personalization options with real-time pricing.', was:46000, now:32000, timeline:'1–2 Weeks', ribbon:'New',
+    fe:['3-way flow/material/personalization UI','Live price preview','Mobile-friendly step controls','Add-to-cart/scope integration'],
+    be:['App Proxy for live rate computation','Metafield-driven pricing formulas','Variant/bundle data modeling','Server-side validation'],
+    stack:['App Proxy','Metafields','JS','Liquid'] }
+];
+
+const MINOR = [
+  { title:'Homepage Optimization', desc:'Above-the-fold rebuild, hero CTA testing, and trust-signal placement.', was:22000, now:15000, timeline:'3-5 Days' },
+  { title:'Product Page (PDP) Optimization', desc:'Gallery, swatches, sticky buy-box, and urgency triggers.', was:22000, now:15000, timeline:'3-5 Days' },
+  { title:'Cart & Checkout Optimization', desc:'Slide-cart upsells and checkout friction removal.', was:26000, now:18000, timeline:'4-6 Days' },
+  { title:'Mobile-First Redesign', desc:"Thumb-reach nav and a sticky mobile buy bar.", was:34000, now:24000, timeline:'1-2 Weeks' },
+  { title:'Dynamic Pricing & Metafields Engine', desc:'Live rate-linked pricing via metafields and App Proxy.', was:32000, now:22000, timeline:'1 Week' },
+  { title:'App Proxy & Backend Integrations', desc:'Connect Shopify to your ERP, CRM, or logistics stack.', was:40000, now:28000, timeline:'1-2 Weeks' },
+  { title:'Subscription & Bundle Builder', desc:'Build-your-own bundles and recurring subscriptions.', was:29000, now:20000, timeline:'1 Week' }
+];
+
+const FE_CAPS = [
+  ['Liquid & Dawn OS 2.0 Theming','Clean, maintainable Liquid on the latest Dawn architecture.'],
+  ['Figma-to-Shopify Builds','Pixel-perfect handoff from design file to live storefront.'],
+  ['Responsive & Mobile-First UI','Built for the 70%+ of traffic that\'s on a phone.'],
+  ['Core Web Vitals & Performance','Sub-1.2s LCP through image, script and render budgeting.'],
+  ['Custom Sections & Metafields','Merchant-editable sections backed by structured content.'],
+  ['Micro-interactions & Animation','Subtle motion that signals feedback, not decoration.'],
+  ['Accessibility (WCAG)','Keyboard nav, contrast, and screen-reader-safe markup.'],
+  ['CRO-driven UI Patterns','Layouts built from what actually lifts conversion.']
+];
+const BE_CAPS = [
+  ['Remix + Node.js Apps','Embedded Shopify apps on App Bridge and Polaris.'],
+  ['App Proxy & Webhooks','Authenticated server-side routes wired into checkout.'],
+  ['Prisma ORM + PostgreSQL','Typed, migration-safe data layers for custom apps.'],
+  ['Metafields & Pricing APIs','Rate-linked pricing and structured product data.'],
+  ['Shopify Flow & Automation','Rule-based workflows that remove manual ops work.'],
+  ['ERP / CRM Integrations','Shopify wired into your logistics and sales stack.'],
+  ['Subscription & Billing APIs','Recurring checkout flows with tiered discount logic.'],
+  ['Multi-store / Headless Architecture','Shared backend across multiple storefronts or channels.']
+];
+
+const EXPLORER = [
+  { id:'ong', name:'Only Natural Gemstones', cat:'Jewellery · Full-stack app · Remix/Node/Prisma', metric:'Full-Stack App', img:IMG.ong, link:'https://onlynaturalgemstones.com',
+    fe:['Live 3-way product customizer UI','Real-time price preview on selection','Astrological/personalization input flow','Mobile-first PDP with certification badges'],
+    be:['Remix + Node.js app on App Proxy','Live metal-rate computation engine','Prisma + PostgreSQL data model','Parent-child bundle logic for variants'],
+    addPrice:58000, addName:'Full-Stack Shopify App (Remix/Node)', addTimeline:'2-4 Weeks' },
+  { id:'cellbell', name:'Cellbell', cat:'Furniture · Very high complexity · ~5 weeks · OS 2.0 build', metric:'3.4x Cart', img:IMG.cellbell, link:'https://cellbell.in',
+    fe:['Mega menu with category imagery & sub-collections','Product configurator section for variant selection','Custom cart drawer with dynamic upsell logic','Advanced Liquid templating across OS 2.0 sections'],
+    be:['Metaobject-driven specification comparison tables','Logistics API integration for live delivery estimates','Variant and inventory data modelling','Upsell rules wired to cart-level conditions'],
+    addPrice:32000, addName:'Custom Product Customizer Engine', addTimeline:'1-2 Weeks' },
+  { id:'zeraki', name:'Zeraki Jewels', cat:'Jewellery · High complexity · ~3 weeks · PDP & cart work', metric:'+19% Cart', img:IMG.zeraki, link:'https://zerakijewels.com',
+    fe:['Metal type and gemstone swatch selector on the PDP','Ring size guide modal with custom illustration','Collection filtering by material, gemstone, price, occasion','High-resolution jewellery image optimisation'],
+    be:['Gift packaging add-on flow at cart level','Loyalty and rewards app integration for repeat purchase','Variant option data model for metals and stones','Filter and facet configuration behind the collection UI'],
+    addPrice:36000, addName:'Bespoke Dawn 16.0 / OS 2.0 Theme', addTimeline:'2-3 Weeks' },
+  { id:'odette', name:'Odette', cat:'Fashion · Ongoing · Liquid / OS 2.0', metric:'+28% CVR', img:IMG.odette, link:'https://odette.in',
+    fe:['CRO-focused PDP improvements','Metafield-driven content blocks','Responsive QA on every deploy','Homepage & collection merchandising'],
+    be:['Third-party app integrations','Speed audits & Core Web Vitals tuning','Release monitoring & regression checks','Structured data upkeep'],
+    addPrice:38000, addName:'Full CRO Audit & Funnel Rebuild', addTimeline:'1-2 Weeks' },
+  { id:'avimee', name:'Avimee Herbal', cat:'Beauty & Health · ~4 weeks · Quiz / Bundles', metric:'+42% AOV', img:IMG.avimee, link:'https://avimeeherbal.com',
+    fe:['Live bundle-builder sections with dynamic pricing','Quiz-based product recommender flow','Core Web Vitals tuning across templates','Subscription-aware PDP & cart UI'],
+    be:['Custom checkout & subscription billing logic','Bundle pricing rules via metafields','App integrations for reviews & loyalty','Ongoing performance monitoring'],
+    addPrice:22000, addName:'Dynamic Pricing & Metafields Engine', addTimeline:'1 Week' }
+];
+
+const CASE_STUDIES = [
+  { id:'cs-ong', name:'Only Natural Gemstones', cat:'jewellery', catLabel:'Jewellery · Enterprise build · Remix / Node / Prisma', link:'https://onlynaturalgemstones.com', img:IMG.ong, flip:false, editorial:true,
+    fe:['Live 3-way product customizer UI','Real-time price preview on selection','Astrological / personalization input flow','Mobile-first PDP with certification badges'],
+    be:['Remix + Node.js app on App Proxy','Live metal-rate computation engine','Prisma + PostgreSQL data model','Parent-child bundle logic for variants'] },
+  { id:'cs-cellbell', name:'Cellbell', cat:'furniture', catLabel:'Furniture · Very high complexity · ~5 weeks · OS 2.0 build', link:'https://cellbell.in', img:IMG.cellbell, flip:true, editorial:true,
+    fe:['Mega menu with category imagery and sub-collections','Product configurator section for variant selection','Custom cart drawer with dynamic upsell logic','Advanced Liquid templating across OS 2.0 sections'],
+    be:['Metaobject-driven specification comparison tables','Logistics API integration for live delivery estimates','Variant and inventory data modelling','Upsell rules wired to cart-level conditions'] },
+  { id:'cs-zeraki', name:'Zeraki Jewels', cat:'jewellery', catLabel:'Jewellery · High complexity · ~3 weeks · PDP & cart work', link:'https://zerakijewels.com', img:IMG.zeraki, flip:false, editorial:true,
+    fe:['Metal type and gemstone swatch selector on the PDP','Ring size guide modal with custom illustration','Collection filtering by material, gemstone, price, occasion','High-resolution jewellery image optimisation'],
+    be:['Gift packaging add-on flow at cart level','Loyalty and rewards app integration for repeat purchase','Variant option data model for metals and stones','Filter and facet configuration behind the collection UI'] }
+];
+
+const CASE_COMPACT = [
+  { name:'Odette', cat:'fashion', catLabel:'Fashion · Ongoing', link:'https://odette.in', fe:'CRO-focused PDP improvements, metafield-driven content blocks, responsive QA per deploy.', be:'App integrations, speed audits and release monitoring.' },
+  { name:'Avimee Herbal', cat:'beauty', catLabel:'Beauty & health · ~4 weeks', link:'https://avimeeherbal.com', fe:'Live bundle sections with dynamic pricing, quiz-based recommender, Core Web Vitals tuning.', be:'Custom checkout and subscription billing logic.' },
+  { name:'House of Gulab', cat:'fashion', catLabel:'Fashion · ~5 weeks', link:'https://houseofgulab.com', fe:'Fully custom coded theme, product-wise templates, custom size guide.', be:'Metafield pre-order flow, payment gateway and structured data.' }
+];
+
+const PROJECTS = [
+  { title:'Shopify Theme Starter Kit', desc:'Open-source Dawn-based Liquid boilerplate with pre-built sections and metafield schemas, ready to fork.', tags:'Liquid · OS 2.0 · Open Source', link:'https://github.com/surajony122' },
+  { title:'Metafield Pricing Engine', desc:'Reusable App Proxy + metafields template for live rate-linked pricing, extracted from client work into a standalone kit.', tags:'Remix · Node · Metafields', link:'https://github.com/surajony122' },
+  { title:'This Portfolio Site', desc:'A working storefront demo — live cart, promo codes, and checkout flow built as a proof of the CRO patterns above.', tags:'Vanilla JS · CSS', link:'https://github.com/surajony122' }
+];
+
+const REVIEWS = [
+  { text:'Suraj completely transformed our PDP layout, custom bundle builder, and cart experience. Our conversion rate jumped from 1.8% to 2.6% within 30 days of launch.', who:'DTC Brand Founder', store:'Fashion & Apparel DTC' },
+  { text:'The custom app Suraj engineered for our live metal rates matrix and Vedic gemstone customizer is world-class. He delivered the backend, App Proxy, and Dawn theme seamlessly.', who:'Jewelry & Gemstone Founder', store:'Only Natural Gemstones' },
+  { text:'Working with Suraj as our Lead Shopify Developer was seamless. He turned complex Figma mockups into zero-bloat, ultra-fast Dawn OS 2.0 sections ahead of schedule.', who:'Agency Creative Director', store:'Digital Commerce Agency' }
+];
+
+/* Curated from the full 70-brand client roster — real mobile-banner images pulled from each live site. Full roster lives on work.html */
+const BRAND_PHOTOS = [
+  { name:'WeaveKala', cat:'Fashion', agency:'Digi Sidekick', product:'Artisan-woven fashion', url:'https://weavekala.com/', img:'assets/clients/weavekala.jpg' },
+  { name:'Trapin', cat:'Fashion', agency:'Digi Sidekick', product:'Travel gear & accessories', url:'https://trapin.co/', img:'assets/clients/trapin.jpg' },
+  { name:'My Stella', cat:'Fashion', agency:'Digi Sidekick', product:'Denim, trousers & workwear for women', url:'https://mystella.in/', img:'assets/clients/my-stella.jpg' },
+  { name:'Warrior World', cat:'Fashion', badge:'Shark Tank India', agency:'Digi Sidekick', product:'Men’s streetwear (Shark Tank India)', url:'https://warriorworld.in/', img:'assets/clients/warrior-world.jpg' },
+  { name:'Cats&Bows', cat:'Fashion', agency:'Digi Sidekick', product:'Hand-made bow hair accessories', url:'https://catsandbows.com/', img:'assets/clients/cats-bows.jpg' },
+  { name:'Sudathi', cat:'Fashion', agency:'Digi Sidekick', product:'Contemporary Indian fashion', url:'https://sudathi.com/', img:'assets/clients/sudathi.jpg' },
+  { name:'Nova Jewels', cat:'Jewellery', agency:'Digi Sidekick', product:'Jewellery & accessories', url:'https://www.novajewels.shop/', img:'assets/clients/nova-jewels.jpg' },
+  { name:'Celestial Perfume', cat:'Beauty & Wellness', agency:'Digi Sidekick', product:'Long-lasting Italian-inspired perfumes', url:'https://celestialperfume.in/', img:'assets/clients/celestial-perfume.jpg' },
+  { name:'By the Bay', cat:'Fashion', agency:'Digi Sidekick', product:'Women’s fashion for every occasion', url:'https://shopbythebay.com/', img:'assets/clients/by-the-bay.jpg' },
+  { name:'The Foomer', cat:'Fashion', agency:'Digi Sidekick', product:'Men’s fashion', url:'https://thefoomer.in/', img:'assets/clients/the-foomer.jpg' },
+  { name:'Earthofab', cat:'Fashion', agency:'Digi Sidekick', product:'Co-ord sets, kurta sets & dresses', url:'https://earthofab.com/', img:'assets/clients/earthofab.jpg' },
+  { name:'Book Spring India', cat:'Other', agency:'Digi Sidekick', product:'Affordable pre-loved books', url:'https://bookspringindia.in/', img:'assets/clients/book-spring-india.jpg' }
+];
+
+/* ================= RENDER ================= */
+function inr(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+function renderMajor(){
+  const el = document.getElementById('majorGrid');
+  el.innerHTML = MAJOR.map((s,i) => `
+    <article class="svc-card">
+      <div class="svc-media">
+        ${s.ribbon ? `<span class="svc-ribbon">${s.ribbon}</span>` : ''}
+        <img loading="lazy" decoding="async" src="${IMG_CYCLE[i % IMG_CYCLE.length]}" alt="${s.title}"/>
+      </div>
+      <div class="svc-num">${s.num} — Build</div>
+      <div class="svc-title">${s.title}</div>
+      <p class="svc-desc">${s.desc}</p>
+      <div class="svc-price">
+        <span class="was">${inr(s.was)}</span>
+        <span class="now">${inr(s.now)}</span>
+        <span class="save">Save ${Math.round((1 - s.now/s.was)*100)}%</span>
+      </div>
+      <div class="svc-timeline">${s.timeline}</div>
+      <div class="svc-actions">
+        <button class="svc-add" onclick="addService('${s.title.replace(/'/g,"\\'")}','${s.timeline}',${s.now})">+ Add to Scope</button>
+        <button class="svc-view" onclick="toggleDetail('${s.id}', this)">View</button>
+      </div>
+      <div class="svc-detail" id="detail-${s.id}" hidden>
+        <div class="svc-detail-cols">
+          <div><h5>Frontend</h5><ul>${s.fe.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+          <div><h5>Backend</h5><ul>${s.be.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        </div>
+        <div class="svc-stack">${s.stack.map(t=>`<span>${t}</span>`).join('')}</div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function toggleDetail(id, btn){
+  const panel = document.getElementById('detail-'+id);
+  panel.hidden = !panel.hidden;
+  btn.textContent = panel.hidden ? 'View' : 'Close';
+}
+
+function renderMinor(){
+  const el = document.getElementById('minorGrid');
+  const half = Math.ceil(MINOR.length/2);
+  const cols = [MINOR.slice(0,half), MINOR.slice(half)];
+  el.innerHTML = cols.map(col => `
+    <div class="minor-col">
+      ${col.map(m => `
+        <div class="minor-row">
+          <div>
+            <div class="minor-name">${m.title}</div>
+            <div class="minor-desc">${m.desc}</div>
+            <div class="minor-price"><span class="was">${inr(m.was)}</span>${inr(m.now)}</div>
+          </div>
+          <button class="minor-add" onclick="addService('${m.title.replace(/'/g,"\\'")}','${m.timeline}',${m.now})">+ Add</button>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderCaps(){
+  const feEl = document.getElementById('feGrid');
+  const beEl = document.getElementById('beGrid');
+  const icon = '<svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg>';
+  feEl.innerHTML = FE_CAPS.map(([t,d]) => `<div class="cap-tile">${icon}<div class="cap-title">${t}</div><div class="cap-desc">${d}</div></div>`).join('');
+  beEl.innerHTML = BE_CAPS.map(([t,d]) => `<div class="cap-tile">${icon}<div class="cap-title">${t}</div><div class="cap-desc">${d}</div></div>`).join('');
+}
+
+function renderExplorer(){
+  const tabsEl = document.getElementById('explorerTabs');
+  tabsEl.innerHTML = EXPLORER.map((e,i) => `<button class="explorer-tab${i===0?' active':''}" data-id="${e.id}">${e.name}</button>`).join('');
+  tabsEl.querySelectorAll('.explorer-tab').forEach(btn => btn.addEventListener('click', () => {
+    tabsEl.querySelectorAll('.explorer-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderExplorerBody(btn.dataset.id);
+  }));
+  renderExplorerBody(EXPLORER[0].id);
+}
+
+function renderExplorerBody(id){
+  const e = EXPLORER.find(x => x.id === id) || EXPLORER[0];
+  document.getElementById('explorerBody').innerHTML = `
+    <div class="explorer-media"><img loading="lazy" decoding="async" src="${e.img}" alt="${e.name}"/></div>
+    <div class="explorer-info">
+      <div class="explorer-cap">${e.cat}</div>
+      <div class="explorer-title">${e.name}</div>
+      <div class="explorer-metric">${e.metric}</div>
+      <div class="explorer-cols">
+        <div><h4>Frontend</h4><ul>${e.fe.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        <div><h4>Backend</h4><ul>${e.be.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      </div>
+      <div class="explorer-actions">
+        <a href="${e.link}" target="_blank" class="btn btn-outline btn-sm">Visit Live Site ↗</a>
+        <button class="btn btn-solid btn-sm" onclick="addService('${e.addName.replace(/'/g,"\\'")}','${e.addTimeline}',${e.addPrice})">+ Add Similar Build to Scope</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderCaseStudies(){
+  document.getElementById('caseEditorials').innerHTML = CASE_STUDIES.map(c => `
+    <article class="case-editorial${c.flip ? ' flip':''}" data-cat="${c.cat}">
+      <div class="case-media"><img loading="lazy" decoding="async" src="${c.img}" alt="${c.name}"/></div>
+      <div>
+        <div class="case-head-row">
+          <h3 class="case-name">${c.name}</h3>
+          <a href="${c.link}" target="_blank" class="case-link">${c.link.replace('https://','')} ↗</a>
+        </div>
+        <div class="case-meta">${c.catLabel}</div>
+        <div class="case-cols">
+          <div><h4>Frontend</h4><ul>${c.fe.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+          <div><h4>Backend</h4><ul>${c.be.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  document.getElementById('caseCompacts').innerHTML = CASE_COMPACT.map(c => `
+    <div class="case-compact" data-cat="${c.cat}">
+      <div class="case-compact-top"><h4>${c.name}</h4><a href="${c.link}" target="_blank" class="case-link">↗</a></div>
+      <div class="case-compact-meta">${c.catLabel}</div>
+      <p><strong>Frontend:</strong> ${c.fe} <strong>Backend:</strong> ${c.be}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('filterTabs').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-tab');
+    if (!btn) return;
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#caseEditorials [data-cat], #caseCompacts [data-cat]').forEach(card => {
+      card.classList.toggle('is-hidden', cat !== 'all' && card.dataset.cat !== cat);
+    });
+  });
+}
+
+function renderProjects(){
+  document.getElementById('projGrid').innerHTML = PROJECTS.map(p => `
+    <div class="proj-card">
+      <div class="proj-title">${p.title}</div>
+      <div class="proj-desc">${p.desc}</div>
+      <div class="proj-tags">${p.tags}</div>
+      <a href="${p.link}" target="_blank" class="btn-text">View Project ↗</a>
+    </div>
+  `).join('');
+}
+
+function renderReviews(){
+  document.getElementById('reviewGrid').innerHTML = REVIEWS.map(r => `
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-quote">"${r.text}"</p>
+      <div class="review-foot">${r.who} — ${r.store}</div>
+    </div>
+  `).join('');
+}
+
+function renderBrands(){
+  document.getElementById('brandPhotoGrid').innerHTML = BRAND_PHOTOS.map(b => `
+    <a class="brand-photo-card" href="${b.url}" target="_blank">
+      <div class="brand-photo-media"><img loading="lazy" decoding="async" src="${b.img}" alt="${b.name}"/></div>
+      ${b.badge ? `<span class="brand-photo-badge">${b.badge}</span>` : ''}
+      <div class="brand-photo-overlay">
+        <div class="brand-photo-overlay-name">${b.name}</div>
+        <div class="brand-photo-overlay-row">Product<strong>${b.product}</strong></div>
+        <div class="brand-photo-overlay-row">Agency<strong>${b.agency}</strong></div>
+        <div class="brand-photo-overlay-cta">Visit Site ↗</div>
+      </div>
+      <div class="brand-photo-info">
+        <div class="brand-photo-name">${b.name}</div>
+        <div class="brand-photo-meta">${b.cat}</div>
+      </div>
+    </a>
+  `).join('');
+}
+
+/* ================= CART ENGINE ================= */
+let cart = [];
+let appliedPromo = null;
+const PROMO_CODES = { 'FIRST10': 10, 'SCOPE15': 15 };
+
+function toggleDrawer(open){
+  const d = document.getElementById('drawer');
+  const o = document.getElementById('drawerOverlay');
+  if (open){ d.classList.add('active'); o.classList.add('active'); document.body.style.overflow='hidden'; }
+  else { d.classList.remove('active'); o.classList.remove('active'); document.body.style.overflow=''; closeConfirm(); }
+}
+
+function addService(name, timeline, price){
+  if (cart.some(i => i.name === name)){ showToast(`"${name}" is already in your scope`); toggleDrawer(true); return; }
+  cart.push({ name, timeline, price: price || 0 });
+  updateCart();
+  showToast(price ? `Added "${name}" — ${inr(price)}` : `Added "${name}" to your scope`);
+  bumpCount();
+  toggleDrawer(true);
+}
+function removeService(idx){ cart.splice(idx,1); updateCart(); }
+
+function calcDelivery(items){
+  if (!items.length) return 'Custom Timeline';
+  if (items.length === 1) return `Approx. ${items[0].timeline}`;
+  let min=0,max=0;
+  items.forEach(it => {
+    const t = (it.timeline||'').toLowerCase();
+    const nums = t.match(/\d+/g);
+    const mult = t.includes('week') ? 5 : 1;
+    if (nums && nums.length>=2){ min += parseInt(nums[0])*mult; max += parseInt(nums[1])*mult; }
+    else { min += 3; max += 5; }
+  });
+  return `${Math.round(min/2)}-${Math.round(max)} Days (Bundled)`;
+}
+
+function updateCart(){
+  const container = document.getElementById('drawerItems');
+  const count = cart.length;
+  ['navCount','mobileCount'].forEach(id => document.getElementById(id).textContent = count);
+
+  if (!count){
+    container.innerHTML = `<div class="drawer-empty">Your scope is empty.<br/>Click "+ Add to Scope" on any service to build a custom proposal.</div>`;
+  } else {
+    container.innerHTML = cart.map((it,idx) => `
+      <div class="drawer-line">
+        <div>
+          <div class="drawer-line-name">${it.name}</div>
+          <div class="drawer-line-meta">${it.timeline}</div>
+          <div class="drawer-line-price">${it.price ? inr(it.price) : 'Custom Quote'}</div>
+        </div>
+        <button class="drawer-remove" onclick="removeService(${idx})">Remove</button>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('meterText').innerHTML = count === 0
+    ? 'Add <strong>1 service</strong> to start your proposal'
+    : `<strong>${count} service${count>1?'s':''}</strong> in your scope`;
+  document.getElementById('meterFill').style.width = Math.min(count * 25, 100) + '%';
+
+  const subtotal = cart.reduce((s,i) => s + i.price, 0);
+  let discount = 0;
+  if (appliedPromo) discount = Math.round(subtotal * appliedPromo.percent / 100);
+  const total = subtotal - discount;
+
+  document.getElementById('itemCountLabel').textContent = `${count} item${count!==1?'s':''}`;
+  document.getElementById('subtotalLabel').textContent = inr(subtotal);
+  document.getElementById('discountRow').style.display = discount > 0 ? 'flex' : 'none';
+  document.getElementById('discountLabel').textContent = '-' + inr(discount);
+  document.getElementById('totalLabel').textContent = inr(total);
+  document.getElementById('deliveryLabel').textContent = calcDelivery(cart);
+}
+
+function bumpCount(){
+  ['navCount','mobileCount'].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  });
+}
+
+function applyPromo(){
+  const code = document.getElementById('promoInput').value.trim().toUpperCase();
+  const msg = document.getElementById('promoMsg');
+  if (!code){ msg.textContent = 'Enter a code'; msg.className = 'promo-msg err'; return; }
+  if (PROMO_CODES[code]){
+    appliedPromo = { code, percent: PROMO_CODES[code] };
+    msg.textContent = `"${code}" applied — ${PROMO_CODES[code]}% off`;
+    msg.className = 'promo-msg ok';
+  } else {
+    appliedPromo = null;
+    msg.textContent = 'Invalid promo code';
+    msg.className = 'promo-msg err';
+  }
+  updateCart();
+}
+
+function checkoutWhatsApp(){
+  if (!cart.length){ showToast('Add at least one service first'); return; }
+  const lines = cart.map(i => `- ${i.name} (${i.timeline})`).join('\n');
+  const subtotal = cart.reduce((s,i)=>s+i.price,0);
+  const text = `Hi Suraj, I'd like to discuss this project scope:\n${lines}\n\nEstimated Total: ${inr(subtotal)}`;
+  window.open(`https://wa.me/919968034137?text=${encodeURIComponent(text)}`, '_blank');
+  showConfirm();
+}
+function checkoutEmail(){
+  if (!cart.length){ showToast('Add at least one service first'); return; }
+  const lines = cart.map(i => `- ${i.name} (${i.timeline})`).join('\n');
+  const subtotal = cart.reduce((s,i)=>s+i.price,0);
+  const body = `Selected services:\n${lines}\n\nEstimated Total: ${inr(subtotal)}\n\nBrief:\n`;
+  window.location.href = `mailto:skpjony@gmail.com?subject=${encodeURIComponent('Project scope enquiry')}&body=${encodeURIComponent(body)}`;
+  showConfirm();
+}
+function showConfirm(){ document.getElementById('confirmPanel').classList.add('show'); }
+function closeConfirm(){ document.getElementById('confirmPanel').classList.remove('show'); }
+function resetAfterCheckout(){ cart = []; appliedPromo = null; updateCart(); closeConfirm(); }
+
+function showToast(message){
+  const stack = document.getElementById('toastStack');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = message;
+  stack.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 250); }, 2200);
+}
+
+/* ================= INIT ================= */
+renderMajor();
+renderMinor();
+renderCaps();
+renderExplorer();
+renderCaseStudies();
+renderProjects();
+renderReviews();
+renderBrands();
+updateCart();
+
+// duplicate marquee track for seamless loop
+document.getElementById('marqueeTrack').innerHTML += document.getElementById('marqueeTrack').innerHTML;
+</script>
+</body>
+</html>
