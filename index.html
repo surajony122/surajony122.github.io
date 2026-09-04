@@ -2,640 +2,3169 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Suraj Kumar — Senior Shopify Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Suraj Kumar — Shopify Developer & Full-Stack App Architect</title>
+<meta name="description" content="Senior Shopify Developer & Full-Stack App Architect with 4+ years of experience scaling 150+ eCommerce brands. Specializing in Custom Remix/Node.js Shopify Apps, Dawn 16.0 OS 2.0 Themes, Shopify Plus, and CRO Engineering."/>
+
+<!-- Google Fonts: Inter (body, à la Shopify's Shopify-Inter) + Manrope (display, à la Shiprocket's heading pairing) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
 <style>
-:root{
-  --bg:#0d0d0d;
-  --bg2:#141414;
-  --bg3:#1a1a1a;
-  --border:#1e2a1e;
-  --border2:#2a3a2a;
-  --text:#f0f0f0;
-  --text2:#8a9a8a;
-  --text3:#4a5a4a;
-  --accent:#b5f020;
-  --accent2:#96cc10;
-  --blue:#b5f020;
-  --teal:#7acc20;
-  --amber:#f5a623;
-  --purple:#a78bfa;
-  --pink:#f472b6;
-  --r:12px;
-  --r2:8px;
-  --font-head:'Syne',sans-serif;
-  --font-body:'DM Sans',sans-serif;
+/* ==========================================================================
+   MINIMALIST, AIRY & CLEAN E-COMMERCE DESIGN SYSTEM (NO EMOJIS, 100% SVG)
+   ========================================================================== */
+:root {
+  --bg-canvas: #efefef;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f3f3f3;
+  --bg-surface-hover: #ececec;
+  --bg-glass: rgba(255, 255, 255, 0.96);
+  --bg-dark: #000000;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #9a9a9a;
+
+  --border-light: #e5e5e5;
+  --border-default: #d9d9d9;
+  --border-focus: #000000;
+
+  --text-primary: #000000;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #8a8a8a;
+
+  --shopify-green: #008060;
+  --shopify-green-light: #f0fdf9;
+  --shopify-green-hover: #006e52;
+
+  --shopify-indigo: #000000;
+  --shopify-indigo-light: #f3f3f3;
+  --shopify-amber: #f59e0b;
+
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --r-xl: 16px;
+  --r-lg: 12px;
+  --r-md: 8px;
+  --r-sm: 6px;
+  --r-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 10px 30px -4px rgba(0, 0, 0, 0.07);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(13,13,13,0.88);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
-.nav-logo{font-family:var(--font-head);font-size:18px;font-weight:700;letter-spacing:-0.5px}
-.nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:13px;color:var(--text2);transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{font-size:13px;padding:7px 18px;border:0.5px solid var(--accent);color:var(--accent);border-radius:var(--r2);transition:background .2s,color .2s}
-.nav-cta:hover{background:var(--accent);color:#0d0d0d}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:0 2.5rem;padding-top:60px;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:4rem;align-items:center;max-width:1100px;margin:0 auto;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--accent);border:0.5px solid var(--accent);border-radius:20px;padding:5px 14px;margin-bottom:1.5rem;letter-spacing:0.5px;text-transform:uppercase}
-.hero-badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--font-head);font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:1.2rem}
-.hero h1 span{color:var(--accent)}
-.hero-sub{font-size:16px;color:var(--text2);max-width:520px;line-height:1.8;margin-bottom:2rem}
-.hero-links{display:flex;gap:12px;flex-wrap:wrap}
-.hero-link{display:flex;align-items:center;gap:7px;padding:10px 20px;border:0.5px solid var(--border2);border-radius:var(--r2);font-size:13px;color:var(--text2);transition:all .2s}
-.hero-link:hover{border-color:var(--accent);color:var(--accent)}
-.hero-link svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
-.stat{background:var(--bg2);padding:1.5rem;text-align:center}
-.stat-n{font-family:var(--font-head);font-size:36px;font-weight:800;color:var(--accent);line-height:1}
-.stat-l{font-size:12px;color:var(--text2);margin-top:6px;text-transform:uppercase;letter-spacing:0.5px}
-.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:-1}
-.hero-bg-circle{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.1}
-.c1{width:600px;height:600px;background:#b5f020;top:-200px;right:-100px}
-.c2{width:400px;height:400px;background:#4a8020;bottom:-100px;left:-150px}
-
-/* SECTION */
-section{padding:6rem 2.5rem;max-width:1100px;margin:0 auto}
-.section-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:.6rem;font-weight:500}
-.section-title{font-family:var(--font-head);font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:2.5rem}
-.section-title span{color:var(--text2)}
-.divider{width:100%;height:0.5px;background:var(--border);margin:0 2.5rem}
-
-/* ABOUT / SKILLS */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.about-text p{color:var(--text2);line-height:1.9;font-size:15px;margin-bottom:1rem}
-.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.skill-group{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.2rem}
-.skill-group h4{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:.8rem}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--bg3);color:var(--text2);border:0.5px solid var(--border)}
-.tag.accent{background:rgba(181,240,32,0.08);color:var(--accent);border-color:rgba(181,240,32,0.3)}
-.tag.blue{background:rgba(181,240,32,0.07);color:var(--blue);border-color:rgba(181,240,32,0.28)}
-.tag.teal{background:rgba(122,204,32,0.08);color:var(--teal);border-color:rgba(122,204,32,0.25)}
-
-/* SHOPIFY PLUS */
-.plus-card{background:linear-gradient(135deg,rgba(181,240,32,0.05),rgba(181,240,32,0.02));border:0.5px solid rgba(181,240,32,0.3);border-radius:var(--r);padding:2rem;margin-bottom:3rem}
-.plus-header{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
-.plus-header h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--accent)}
-.plus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.plus-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.6}
-.plus-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0}
-
-/* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
-.proj-card{background:var(--bg2);padding:1.8rem;display:flex;flex-direction:column;gap:12px;transition:background .2s;position:relative}
-.proj-card:hover{background:var(--bg3)}
-.proj-top{display:flex;justify-content:space-between;align-items:flex-start}
-.proj-name{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:3px}
-.proj-url{font-size:12px;color:var(--blue);display:flex;align-items:center;gap:4px}
-.proj-url:hover{text-decoration:underline}
-.cat-badge{font-size:10px;padding:3px 9px;border-radius:20px;letter-spacing:0.3px;text-transform:uppercase;font-weight:500;flex-shrink:0}
-.cat-fashion{background:rgba(181,240,32,0.08);color:#b5f020;border:0.5px solid rgba(181,240,32,0.2)}
-.cat-beauty{background:rgba(181,240,32,0.06);color:#96cc10;border:0.5px solid rgba(181,240,32,0.18)}
-.cat-furniture{background:rgba(181,240,32,0.08);color:#c8f060;border:0.5px solid rgba(181,240,32,0.22)}
-.cat-travel{background:rgba(122,204,32,0.1);color:var(--teal);border:0.5px solid rgba(122,204,32,0.25)}
-.cat-accessories{background:rgba(181,240,32,0.1);color:var(--blue);border:0.5px solid rgba(181,240,32,0.28)}
-.contrib-list{list-style:none;padding:0}
-.contrib-list li{font-size:12.5px;color:var(--text2);padding:3px 0 3px 14px;position:relative;line-height:1.6}
-.contrib-list li::before{content:"–";position:absolute;left:0;color:var(--text3)}
-.proj-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:0.5px solid var(--border)}
-.complexity{display:flex;align-items:center;gap:5px}
-.cx-dot{width:7px;height:7px;border-radius:50%}
-.cx-filled{background:var(--accent)}
-.cx-empty{background:var(--border2)}
-.cx-label{font-size:11px;color:var(--text3);margin-left:2px}
-.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
-.ptag{font-size:10px;padding:2px 8px;border-radius:20px;background:var(--bg3);color:var(--text3);border:0.5px solid var(--border)}
-.timeline-badge{font-size:11px;color:var(--accent);background:rgba(181,240,32,0.08);padding:3px 9px;border-radius:20px;border:0.5px solid rgba(181,240,32,0.25)}
-
-/* EXPERIENCE */
-.exp-timeline{position:relative;padding-left:1.5rem}
-.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:0.5px;background:var(--border)}
-.exp-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
-.exp-item::before{content:'';position:absolute;left:-1.5rem;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
-.exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:.8rem}
-.exp-company{font-family:var(--font-head);font-size:17px;font-weight:700}
-.exp-role{font-size:13px;color:var(--text2);margin-top:2px}
-.exp-date{font-size:12px;color:var(--accent);background:rgba(181,240,32,0.08);border:0.5px solid rgba(181,240,32,0.25);padding:3px 10px;border-radius:20px}
-.exp-list{list-style:none;padding:0}
-.exp-list li{font-size:13px;color:var(--text2);padding:3px 0 3px 16px;position:relative;line-height:1.7}
-.exp-list li::before{content:"→";position:absolute;left:0;color:var(--text3);font-size:11px;top:5px}
-
-/* EDUCATION */
-.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.edu-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:1.5rem}
-.edu-year{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.4rem}
-.edu-school{font-family:var(--font-head);font-size:16px;font-weight:700;margin-bottom:4px}
-.edu-degree{font-size:13px;color:var(--text2)}
-
-/* CV SECTION */
-.cv-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.cv-info h3{font-family:var(--font-head);font-size:20px;font-weight:700;margin-bottom:6px}
-.cv-info p{font-size:13px;color:var(--text2);line-height:1.7}
-.cv-btns{display:flex;gap:10px;flex-wrap:wrap}
-.cv-btn{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--r2);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
-.cv-btn.primary{background:var(--accent);color:#0d0d0d;border:0.5px solid var(--accent)}
-.cv-btn.primary:hover{background:var(--accent2)}
-.cv-btn.secondary{background:transparent;color:var(--text2);border:0.5px solid var(--border2)}
-.cv-btn.secondary:hover{border-color:var(--text2);color:var(--text)}
-.cv-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.contact-info{display:flex;flex-direction:column;gap:12px}
-.contact-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text2);padding:12px 16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r2);transition:border-color .2s}
-.contact-item:hover{border-color:var(--border2)}
-.contact-item svg{width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.8;flex-shrink:0}
-.contact-item a{color:var(--text);transition:color .2s}
-.contact-item a:hover{color:var(--accent)}
-.availability{background:rgba(181,240,32,0.08);border:0.5px solid rgba(181,240,32,0.25);border-radius:var(--r);padding:1.8rem}
-.avail-dot{display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-right:8px;animation:pulse 2s infinite}
-.availability h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--accent);margin-bottom:.8rem}
-.availability p{font-size:13px;color:var(--text2);line-height:1.8}
-
-/* FOOTER */
-footer{border-top:0.5px solid var(--border);padding:2rem 2.5rem;text-align:center;font-size:12px;color:var(--text3)}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
-
-/* ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(20px);animation:fadeIn .6s forwards}
-@keyframes fadeIn{to{opacity:1;transform:none}}
-.delay-1{animation-delay:.1s}
-.delay-2{animation-delay:.2s}
-.delay-3{animation-delay:.3s}
-
-@media(max-width:768px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-stats{display:none}
-  .about-grid{grid-template-columns:1fr}
-  .skills-cols{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  nav{padding:0 1.2rem}
-  .nav-links{display:none}
-  section{padding:4rem 1.2rem}
-  .hero{padding:0 1.2rem;padding-top:60px}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 13.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
 }
+
+::selection { background: var(--shopify-green-light); color: var(--shopify-green); }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; color: inherit; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ==========================================================================
+   DECORATIVE BACKGROUND ELEMENTS
+   ========================================================================== */
+.bg-decor-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-dot-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#a8a49a 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.35;
+}
+.bg-orb-mint {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(0, 128, 96, 0.09) 0%, transparent 70%);
+  filter: blur(80px);
+}
+.bg-orb-indigo {
+  position: absolute;
+  top: 40%;
+  left: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.07) 0%, transparent 70%);
+  filter: blur(80px);
+}
+.bg-orb-bottom {
+  position: absolute;
+  bottom: -100px;
+  right: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(0, 128, 96, 0.06) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+.badge-green {
+  background: var(--bg-dark);
+  color: #ffffff;
+  border-color: var(--bg-dark);
+  font-weight: 600;
+}
+.badge-indigo {
+  background: var(--bg-surface-alt);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+  font-weight: 600;
+}
+.status-indicator {
+  width: 6px; height: 6px;
+  background-color: var(--shopify-green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--shopify-green);
+  animation: pulseDot 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--r-md);
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: none;
+}
+.btn-primary:hover {
+  background: #2a2a2a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+}
+.btn-sm { padding: 5px 12px; font-size: 11.5px; }
+
+/* SVG Helpers */
+.svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   1. ANNOUNCEMENT TICKER
+   ========================================================================== */
+.announcement {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-default);
+  padding: 6px 0;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 102;
+}
+.announcement-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.announcement-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.announcement-tag {
+  background: #000000;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+  text-transform: uppercase;
+}
+.announcement-link {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.announcement-link:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   2. CLEAN STICKY HEADER
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-default);
+}
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-box {
+  width: 30px; height: 30px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: none;
+}
+.logo-text-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.logo-text-title span { color: var(--text-primary); }
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+.nav-links-list a {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+.nav-links-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-pill-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  padding: 5px 11px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+.cart-pill-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--text-primary);
+}
+.cart-count {
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   3. CLEAN HERO SECTION
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding: 4rem 0 3rem;
+  z-index: 1;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-title {
+  font-size: clamp(28px, 3.8vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.hero-title .accent-word { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--text-primary); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.hero-sub {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.hero-category-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.hero-category-pills-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  margin-right: 2px;
+}
+.hero-pill {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.hero-pill:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: var(--bg-surface-alt);
+}
+
+/* Hero Visual (real client site preview, right column) */
+.hero-visual {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.2);
+}
+.hero-visual-topbar {
+  background: #000000;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-visual-url {
+  font-size: 10.5px;
+  color: var(--text-on-dark-muted);
+}
+.hero-visual img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero Metrics Card */
+.hero-metrics-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+.metrics-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+.metric-box {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-lg);
+  padding: 0.85rem;
+  text-align: center;
+}
+.metric-val {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.metric-lbl {
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. BRAND MARQUEE
+   ========================================================================== */
+.marquee-section {
+  padding: 1.75rem 0;
+  background: var(--bg-surface-alt);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.marquee-label {
+  text-align: center;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollMarquee 34s linear infinite;
+  width: max-content;
+}
+.brand-pill {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  padding: 5px 14px;
+  border-radius: var(--r-full);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-section.marquee-dark { background: #000000; }
+.marquee-section.marquee-dark .marquee-label { color: var(--text-on-dark-muted); }
+.marquee-section.marquee-dark .brand-pill {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+.marquee-track.marquee-reverse { animation-direction: reverse; }
+
+/* ==========================================================================
+   5. SECTIONS COMMONS
+   ========================================================================== */
+section {
+  padding: 4.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+.section-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+.section-tag {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-tertiary);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+.section-title {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+.section-title span { color: var(--text-secondary); font-weight: 400; }
+.section-desc { font-size: 13.5px; color: var(--text-secondary); }
+
+/* ==========================================================================
+   6. INTERACTIVE SHOWCASE SECTION
+   ========================================================================== */
+.browser-mockup {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.browser-topbar {
+  background: #f4f3ef;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-default);
+  gap: 8px;
+}
+.browser-dots { display: flex; gap: 4px; }
+.b-dot { width: 8px; height: 8px; border-radius: 50%; }
+.b-red { background: #ef4444; }
+.b-yellow { background: #f59e0b; }
+.b-green { background: #10b981; }
+
+.browser-tabs {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.browser-tabs::-webkit-scrollbar { display: none; }
+.browser-tab-btn {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--r-sm);
+  background: #ffffff;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.browser-tab-btn.active, .browser-tab-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.browser-showcase-wrap {
+  padding: 2.25rem;
+  background: #ffffff;
+}
+.showcase-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   7. INTERACTIVE 3-WAY CUSTOMIZER ENGINE (ONLY NATURAL GEMSTONES)
+   ========================================================================== */
+.customizer-demo-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+.customizer-demo-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2rem;
+  align-items: center;
+}
+.customizer-gem-preview {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-lg);
+  padding: 1.25rem;
+  text-align: center;
+}
+.customizer-gem-preview img {
+  width: 100%;
+  max-height: 210px;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  margin-bottom: 0.65rem;
+}
+.customizer-gem-price-tag {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--shopify-green);
+}
+.customizer-gem-name {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.customizer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.step-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--shopify-indigo);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.flow-options, .metal-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.flow-btn, .metal-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  padding: 8px 6px;
+  border-radius: var(--r-md);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.2s;
+  line-height: 1.35;
+}
+.flow-btn.active, .flow-btn:hover {
+  background: var(--shopify-indigo-light);
+  border-color: var(--shopify-indigo);
+  color: var(--shopify-indigo);
+  font-weight: 600;
+}
+.metal-btn.active, .metal-btn:hover {
+  background: var(--shopify-indigo-light);
+  border-color: var(--shopify-indigo);
+  color: var(--shopify-indigo);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   8. CLEAN PRODUCT & SERVICE CARDS
+   ========================================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.product-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+}
+.product-card:hover .product-img-wrap { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+.product-img-wrap {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+.product-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.03); }
+.product-content {
+  padding: 0.85rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.product-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.product-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-light);
+}
+.product-tier-tag {
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+}
+
+/* Major / Minor Services grid variants */
+.major-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.minor-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.product-card.major .product-img-wrap { height: 240px; }
+.product-card.major .product-title { font-size: 17px; }
+.product-card.major .product-content { padding: 1rem 0 0; }
+.product-card.minor .product-img-wrap { height: 110px; }
+.product-card.minor .product-content { padding: 0.75rem 0 0; }
+.product-card.minor .product-title { font-size: 13px; }
+.product-card.minor .product-desc { font-size: 11px; margin-bottom: 0.75rem; }
+
+/* Capability tiles (Frontend/Backend Services) */
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.capability-tile {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+.capability-tile:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+.capability-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--bg-dark);
+  color: #ffffff;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+.capability-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.capability-desc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   9. CLEAN CASE STUDIES GRID
+   ========================================================================== */
+.collections-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.coll-tab {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  padding: 5px 14px;
+  border-radius: var(--r-full);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.coll-tab.active, .coll-tab:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.case-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+.case-card:hover {
+  transform: translateY(-2px);
+}
+.case-card:hover .case-img-wrap { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+.case-img-wrap {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+.case-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.case-card:hover .case-img-wrap img { transform: scale(1.03); }
+.case-body { padding: 0.85rem 0 0; }
+.case-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.case-title { font-family: var(--font-heading); font-size: 15px; font-weight: 700; }
+.case-link-btn {
+  font-size: 11.5px;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+.case-link-btn:hover { text-decoration: underline; }
+.case-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem; }
+.case-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+.case-metric-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ==========================================================================
+   10. REVIEWS & TESTIMONIALS
+   ========================================================================== */
+.reviews-section {
+  background: var(--bg-surface-alt);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.review-card {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-xl);
+  padding: 1.5rem;
+}
+.review-stars { color: var(--shopify-amber); display: flex; gap: 2px; margin-bottom: 0.65rem; }
+.review-text { font-size: 13px; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem; }
+.reviewer-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-default);
+}
+.reviewer-avatar-img {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-default);
+}
+.reviewer-name-txt { font-size: 12.5px; font-weight: 600; display: flex; align-items: center; gap: 3px; }
+.reviewer-store-txt { font-size: 10.5px; color: var(--text-tertiary); }
+.verified-check { color: var(--shopify-green); }
+
+/* ==========================================================================
+   11. FOOTER & NEWSLETTER
+   ========================================================================== */
+footer {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  padding: 4rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.footer-col h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.footer-links a {
+  font-size: 12.5px;
+  color: var(--text-on-dark-muted);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #ffffff; text-decoration: underline; }
+.newsletter-form {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.newsletter-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-md);
+  padding: 7px 10px;
+  font-size: 12px;
+  color: var(--text-on-dark);
+  flex: 1;
+  outline: none;
+  font-family: inherit;
+}
+.newsletter-input::placeholder { color: var(--text-on-dark-muted); }
+.newsletter-input:focus { border-color: #ffffff; }
+
+.footer-bottom-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 11.5px;
+  color: var(--text-on-dark-muted);
+}
+.payment-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-on-dark-muted);
+}
+.payment-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-on-dark);
+  padding: 2px 7px;
+  border-radius: var(--r-sm);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   12. SLIDE-OVER SCOPE CART DRAWER
+   ========================================================================== */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+.scope-drawer {
+  position: fixed;
+  top: 0; right: -460px; bottom: 0;
+  width: 100%; max-width: 380px;
+  background: #ffffff;
+  border-left: 1px solid var(--border-default);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.28s ease;
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.1);
+}
+.scope-drawer.active { right: 0; }
+.drawer-header {
+  padding: 1.15rem;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-title {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.drawer-close {
+  background: var(--bg-canvas);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.drawer-close:hover { background: var(--border-default); }
+.drawer-items-list {
+  padding: 1.15rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.drawer-empty-msg {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: 2.5rem 1rem;
+  font-size: 12px;
+}
+.cart-item-card {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: 9px 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-item-name { font-size: 12px; font-weight: 600; }
+.cart-item-time { font-size: 10px; color: var(--text-tertiary); font-weight: 500; }
+.cart-item-del { color: #ef4444; font-size: 10.5px; font-weight: 500; padding: 2px; }
+.cart-item-del:hover { text-decoration: underline; }
+
+.drawer-footer-actions {
+  padding: 1.15rem;
+  border-top: 1px solid var(--border-default);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* ==========================================================================
+   13. STICKY MOBILE CONVERSION BAR
+   ========================================================================== */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-default);
+  padding: 7px 1rem;
+  z-index: 90;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   14. MOBILE COMPACT FONT SCALING & RESPONSIVENESS (< 768px & < 480px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .major-grid { grid-template-columns: 1fr; }
+  .minor-grid { grid-template-columns: repeat(2, 1fr); }
+  .capability-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .customizer-demo-grid { grid-template-columns: 1fr; }
+  .showcase-grid-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  body { font-size: 12.5px; padding-bottom: 60px; }
+  .nav-links-list { display: none; }
+  .nav-wrap { height: 50px; }
+  .logo-box { width: 26px; height: 26px; font-size: 13px; }
+  .logo-text-title { font-size: 13.5px; }
+
+  /* Hero Mobile Scaled Down */
+  .hero { padding: 1.5rem 0 1.25rem; }
+  .hero-title { font-size: 21px; line-height: 1.25; margin-bottom: 0.5rem; }
+  .hero-sub { font-size: 12px; line-height: 1.55; margin-bottom: 1rem; }
+  .hero-actions { flex-direction: column; width: 100%; gap: 6px; }
+  .hero-actions .btn { width: 100%; justify-content: center; padding: 8px 12px; font-size: 12px; }
+  .hero-visual img { height: 160px; }
+
+  /* Sections Mobile */
+  section { padding: 2.5rem 0; }
+  .section-intro { margin-bottom: 1.75rem; }
+  .section-tag { font-size: 9.5px; }
+  .section-title { font-size: 18.5px; line-height: 1.25; }
+  .section-desc { font-size: 11.5px; }
+
+  /* Grids Mobile: horizontal slide carousels, ~2 cards in view then swipe */
+  .products-grid, .major-grid, .minor-grid, .capability-grid, .case-studies-grid, .reviews-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.7rem;
+    padding-bottom: 6px;
+    margin: 0 -1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .products-grid::-webkit-scrollbar, .major-grid::-webkit-scrollbar, .minor-grid::-webkit-scrollbar,
+  .capability-grid::-webkit-scrollbar, .case-studies-grid::-webkit-scrollbar, .reviews-grid::-webkit-scrollbar { display: none; }
+  .products-grid > *, .major-grid > *, .minor-grid > *, .case-studies-grid > * {
+    flex: 0 0 47%;
+    min-width: 47%;
+    scroll-snap-align: start;
+  }
+  .capability-grid > * { flex: 0 0 44%; min-width: 44%; scroll-snap-align: start; }
+  .reviews-grid > * { flex: 0 0 88%; min-width: 88%; scroll-snap-align: start; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  .review-card { padding: 1rem; }
+  .product-title, .case-title { font-size: 13px; }
+  .product-desc, .case-desc, .review-text { font-size: 11px; }
+  .product-card.major .product-img-wrap { height: 180px; }
+  .product-card.minor .product-img-wrap { height: 90px; }
+  
+  /* Customizer Mobile */
+  .customizer-demo-card { padding: 1rem; }
+  .customizer-gem-preview { padding: 1rem; }
+  .customizer-gem-price-tag { font-size: 19px; }
+  .customizer-gem-name { font-size: 13px; }
+  .flow-options, .metal-options { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .flow-btn, .metal-btn { font-size: 10px; padding: 6px 3px; }
+
+  /* Metrics Mobile */
+  .hero-metrics-card { padding: 1.25rem; }
+  .metric-val { font-size: 19px; }
+  .metric-lbl { font-size: 9.5px; }
+
+  .browser-showcase-wrap { padding: 1.25rem; }
+  .mobile-sticky-bar { display: flex; }
+  .scope-drawer { max-width: 100vw; }
+  .collections-tabs { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; flex-wrap: nowrap; padding-bottom: 4px; }
+  .collections-tabs::-webkit-scrollbar { display: none; }
+  .hero-category-pills { gap: 6px; }
+  .hero-pill { font-size: 10.5px; padding: 4px 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 20px; }
+  .section-title { font-size: 18px; }
+  .flow-btn, .metal-btn { font-size: 9px; padding: 5px 2px; }
+}
+
+/* ==========================================================================
+   15. QUICK-WIN ECOMMERCE ENHANCEMENTS
+   ========================================================================== */
+
+/* Card ribbon badges (Bestseller / Popular / New / Featured) */
+.card-ribbon {
+  position: absolute;
+  top: 12px;
+  left: -1px;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 4px 12px 4px 10px;
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.card-ribbon.ribbon-bestseller,
+.card-ribbon.ribbon-popular,
+.card-ribbon.ribbon-new,
+.card-ribbon.ribbon-featured { background: var(--bg-dark); }
+
+/* Sale-style strikethrough pricing on service cards */
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 8px 0 10px;
+}
+.price-was {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+}
+.price-now {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--shopify-green);
+}
+.price-save-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--shopify-green);
+  background: var(--shopify-green-light);
+  border: 1px solid rgba(0, 128, 96, 0.2);
+  padding: 1px 7px;
+  border-radius: var(--r-full);
+}
+
+/* Urgency badge near hero CTA */
+.badge-urgent {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #9a3412;
+}
+.urgency-pulse {
+  width: 6px; height: 6px;
+  background: #f97316;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #f97316;
+  animation: pulseDot 1.4s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+/* Cart count "bump" feedback on add */
+@keyframes cartBump {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.45); }
+  60% { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+.cart-count.bump { animation: cartBump 0.4s ease; }
+
+/* Toast notifications */
+.toast-stack {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  pointer-events: none;
+}
+.toast {
+  background: var(--bg-dark);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: var(--r-full);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast .toast-check {
+  width: 16px; height: 16px;
+  background: var(--shopify-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .toast-stack { bottom: 70px; }
+  .toast { font-size: 11.5px; padding: 8px 14px; white-space: normal; text-align: center; }
+}
+
+/* ==========================================================================
+   16. CART PRICING, PROMO CODE & POST-CHECKOUT CONFIRMATION
+   ========================================================================== */
+.cart-item-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.cart-item-price {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.promo-row { display: flex; gap: 6px; }
+.promo-msg { font-size: 10.5px; margin-top: -3px; min-height: 13px; color: var(--text-tertiary); }
+
+.scope-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+.summary-row.summary-discount { color: var(--shopify-green); }
+.summary-row.summary-total {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-top: 5px;
+  border-top: 1px dashed var(--border-default);
+}
+
+/* Post-checkout confirmation overlay panel */
+.scope-confirm-panel {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+}
+.scope-confirm-panel.active { opacity: 1; visibility: visible; transform: translateY(0); }
+.confirm-check-circle {
+  width: 52px; height: 52px;
+  background: var(--shopify-green-light);
+  border: 1px solid rgba(0, 128, 96, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.confirm-title { font-family: var(--font-heading); font-size: 16px; font-weight: 700; margin-bottom: 0.5rem; }
+.confirm-text {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+}
+.confirm-actions { display: flex; flex-direction: column; gap: 7px; width: 100%; max-width: 260px; }
 </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-logo">Suraj<span>.</span></div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a href="#contact" class="nav-cta">Hire me</a>
-</nav>
+<!-- DECORATIVE BACKGROUND ELEMENTS -->
+<div class="bg-decor-layer">
+  <div class="bg-dot-pattern"></div>
+  <div class="bg-orb-mint"></div>
+  <div class="bg-orb-indigo"></div>
+  <div class="bg-orb-bottom"></div>
+</div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-circle c1"></div>
-    <div class="hero-bg-circle c2"></div>
-  </div>
-  <div class="hero-grid">
-    <div class="fade-in">
-      <div class="hero-badge"><span class="hero-badge-dot"></span>Open to opportunities</div>
-      <h1>Senior<br/>Shopify<br/><span>Developer</span></h1>
-      <p class="hero-sub">4+ years building high-performance eCommerce solutions for 150+ brands. Expert in custom theme development, Shopify CLI apps, Shopify Plus, and CRO-driven development.</p>
-      <div class="hero-links">
-        <a href="https://github.com/surajony122" target="_blank" class="hero-link">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://surajony.my.canva.site/" target="_blank" class="hero-link">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          Portfolio Site
-        </a>
-        <a href="mailto:skpjony@gmail.com" class="hero-link">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email
-        </a>
-        <a href="tel:+919968034137" class="hero-link">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
-          +91-9968034137
-        </a>
-      </div>
+<!-- 1. MINIMAL ANNOUNCEMENT BAR -->
+<div class="announcement">
+  <div class="container announcement-inner">
+    <div class="announcement-left">
+      <span class="announcement-tag">Available</span>
+      <span style="display: inline-flex; align-items: center; gap: 5px;">
+        <span class="status-indicator"></span>
+        Q1/Q2 Shopify Apps, Themes & Plus Projects
+      </span>
     </div>
-    <div class="hero-stats fade-in delay-2">
-      <div class="stat"><div class="stat-n">4+</div><div class="stat-l">Years exp.</div></div>
-      <div class="stat"><div class="stat-n">150+</div><div class="stat-l">Brands</div></div>
-      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Stores managed</div></div>
-      <div class="stat"><div class="stat-n">Plus</div><div class="stat-l">Shopify Plus</div></div>
+    <div>
+      <a href="https://wa.me/919968034137?text=Hi%20Suraj,%20I%20am%20interested%20in%20hiring%20you%20for%20a%20Shopify%20project" target="_blank" class="announcement-link">
+        WhatsApp
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
     </div>
   </div>
 </div>
 
-<div class="divider"></div>
+<!-- 2. CLEAN STICKY HEADER -->
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo-brand">
+      <div class="logo-box">S</div>
+      <div class="logo-text-title">Suraj Kumar<span>.</span></div>
+    </a>
 
-<!-- ABOUT & SKILLS -->
-<section id="about">
-  <div class="section-label">About</div>
-  <div class="section-title">Skills & <span>expertise</span></div>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>Senior Shopify Developer with 4+ years of experience delivering and scaling high-performing eCommerce solutions across 150+ brands. Specialised in custom theme development, Shopify CLI app builds, AI-assisted workflows, and performance optimisation.</p>
-      <p>Strong expertise in CRO-driven development to maximise conversions and user experience. Proven ability as a team lead to bridge clients, designers, and developers while managing multiple projects simultaneously with high code quality and on-time delivery.</p>
-      <p>Experienced in Figma-to-Shopify implementation, custom coded themes from scratch, and full Dawn OS 2.0 customisation across diverse niches including fashion, jewellery, health, furniture, and travel.</p>
-    </div>
-    <div class="skills-cols">
-      <div class="skill-group">
-        <h4>Shopify core</h4>
-        <div class="skill-tags">
-          <span class="tag accent">Liquid</span>
-          <span class="tag accent">Dawn / OS 2.0</span>
-          <span class="tag accent">Shopify CLI</span>
-          <span class="tag">Metafields</span>
-          <span class="tag">Metaobjects</span>
-          <span class="tag">Sections Everywhere</span>
-          <span class="tag">Hydrogen</span>
-          <span class="tag accent">Shopify Plus</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Custom apps</h4>
-        <div class="skill-tags">
-          <span class="tag blue">App Bridge</span>
-          <span class="tag blue">Polaris UI</span>
-          <span class="tag blue">Node.js</span>
-          <span class="tag">OAuth 2.0</span>
-          <span class="tag">Webhooks</span>
-          <span class="tag">REST API</span>
-          <span class="tag">GraphQL</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Frontend</h4>
-        <div class="skill-tags">
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JS ES6+</span>
-          <span class="tag">Bootstrap</span>
-          <span class="tag teal">Core Web Vitals</span>
-          <span class="tag">Figma to Shopify</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Backend & tools</h4>
-        <div class="skill-tags">
-          <span class="tag">PHP</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">Payment Gateways</span>
-          <span class="tag">Logistics APIs</span>
-          <span class="tag">Cursor AI</span>
-          <span class="tag">ChatGPT</span>
-          <span class="tag">WooCommerce</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Clean Navigation -->
+    <ul class="nav-links-list">
+      <li><a href="#major-services">Services</a></li>
+      <li><a href="#preview">Live Showcase</a></li>
+      <li><a href="#case-studies">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
 
-<div class="divider"></div>
+    <div class="nav-actions">
+      <button class="cart-pill-btn" onclick="toggleScopeDrawer(true)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>Scope</span>
+        <span class="cart-count" id="navScopeCount">0</span>
+      </button>
 
-<!-- SHOPIFY PLUS -->
-<section id="shopifyplus" style="padding-top:4rem;padding-bottom:2rem">
-  <div class="section-label">Shopify Plus</div>
-  <div class="section-title">Plus <span>experience</span></div>
-  <div class="plus-card">
-    <div class="plus-header">
-      <svg width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <h3>Shopify Plus certified work</h3>
-    </div>
-    <div class="plus-grid">
-      <div class="plus-item"><span class="plus-dot"></span><span>Launchpad for scheduled campaign automation and theme publishing</span></div>
-      <div class="plus-item"><span class="plus-dot"></span><span>Shopify Flow for advanced backend workflow automation</span></div>
-      <div class="plus-item"><span class="plus-dot"></span><span>Checkout UI Extensions for fully custom checkout experiences</span></div>
-      <div class="plus-item"><span class="plus-dot"></span><span>B2B / wholesale channel configuration and pricing rules</span></div>
-      <div class="plus-item"><span class="plus-dot"></span><span>High-traffic store management with strict performance budgets</span></div>
-      <div class="plus-item"><span class="plus-dot"></span><span>Plus-exclusive APIs for advanced discount logic and multistore setups</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" style="padding-top:2rem">
-  <div class="section-label">Portfolio — Shopify store examples</div>
-  <div class="section-title">Projects & <span>contributions</span></div>
-
-  <div class="projects-grid">
-
-    <!-- Odette -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">Odette</div>
-          <a href="https://odette.in" target="_blank" class="proj-url">odette.in ↗</a>
-        </div>
-        <span class="cat-badge cat-fashion">Fashion</span>
-      </div>
-      <ul class="contrib-list">
-        <li>Ongoing brand website maintenance — bug fixes, section updates & content refreshes</li>
-        <li>Performance monitoring and speed audits with each release cycle</li>
-        <li>CRO-focused PDP layout improvements to boost conversion rates</li>
-        <li>Metafield-driven dynamic content blocks across product & collection pages</li>
-        <li>Third-party app integrations and compatibility updates</li>
-        <li>Responsive QA across devices with each deployment</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
-          <span class="cx-label">High</span>
-        </div>
-        <span class="timeline-badge">Ongoing</span>
-        <div class="proj-tags"><span class="ptag">Liquid</span><span class="ptag">CRO</span><span class="ptag">Maintenance</span></div>
-      </div>
-    </div>
-
-    <!-- Avimee Herbal -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">Avimee Herbal</div>
-          <a href="https://avimeeherbal.com" target="_blank" class="proj-url">avimeeherbal.com ↗</a>
-        </div>
-        <span class="cat-badge cat-beauty">Beauty & Health</span>
-      </div>
-      <ul class="contrib-list">
-        <li>New campaign launch — live bundle sections with dynamic pricing via metafields</li>
-        <li>Custom metafield setup for ingredient highlights, certifications & usage guides</li>
-        <li>Third-party custom checkout integration for enhanced checkout flow</li>
-        <li>Subscription app integration with recurring billing logic</li>
-        <li>Quiz-based product recommender built with Liquid & JS</li>
-        <li>Core Web Vitals performance tuning — lazy loading, critical CSS, image compression</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
-          <span class="cx-label">High</span>
-        </div>
-        <span class="timeline-badge">~4 weeks</span>
-        <div class="proj-tags"><span class="ptag">Metafields</span><span class="ptag">Checkout</span><span class="ptag">Bundles</span></div>
-      </div>
-    </div>
-
-    <!-- Cellbell -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">Cellbell</div>
-          <a href="https://cellbell.in" target="_blank" class="proj-url">cellbell.in ↗</a>
-        </div>
-        <span class="cat-badge cat-furniture">Furniture</span>
-      </div>
-      <ul class="contrib-list">
-        <li>Custom navigation — mega menu with category imagery and sub-collections</li>
-        <li>Custom product configurator section for variant-based selection</li>
-        <li>Metaobject-driven product specification comparison tables</li>
-        <li>Logistics API integration for live delivery estimate display</li>
-        <li>Custom cart drawer with dynamic upsell logic</li>
-        <li>OS 2.0 theme build with advanced Liquid templating</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span>
-          <span class="cx-label">Very High</span>
-        </div>
-        <span class="timeline-badge">~5 weeks</span>
-        <div class="proj-tags"><span class="ptag">Mega Menu</span><span class="ptag">Metaobjects</span><span class="ptag">Logistics API</span></div>
-      </div>
-    </div>
-
-    <!-- Trapin -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">Trapin</div>
-          <a href="https://trapin.in" target="_blank" class="proj-url">trapin.in ↗</a>
-        </div>
-        <span class="cat-badge cat-travel">Travel</span>
-      </div>
-      <ul class="contrib-list">
-        <li>Figma to Shopify — pixel-perfect implementation from designer handoff to live store</li>
-        <li>Custom product page built on Dawn theme with unique travel-package layout</li>
-        <li>Dynamic itinerary display sections via metafields for trip details</li>
-        <li>Mobile-first responsive layout matching Figma spec precisely</li>
-        <li>Booking flow customisation and CRO-optimised product page structure</li>
-        <li>Dawn theme extended with custom Liquid sections and JavaScript enhancements</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span><span class="cx-dot cx-empty"></span>
-          <span class="cx-label">Medium–High</span>
-        </div>
-        <span class="timeline-badge">~3 weeks</span>
-        <div class="proj-tags"><span class="ptag">Figma→Shopify</span><span class="ptag">Dawn</span><span class="ptag">Custom PDP</span></div>
-      </div>
-    </div>
-
-    <!-- Zeraki Jewels -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">Zeraki Jewels</div>
-          <a href="https://zerakijewels.com" target="_blank" class="proj-url">zerakijewels.com ↗</a>
-        </div>
-        <span class="cat-badge cat-accessories">Jewellery</span>
-      </div>
-      <ul class="contrib-list">
-        <li>Jewellery-specific PDP — metal type & gemstone swatch selector</li>
-        <li>Ring size guide modal with custom illustration integration</li>
-        <li>Gift packaging add-on flow at cart level</li>
-        <li>Custom collection filtering by material, gemstone, price & occasion</li>
-        <li>Loyalty and rewards app integration tailored to jewellery repeat purchase behaviour</li>
-        <li>High-resolution image optimisation for jewellery photography assets</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-empty"></span>
-          <span class="cx-label">High</span>
-        </div>
-        <span class="timeline-badge">~3 weeks</span>
-        <div class="proj-tags"><span class="ptag">Swatch Selector</span><span class="ptag">Jewellery UX</span><span class="ptag">Loyalty</span></div>
-      </div>
-    </div>
-
-    <!-- House of Gulab -->
-    <div class="proj-card">
-      <div class="proj-top">
-        <div>
-          <div class="proj-name">House of Gulab</div>
-          <a href="https://houseofgulab.com" target="_blank" class="proj-url">houseofgulab.com ↗</a>
-        </div>
-        <span class="cat-badge cat-fashion">Fashion</span>
-      </div>
-      <ul class="contrib-list">
-        <li>Fully custom coded theme — built from scratch without a base theme</li>
-        <li>Product-wise custom templates — unique layouts per product category (sarees, dupattas, sets)</li>
-        <li>Heritage brand aesthetic with bespoke typography and layout system</li>
-        <li>Custom size guide modal with regional sizing chart integration</li>
-        <li>Pre-order flow implemented via metafields for limited collection drops</li>
-        <li>Payment gateway setup & on-page SEO audit with structured data markup</li>
-      </ul>
-      <div class="proj-footer">
-        <div class="complexity">
-          <span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span><span class="cx-dot cx-filled"></span>
-          <span class="cx-label">Very High</span>
-        </div>
-        <span class="timeline-badge">~5 weeks</span>
-        <div class="proj-tags"><span class="ptag">Custom Theme</span><span class="ptag">Product Templates</span><span class="ptag">Pre-order</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Experience</div>
-  <div class="section-title">Professional <span>history</span></div>
-  <div class="exp-timeline">
-
-    <div class="exp-item">
-      <div class="exp-head">
-        <div>
-          <div class="exp-company">Digisidekick</div>
-          <div class="exp-role">Senior Shopify Developer & Team Lead</div>
-        </div>
-        <span class="exp-date">Feb 2023 – Feb 2026</span>
-      </div>
-      <ul class="exp-list">
-        <li>Led dev & design team across 15+ concurrent stores — managed sprints, code reviews & quality standards</li>
-        <li>Acted as client-facing technical lead, bridging requirements between clients, designers & analysts</li>
-        <li>Built custom Shopify apps using CLI, App Bridge & Polaris UI for advanced store functionality</li>
-        <li>Developed OS 2.0 themes with Liquid, JS & CSS using sections, metafields & metaobjects</li>
-        <li>Implemented Figma-to-Shopify pixel-perfect builds, including custom product page designs</li>
-        <li>Integrated AI tools (Cursor AI, ChatGPT) into dev workflow, reducing build time by ~30%</li>
-        <li>Managed Shopify Plus stores — Launchpad, Flow automation, Checkout UI Extensions & B2B configs</li>
-        <li>Delivered CRO improvements across client stores through structured A/B and heuristic analysis</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-head">
-        <div>
-          <div class="exp-company">Uniqoe Media</div>
-          <div class="exp-role">Web Developer – Shopify Specialist</div>
-        </div>
-        <span class="exp-date">Nov 2021 – Dec 2022</span>
-      </div>
-      <ul class="exp-list">
-        <li>Built and customised Shopify storefronts with tailored Liquid templates aligned to brand identity</li>
-        <li>Integrated third-party apps and configured eCommerce, SEO & security plugins</li>
-        <li>Delivered WordPress/WooCommerce solutions alongside Shopify projects for agency clients</li>
-        <li>Collaborated in cross-functional sprints with clients, designers & project managers</li>
-        <li>Maintained ongoing stores — performance monitoring, bug fixes & feature additions</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Qualifications</div>
-  <div class="section-title">Education <span>background</span></div>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-year">2017 – 2020</div>
-      <div class="edu-school">Hierank Business School</div>
-      <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-year">2017</div>
-      <div class="edu-school">R.S.S International School</div>
-      <div class="edu-degree">12th Standard – Science Stream (PCM)</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- RESUME / CV -->
-<section id="resume">
-  <div class="section-label">Resume</div>
-  <div class="section-title">Download <span>CV</span></div>
-  <div class="cv-card">
-    <div class="cv-info">
-      <h3>Suraj Kumar — Senior Shopify Developer</h3>
-      <p>4+ years · 150+ brands · Shopify Plus · Team Lead · Noida, India<br/>Available for full-time remote roles, freelance projects & Shopify Plus consulting.</p>
-    </div>
-    <div class="cv-btns">
-      <a href="https://surajony.my.canva.site/" target="_blank" class="cv-btn primary">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        View portfolio
-      </a>
-      <a href="https://github.com/surajony122" target="_blank" class="cv-btn secondary">
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub profile
+      <a href="mailto:skpjony@gmail.com" class="btn btn-primary btn-sm">
+        Hire Me
       </a>
     </div>
   </div>
-</section>
+</header>
 
-<div class="divider"></div>
+<!-- 3. HERO SECTION -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge badge-green" style="margin-bottom: 0.75rem;">
+        <span class="status-indicator"></span>
+        Senior Shopify Developer & App Architect
+      </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">Contact</div>
-  <div class="section-title">Get in <span>touch</span></div>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:skpjony@gmail.com">skpjony@gmail.com</a>
+      <h1 class="hero-title">
+        Engineering High-Converting <br/>
+        <span class="accent-word">Shopify Stores & Custom Apps</span> <br/>
+        for Growing Brands.
+      </h1>
+
+      <p class="hero-sub">
+        4+ years building bespoke <strong>Remix/Node.js Shopify Apps</strong>, Dawn 16.0 themes, dynamic pricing matrix engines, and frictionless checkout funnels for <strong>150+ eCommerce brands</strong>.
+      </p>
+
+      <div class="badge badge-urgent" style="margin-bottom: 1rem;">
+        <span class="urgency-pulse"></span>
+        Only 2 Project Slots Open for Q2 2026 — Book Early
       </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
-        <a href="tel:+919968034137">+91-9968034137</a>
+
+      <div class="hero-actions">
+        <a href="#major-services" class="btn btn-primary">
+          Shop Engineering Services
+        </a>
+        <a href="#preview" class="btn btn-secondary">
+          Live Showcase Deck
+        </a>
       </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        <a href="https://github.com/surajony122" target="_blank">github.com/surajony122</a>
+
+      <div class="hero-category-pills">
+        <span class="hero-category-pills-label">Shop by category:</span>
+        <a href="#major-services" class="hero-pill" onclick="jumpToCollection(event, 'major-services')">Major Services</a>
+        <a href="#minor-services" class="hero-pill" onclick="jumpToCollection(event, 'minor-services')">Minor Services</a>
+        <a href="#frontend-services" class="hero-pill" onclick="jumpToCollection(event, 'frontend-services')">Frontend</a>
+        <a href="#backend-services" class="hero-pill" onclick="jumpToCollection(event, 'backend-services')">Backend</a>
       </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <a href="https://surajony.my.canva.site/" target="_blank">surajony.my.canva.site</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
+      <div style="font-size: 12px; color: var(--text-secondary); display: flex; gap: 10px; flex-wrap: wrap;">
+        <span>Direct: <a href="mailto:skpjony@gmail.com" style="color: var(--text-primary); font-weight: 600; text-decoration: underline;">skpjony@gmail.com</a></span>
+        <span>•</span>
+        <span><a href="tel:+919968034137" style="color: var(--text-primary); font-weight: 600;">+91 9968034137</a></span>
+        <span>•</span>
         <span>Noida, India</span>
       </div>
     </div>
-    <div class="availability">
-      <h3><span class="avail-dot"></span>Open to opportunities</h3>
-      <p>Currently available for full-time remote roles, freelance Shopify projects, and Shopify Plus consulting engagements. Comfortable working across IST and overlapping timezones.</p>
+
+    <!-- Hero Visual + Metrics Card -->
+    <div>
+      <div class="hero-visual">
+        <div class="hero-visual-topbar">
+          <div class="browser-dots">
+            <div class="b-dot b-red"></div>
+            <div class="b-dot b-yellow"></div>
+            <div class="b-dot b-green"></div>
+          </div>
+          <span class="hero-visual-url">onlynaturalgemstones.com — live build</span>
+        </div>
+        <img loading="lazy" decoding="async" src="https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200" alt="Live Shopify store built by Suraj Kumar"/>
+      </div>
+
+      <div class="hero-metrics-card">
+        <div class="metrics-top-row">
+          <div style="font-size: 12px; font-weight: 600; color: var(--shopify-green); display: flex; align-items: center; gap: 4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Verified Track Record
+          </div>
+          <span class="badge">Team Lead @ Digisidekick</span>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-val" data-counter data-prefix="" data-target="150" data-suffix="+" data-decimals="0">0+</div>
+            <div class="metric-lbl">Brands Scaled</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" data-counter data-prefix="+" data-target="34" data-suffix="%" data-decimals="0">+0%</div>
+            <div class="metric-lbl">Avg CRO Lift</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" data-counter data-prefix="&lt;" data-target="1.2" data-suffix="s" data-decimals="1">&lt;0.0s</div>
+            <div class="metric-lbl">LCP Load Time</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" data-counter data-prefix="" data-target="15" data-suffix="+" data-decimals="0">0+</div>
+            <div class="metric-lbl">Stores Under Lead</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="width: 100%; font-size: 12px;" onclick="addService('Full-Stack Store & Custom App Build', '3-4 Weeks', 79000)">
+          + Add Full Store Build to Scope
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 4. BRAND MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-label">Trusted by 150+ Leading Global DTC Brands</div>
+  <div class="marquee-track">
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+      Only Natural Gemstones (Shubh Gems)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+      Odette (Fashion)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+      Avimee Herbal (Beauty)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>
+      Cellbell (Furniture)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+      Trapin (Travel)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 1 0 9"/></svg>
+      Zeraki Jewels
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      House of Gulab
+    </div>
+    <!-- Infinite track duplicates -->
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+      Only Natural Gemstones (Shubh Gems)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+      Odette (Fashion)
+    </div>
+    <div class="brand-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+      Avimee Herbal (Beauty)
+    </div>
+  </div>
+</div>
+
+<!-- 4b. USP MARQUEE (dark) -->
+<div class="marquee-section marquee-dark">
+  <div class="marquee-label">Why Brands Choose Suraj</div>
+  <div class="marquee-track">
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>NDA Available</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>100% Code Ownership</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>On-Time Delivery</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-Launch Support</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Shopify Partner</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4.9★ Rated by Merchants</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free Speed Audit</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Transparent Pricing</div>
+    <!-- Infinite track duplicates -->
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>NDA Available</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>100% Code Ownership</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>On-Time Delivery</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-Launch Support</div>
+  </div>
+</div>
+
+<!-- 5. INTERACTIVE SHOWCASE SECTION -->
+<section id="preview">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Interactive Preview</span>
+      <h2 class="section-title">Live Portfolio & <span>Storefront Showcase</span></h2>
+      <p class="section-desc">Explore visual walkthroughs of my production stores and access the full live portfolio deck.</p>
+    </div>
+
+    <div class="browser-mockup">
+      <div class="browser-topbar">
+        <div class="browser-dots">
+          <div class="b-dot b-red"></div>
+          <div class="b-dot b-yellow"></div>
+          <div class="b-dot b-green"></div>
+        </div>
+
+        <div class="browser-tabs">
+          <button class="browser-tab-btn active" onclick="switchShowcase('canva', 'https://surajony.my.canva.site/', this)">Portfolio Deck</button>
+          <button class="browser-tab-btn" onclick="switchShowcase('gemstones', 'https://onlynaturalgemstones.com', this)">Shubh Gems</button>
+          <button class="browser-tab-btn" onclick="switchShowcase('odette', 'https://odette.in', this)">Odette.in</button>
+          <button class="browser-tab-btn" onclick="switchShowcase('avimee', 'https://avimeeherbal.com', this)">Avimee.com</button>
+          <button class="browser-tab-btn" onclick="switchShowcase('cellbell', 'https://cellbell.in', this)">Cellbell.in</button>
+        </div>
+      </div>
+
+      <div class="browser-showcase-wrap" id="showcaseContainer">
+        <div class="showcase-grid-layout" id="showcaseContent">
+          <div>
+            <div class="badge badge-green" style="margin-bottom: 0.65rem;" id="showcaseBadge">Official Portfolio Deck</div>
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 0.4rem;" id="showcaseTitle">Suraj Kumar — Visual Portfolio Deck</h3>
+            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;" id="showcaseDesc">
+              Explore complete visual slides, live client case studies, custom Liquid architectures, and client testimonials on my verified Canva portfolio.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="https://surajony.my.canva.site/" target="_blank" class="btn btn-primary btn-sm" id="showcaseBtn">
+                Launch Live Portfolio
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a href="https://wa.me/919968034137?text=Hi%20Suraj,%20I%20saw%20your%20portfolio" target="_blank" class="btn btn-secondary btn-sm">
+                WhatsApp Chat
+              </a>
+            </div>
+          </div>
+          <div>
+            <div style="background: #ffffff; border: 1px solid var(--border-default); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-card);">
+              <img loading="lazy" decoding="async" id="showcaseImg" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80" alt="Portfolio Showcase" style="width: 100%; height: 190px; object-fit: cover; display: block;"/>
+              <div style="padding: 9px 12px; display: flex; justify-content: space-between; align-items: center; background: #f4f3ef; border-top: 1px solid var(--border-default); font-size: 11px; color: var(--text-secondary);">
+                <span id="showcaseFooterLeft" style="display: flex; align-items: center; gap: 4px;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  150+ Brands Scaled
+                </span>
+                <a id="showcaseFooterLink" href="https://surajony.my.canva.site/" target="_blank" style="color: var(--text-primary); font-weight: 600; text-decoration: underline; display: inline-flex; align-items: center; gap: 2px;">
+                  Open Link <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. LIVE 3-WAY CUSTOMIZER ENGINE (ONLY NATURAL GEMSTONES) -->
+<section id="flagship" style="background: var(--bg-surface-alt);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Custom Functionality Build</span>
+      <h2 class="section-title">Live 3-Way Product Customizer <span>& Metal Rates Engine</span></h2>
+      <p class="section-desc">Test the live customizer logic engineered for Only Natural Gemstones (Shubh Gems) with dynamic metal price formulas and atomic parent-child bundling.</p>
+    </div>
+
+    <div class="customizer-demo-card">
+      <div class="customizer-demo-grid">
+        <div class="customizer-gem-preview">
+          <!-- Curated High-Resolution Real Gemstone Ring Photo -->
+          <img loading="lazy" decoding="async" id="customizerImg" src="https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200" alt="Ceylon Blue Sapphire Ring"/>
+          <div class="customizer-gem-name" id="gemTitle">Natural Ceylon Blue Sapphire (4.25 Ratti)</div>
+          <div style="font-size: 10.5px; color: var(--text-tertiary); margin-bottom: 5px;">Govt. Certified • Astrological Grade • 100% Unheated</div>
+          <div class="customizer-gem-price-tag" id="customizerLivePrice">₹ 42,500</div>
+          <div style="font-size: 10.5px; color: var(--shopify-green); margin-top: 3px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Live Metal Rates Computed via App Proxy
+          </div>
+        </div>
+
+        <div class="customizer-controls">
+          <div>
+            <div class="step-title">Step 1: Select Purchase Flow</div>
+            <div class="flow-options">
+              <button class="flow-btn active" onclick="setFlow(0, 'Loose Gemstone', 42500, this)">Loose Gem</button>
+              <button class="flow-btn" onclick="setFlow(1, 'Set in Ring', 49500, this)">Set in Ring (+₹7k)</button>
+              <button class="flow-btn" onclick="setFlow(2, 'Ring + Energization', 52000, this)">Ring + Pooja (+₹9.5k)</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="step-title">Step 2: Metal & Karat Matrix</div>
+            <div class="metal-options">
+              <button class="metal-btn active" onclick="setMetal('18K Yellow Gold', 0, this)">18K Yellow Gold</button>
+              <button class="metal-btn" onclick="setMetal('14K Rose Gold', -1500, this)">14K Rose Gold</button>
+              <button class="metal-btn" onclick="setMetal('925 Pure Silver', -4500, this)">925 Silver</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="step-title">Step 3: Astrological Gotra & Activation</div>
+            <div style="display: flex; gap: 6px;">
+              <input type="text" placeholder="Enter Gotra / Name for Pooja" style="background: var(--bg-canvas); border: 1px solid var(--border-default); border-radius: var(--r-md); padding: 7px 10px; font-size: 11.5px; color: var(--text-primary); flex: 1; outline: none; font-family: inherit;"/>
+              <button class="btn btn-primary btn-sm" onclick="addCustomGemToScope()">
+                + Add to Scope
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MAJOR SERVICES -->
+<section id="major-services">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Major Services</span>
+      <h2 class="section-title">Flagship <span>Engagements</span></h2>
+      <p class="section-desc">Full-scope builds, migrations, and rebuilds — the big rocks of a Shopify project, end to end.</p>
+    </div>
+
+    <div class="products-grid major-grid">
+
+      <!-- 1: Shopify Website Developer -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-bestseller">Bestseller</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80" alt="Shopify Website Developer"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Shopify Website Developer</h3>
+            <p class="product-desc">End-to-end Shopify website development — setup, theme build, apps, payments, and launch, handled start to finish.</p>
+            <div class="price-row">
+              <span class="price-was">₹1,40,000</span>
+              <span class="price-now">₹95,000</span>
+              <span class="price-save-tag">Save 32%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">4-6 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Shopify Website Developer (End-to-End Build)', '4-6 Weeks', 95000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Full-Stack Shopify App -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80" alt="Full-Stack Shopify App Development"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Full-Stack Shopify Apps (Remix/Node)</h3>
+            <p class="product-desc">Custom embedded Shopify apps with App Bridge, Polaris UI, Prisma ORM, PostgreSQL, and authenticated App Proxies.</p>
+            <div class="price-row">
+              <span class="price-was">₹85,000</span>
+              <span class="price-now">₹58,000</span>
+              <span class="price-save-tag">Save 32%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">2-4 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Custom Shopify App (Remix/Node)', '2-4 Weeks', 58000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Shopify Plus Migration -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800&auto=format&fit=crop&q=80" alt="Shopify Plus Migration & Setup"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Shopify Plus Migration & Setup</h3>
+            <p class="product-desc">Migrate from Magento/WooCommerce/legacy platforms to Shopify Plus with zero data loss and a clean redirect map.</p>
+            <div class="price-row">
+              <span class="price-was">₹1,10,000</span>
+              <span class="price-now">₹75,000</span>
+              <span class="price-save-tag">Save 32%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">3-4 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Shopify Plus Migration & Setup', '3-4 Weeks', 75000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Full CRO Audit & Funnel Rebuild (bundle) -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-featured">Best Value</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="Full CRO Audit & Funnel Rebuild"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Full CRO Audit & Funnel Rebuild</h3>
+            <p class="product-desc">Homepage + PDP + Cart optimization bundled with a full funnel audit, A/B test setup, and trust-trigger rollout.</p>
+            <div class="price-row">
+              <span class="price-was">₹58,000</span>
+              <span class="price-now">₹38,000</span>
+              <span class="price-save-tag">Save 34%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1-2 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Full CRO Audit & Funnel Rebuild', '1-2 Weeks', 38000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Bespoke Dawn 16.0 Theme -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-popular">Most Popular</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80" alt="Bespoke Dawn 16.0 OS 2.0 Theme"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Bespoke Dawn 16.0 / OS 2.0 Theme</h3>
+            <p class="product-desc">Pixel-perfect Figma-to-Shopify theme builds using clean Liquid, custom sections, metafield schemas, and atomic cart bundling.</p>
+            <div class="price-row">
+              <span class="price-was">₹55,000</span>
+              <span class="price-now">₹36,000</span>
+              <span class="price-save-tag">Save 35%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">2-3 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Bespoke OS 2.0 Theme Build', '2-3 Weeks', 36000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Full Store Redesign -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80" alt="Full Store Redesign (Figma-to-Shopify)"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Full Store Redesign (Figma-to-Shopify)</h3>
+            <p class="product-desc">Complete visual overhaul of an existing store — new Figma design system, rebuilt sections, kept your SEO and data intact.</p>
+            <div class="price-row">
+              <span class="price-was">₹60,000</span>
+              <span class="price-now">₹42,000</span>
+              <span class="price-save-tag">Save 30%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">2-3 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Full Store Redesign (Figma-to-Shopify)', '2-3 Weeks', 42000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: Custom Product Customizer Engine -->
+      <div class="product-card major">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-new">New</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80" alt="Custom Product Customizer Engine"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Custom Product Customizer Engine</h3>
+            <p class="product-desc">A live 3-way customizer like the one below — flow, material, and personalization options with real-time pricing.</p>
+            <div class="price-row">
+              <span class="price-was">₹46,000</span>
+              <span class="price-now">₹32,000</span>
+              <span class="price-save-tag">Save 30%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1-2 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Custom Product Customizer Engine', '1-2 Weeks', 32000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7b. MINOR SERVICES -->
+<section id="minor-services" style="background: var(--bg-surface-alt);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Minor Services</span>
+      <h2 class="section-title">Quick-Turnaround <span>Add-Ons</span></h2>
+      <p class="section-desc">Focused, fast-turnaround services you can add to any scope.</p>
+    </div>
+
+    <div class="products-grid minor-grid">
+
+      <!-- 1: Homepage Optimization -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&auto=format&fit=crop&q=80" alt="Homepage Optimization"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Homepage Optimization</h3>
+            <p class="product-desc">Above-the-fold rebuild, hero CTA testing, and trust-signal placement.</p>
+            <div class="price-row">
+              <span class="price-was">₹22,000</span>
+              <span class="price-now">₹15,000</span>
+              <span class="price-save-tag">Save 32%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">3-5 Days</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Homepage Optimization', '3-5 Days', 15000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Product Page (PDP) Optimization -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-popular">Most Requested</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=80" alt="Product Page Optimization"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Product Page (PDP) Optimization</h3>
+            <p class="product-desc">Gallery, swatches, sticky buy-box, and urgency triggers.</p>
+            <div class="price-row">
+              <span class="price-was">₹22,000</span>
+              <span class="price-now">₹15,000</span>
+              <span class="price-save-tag">Save 32%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">3-5 Days</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Product Page (PDP) Optimization', '3-5 Days', 15000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Cart & Checkout Optimization -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=800&auto=format&fit=crop&q=80" alt="Cart & Checkout Optimization"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Cart & Checkout Optimization</h3>
+            <p class="product-desc">Slide-cart upsells and checkout friction removal.</p>
+            <div class="price-row">
+              <span class="price-was">₹26,000</span>
+              <span class="price-now">₹18,000</span>
+              <span class="price-save-tag">Save 31%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">4-6 Days</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Cart & Checkout Optimization', '4-6 Days', 18000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Mobile-First Redesign -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <span class="card-ribbon ribbon-new">New</span>
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&auto=format&fit=crop&q=80" alt="Mobile-First Redesign"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Mobile-First Redesign</h3>
+            <p class="product-desc">Thumb-reach nav and a sticky mobile buy bar.</p>
+            <div class="price-row">
+              <span class="price-was">₹34,000</span>
+              <span class="price-now">₹24,000</span>
+              <span class="price-save-tag">Save 29%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1-2 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Mobile-First Redesign', '1-2 Weeks', 24000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Dynamic Pricing & Metafields Engine -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80" alt="Dynamic Pricing & Metafields Engine"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Dynamic Pricing & Metafields Engine</h3>
+            <p class="product-desc">Live rate-linked pricing via metafields and App Proxy.</p>
+            <div class="price-row">
+              <span class="price-was">₹32,000</span>
+              <span class="price-now">₹22,000</span>
+              <span class="price-save-tag">Save 31%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1 Week</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Dynamic Pricing & Metafields Engine', '1 Week', 22000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: App Proxy & Backend Integrations -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop&q=80" alt="App Proxy & Backend Integrations"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">App Proxy & Backend Integrations</h3>
+            <p class="product-desc">Connect Shopify to your ERP, CRM, or logistics stack.</p>
+            <div class="price-row">
+              <span class="price-was">₹40,000</span>
+              <span class="price-now">₹28,000</span>
+              <span class="price-save-tag">Save 30%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1-2 Weeks</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('App Proxy & Backend Integrations', '1-2 Weeks', 28000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: Subscription & Bundle Builder -->
+      <div class="product-card minor">
+        <div class="product-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=800&auto=format&fit=crop&q=80" alt="Subscription & Bundle Builder"/>
+        </div>
+        <div class="product-content">
+          <div>
+            <h3 class="product-title">Subscription & Bundle Builder</h3>
+            <p class="product-desc">Build-your-own bundles and recurring subscriptions.</p>
+            <div class="price-row">
+              <span class="price-was">₹29,000</span>
+              <span class="price-now">₹20,000</span>
+              <span class="price-save-tag">Save 31%</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <span class="product-tier-tag">1 Week</span>
+            <button class="btn btn-secondary btn-sm" onclick="addService('Subscription & Bundle Builder', '1 Week', 20000)">+ Add to Scope</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7c. FRONTEND SERVICES (capability showcase, no pricing) -->
+<section id="frontend-services">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Frontend Capabilities</span>
+      <h2 class="section-title">Frontend <span>Services</span></h2>
+      <p class="section-desc">The UI layer — theming, layout, performance, and every pixel the customer touches.</p>
+    </div>
+
+    <div class="capability-grid">
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3 4 12l4 9"/><path d="M16 3l4 9-4 9"/></svg></div>
+        <div class="capability-title">Liquid & Dawn OS 2.0 Theming</div>
+        <div class="capability-desc">Clean, maintainable Liquid on the latest Dawn architecture.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="capability-title">Figma-to-Shopify Builds</div>
+        <div class="capability-desc">Pixel-perfect handoff from design file to live storefront.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+        <div class="capability-title">Responsive & Mobile-First UI</div>
+        <div class="capability-desc">Built for the 70%+ of traffic that's on a phone.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="capability-title">Core Web Vitals & Performance</div>
+        <div class="capability-desc">Sub-1.2s LCP through image, script, and render budgeting.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+        <div class="capability-title">Custom Sections & Metafields</div>
+        <div class="capability-desc">Merchant-editable sections backed by structured content.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg></div>
+        <div class="capability-title">Micro-interactions & Animation</div>
+        <div class="capability-desc">Subtle motion that signals feedback, not decoration.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <div class="capability-title">Accessibility (WCAG)</div>
+        <div class="capability-desc">Keyboard nav, contrast, and screen-reader-safe markup.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
+        <div class="capability-title">CRO-driven UI Patterns</div>
+        <div class="capability-desc">Layouts built from what actually lifts conversion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7d. BACKEND SERVICES (capability showcase, no pricing) -->
+<section id="backend-services" style="background: var(--bg-surface-alt);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Backend Capabilities</span>
+      <h2 class="section-title">Backend <span>Services</span></h2>
+      <p class="section-desc">The engine room — apps, APIs, data, and everything that powers the storefront.</p>
+    </div>
+
+    <div class="capability-grid">
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+        <div class="capability-title">Remix + Node.js Apps</div>
+        <div class="capability-desc">Embedded Shopify apps on App Bridge and Polaris.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6M15 2v6M6 8h12l-1 7a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3z"/><path d="M12 18v4"/></svg></div>
+        <div class="capability-title">App Proxy & Webhooks</div>
+        <div class="capability-desc">Authenticated server-side routes wired into checkout.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></div>
+        <div class="capability-title">Prisma ORM + PostgreSQL</div>
+        <div class="capability-desc">Typed, migration-safe data layers for custom apps.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41 13.41 20.59a2 2 0 0 1-2.82 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg></div>
+        <div class="capability-title">Metafields & Pricing APIs</div>
+        <div class="capability-desc">Rate-linked pricing and structured product data.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg></div>
+        <div class="capability-title">Shopify Flow & Automation</div>
+        <div class="capability-desc">Rule-based workflows that remove manual ops work.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <div class="capability-title">ERP / CRM Integrations</div>
+        <div class="capability-desc">Shopify wired into your logistics and sales stack.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <div class="capability-title">Subscription & Billing APIs</div>
+        <div class="capability-desc">Recurring checkout flows with tiered discount logic.</div>
+      </div>
+      <div class="capability-tile">
+        <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg></div>
+        <div class="capability-title">Multi-store / Headless Architecture</div>
+        <div class="capability-desc">Shared backend across multiple storefronts or channels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7e. QUALITY MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-label">Built to a Quality Bar</div>
+  <div class="marquee-track marquee-reverse">
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Sub-1.2s LCP Load Time</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Core Web Vitals Optimized</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg>WCAG 2.1 Accessible</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Mobile-First Engineering</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>SEO-Ready Markup</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41 13.41 20.59a2 2 0 0 1-2.82 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>Zero-Downtime Migrations</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3 4 12l4 9"/><path d="M16 3l4 9-4 9"/></svg>Clean, Documented Code</div>
+    <!-- Infinite track duplicates -->
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Sub-1.2s LCP Load Time</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Core Web Vitals Optimized</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><polyline points="9 12 11 14 15 10"/></svg>WCAG 2.1 Accessible</div>
+    <div class="brand-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Mobile-First Engineering</div>
+  </div>
+</div>
+
+<!-- 8. CASE STUDIES SECTION (BRAND-ACCURATE IMAGERY) -->
+<section id="case-studies" style="background: var(--bg-surface-alt);">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Proof of Work</span>
+      <h2 class="section-title">Featured <span>Case Studies</span></h2>
+      <p class="section-desc">Explore live stores engineered across jewelry, fashion, health, and travel.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="collections-tabs">
+      <button class="coll-tab active" onclick="filterCollections('all', this)">All</button>
+      <button class="coll-tab" onclick="filterCollections('jewellery', this)">Jewellery</button>
+      <button class="coll-tab" onclick="filterCollections('fashion', this)">Fashion</button>
+      <button class="coll-tab" onclick="filterCollections('beauty', this)">Beauty</button>
+      <button class="coll-tab" onclick="filterCollections('furniture', this)">Furniture</button>
+    </div>
+
+    <div class="case-studies-grid" id="caseStudiesGrid">
+      
+      <!-- 1: Only Natural Gemstones -->
+      <div class="case-card" data-category="jewellery">
+        <div class="case-img-wrap">
+          <span class="card-ribbon ribbon-featured">Featured</span>
+          <img loading="lazy" decoding="async" src="https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200" alt="Only Natural Gemstones Jewelry"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Only Natural Gemstones</div>
+            <span class="case-link-btn" style="color: var(--shopify-indigo); display: flex; align-items: center; gap: 4px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+              Flagship App
+            </span>
+          </div>
+          <p class="case-desc">Enterprise Vedic gemstone platform with dynamic metal rates app & customizer.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Remix • Node • Prisma</span>
+            <span class="case-metric-tag">Full-Stack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Odette Fashion -->
+      <div class="case-card" data-category="fashion">
+        <div class="case-img-wrap">
+          <span class="card-ribbon ribbon-popular">Client Favorite</span>
+          <img loading="lazy" decoding="async" src="https://cdn.shopify.com/s/files/1/0267/7728/8764/files/universal_banner_odette.jpg?v=1771929171&width=1200" alt="Odette Western Wear & Handbags"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Odette</div>
+            <a href="https://odette.in" target="_blank" class="case-link-btn">
+              odette.in
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="case-desc">High-growth women's western fashion & accessories brand with +28% CVR lift.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Liquid • OS 2.0</span>
+            <span class="case-metric-tag">+28% CVR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Avimee Herbal -->
+      <div class="case-card" data-category="beauty">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://avimeeherbal.com/cdn/shop/files/website_banner_copy_c94ba59f-a27f-4b11-9e8c-68ebdf6d7182.png?v=1779436118&width=1200" alt="Avimee Herbal Ayurveda Hair Care"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Avimee Herbal</div>
+            <a href="https://avimeeherbal.com" target="_blank" class="case-link-btn">
+              avimeeherbal.com
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="case-desc">Top Ayurveda hair care brand with bespoke bundle builder & subscription checkout.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Quiz • Bundles</span>
+            <span class="case-metric-tag">+42% AOV</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Cellbell Ergonomic Chairs -->
+      <div class="case-card" data-category="furniture">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://cellbell.in/cdn/shop/files/CellbellCrownLuxuary1.png?width=1200" alt="Cellbell Gaming and Ergonomic Chairs"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Cellbell</div>
+            <a href="https://cellbell.in" target="_blank" class="case-link-btn">
+              cellbell.in
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="case-desc">India's premier ergonomic gaming & office seating brand with 3D configurator.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">3D Config • Mega Menu</span>
+            <span class="case-metric-tag">3.4x Cart</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: House of Gulab -->
+      <div class="case-card" data-category="fashion">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://houseofgulab.com/cdn/shop/files/hog_dalnaaz_banner_14_nov.webp?crop=center&height=940&v=1764996063&width=1200" alt="House of Gulab Luxury Indian Couture"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">House of Gulab</div>
+            <a href="https://houseofgulab.com" target="_blank" class="case-link-btn">
+              houseofgulab.com
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="case-desc">Luxury Indian ethnic couture with 100% custom-coded liquid theme.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Custom Theme • Pre-Order</span>
+            <span class="case-metric-tag">94 CWV</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Zeraki Jewels -->
+      <div class="case-card" data-category="jewellery">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://zerakijewels.com/cdn/shop/files/zeraki_1_6da80424-f224-4e9d-b467-e25b7a0c0f93.png?v=1714111727&width=1200" alt="Zeraki Jewels Fine Jewelry & Diamond Solitaire"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Zeraki Jewels</div>
+            <a href="https://zerakijewels.com" target="_blank" class="case-link-btn">
+              zerakijewels.com
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <p class="case-desc">Contemporary fine jewellery with ring size finder modal and metal swatches.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Swatches • Ring Modal</span>
+            <span class="case-metric-tag">+19% Cart</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 8b. PROJECTS SECTION (personal/independent work — distinct from client Case Studies) -->
+<section id="projects">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Independent Work</span>
+      <h2 class="section-title">Personal <span>Projects</span></h2>
+      <p class="section-desc">Builds outside of client work — open-source tools, reusable templates, and this site itself.</p>
+    </div>
+
+    <div class="case-studies-grid">
+      <!-- NOTE: placeholder projects — swap in your real repos/links -->
+      <div class="case-card">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80" alt="Shopify Theme Starter Kit"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Shopify Theme Starter Kit</div>
+          </div>
+          <p class="case-desc">Open-source Dawn-based Liquid boilerplate with pre-built sections and metafield schemas, ready to fork.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Liquid • OS 2.0 • Open Source</span>
+            <a href="https://github.com/surajony122" target="_blank" class="case-link-btn">
+              View Project
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80" alt="Metafield Pricing Engine"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">Metafield Pricing Engine</div>
+          </div>
+          <p class="case-desc">Reusable App Proxy + metafields template for live rate-linked pricing, extracted from client work into a standalone kit.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Remix • Node • Metafields</span>
+            <a href="https://github.com/surajony122" target="_blank" class="case-link-btn">
+              View Project
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-img-wrap">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80" alt="This Portfolio Site"/>
+        </div>
+        <div class="case-body">
+          <div class="case-title-row">
+            <div class="case-title">This Portfolio Site</div>
+          </div>
+          <p class="case-desc">A working storefront demo — live cart, promo codes, and checkout flow built as a proof of the CRO patterns above.</p>
+          <div class="case-bottom">
+            <span style="font-size: 10.5px; color: var(--text-tertiary);">Vanilla JS • CSS</span>
+            <a href="https://github.com/surajony122" target="_blank" class="case-link-btn">
+              View Project
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. REVIEWS SECTION -->
+<section id="reviews" class="reviews-section">
+  <div class="container">
+    <div class="section-intro">
+      <span class="section-tag">Client Feedback</span>
+      <h2 class="section-title">Verified Merchant <span>Reviews</span></h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Suraj completely transformed our PDP layout, custom bundle builder, and cart experience. Our conversion rate jumped from 1.8% to 2.6% within 30 days of launch."</p>
+        <div class="reviewer-profile">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Reviewer" class="reviewer-avatar-img"/>
+          <div>
+            <div class="reviewer-name-txt">
+              DTC Brand Founder 
+              <span class="verified-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+            </div>
+            <div class="reviewer-store-txt">Fashion & Apparel DTC</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"The custom app Suraj engineered for our live metal rates matrix and Vedic gemstone customizer is world-class. He delivered the backend, App Proxy, and Dawn theme seamlessly."</p>
+        <div class="reviewer-profile">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Reviewer" class="reviewer-avatar-img"/>
+          <div>
+            <div class="reviewer-name-txt">
+              Jewelry & Gemstone Founder 
+              <span class="verified-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+            </div>
+            <div class="reviewer-store-txt">Only Natural Gemstones</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Working with Suraj as our Lead Shopify Developer was seamless. He turned complex Figma mockups into zero-bloat, ultra-fast Dawn OS 2.0 sections ahead of schedule."</p>
+        <div class="reviewer-profile">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Reviewer" class="reviewer-avatar-img"/>
+          <div>
+            <div class="reviewer-name-txt">
+              Agency Creative Director 
+              <span class="verified-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+            </div>
+            <div class="reviewer-store-txt">Digital Commerce Agency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CLEAN FOOTER -->
 <footer>
-  <p>© 2026 Suraj Kumar · Senior Shopify Developer · Noida, India</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo-brand" style="margin-bottom: 0.85rem;">
+          <div class="logo-box">S</div>
+          <div class="logo-text-title">Suraj Kumar<span>.</span></div>
+        </div>
+        <p style="font-size: 12px; color: var(--text-on-dark-muted); line-height: 1.55; margin-bottom: 0.75rem;">
+          Senior Shopify Developer & Full-Stack App Architect specializing in high-converting OS 2.0 themes, Remix apps, and Plus solutions.
+        </p>
+        <div style="font-size: 11px; color: var(--text-on-dark-muted);">
+          📍 Noida, India • Available Globally
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="#major-services">Custom Shopify Apps</a></li>
+          <li><a href="#major-services">Dawn 16.0 OS 2.0 Themes</a></li>
+          <li><a href="#minor-services">CRO & PDP Optimization</a></li>
+          <li><a href="#flagship">Dynamic Metal Rates Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/919968034137" target="_blank">WhatsApp: +91 9968034137 ↗</a></li>
+          <li><a href="mailto:skpjony@gmail.com">Email: skpjony@gmail.com</a></li>
+          <li><a href="https://github.com/surajony122" target="_blank">GitHub Profile ↗</a></li>
+          <li><a href="https://surajony.my.canva.site/" target="_blank">Canva Portfolio Deck ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size: 11.5px; color: var(--text-on-dark-muted); margin-bottom: 6px;">
+          Weekly teardowns on Shopify Plus features, Liquid optimizations, and CRO frameworks.
+        </p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Suraj\'s Shopify Engineering Newsletter!');">
+          <input type="email" placeholder="Enter your email" class="newsletter-input" required/>
+          <button type="submit" class="btn btn-primary btn-sm">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom-strip">
+      <div>© 2026 Suraj Kumar. All Rights Reserved. Full-Stack Shopify App Architect.</div>
+      <div class="payment-icons">
+        <span class="payment-badge">Shopify Plus</span>
+        <span class="payment-badge">Remix</span>
+        <span class="payment-badge">Node.js</span>
+        <span class="payment-badge">Dawn 16.0</span>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<!-- 11. SLIDE-OVER SCOPE CART DRAWER -->
+<div class="drawer-overlay" id="scopeOverlay" onclick="toggleScopeDrawer(false)"></div>
+
+<div class="scope-drawer" id="scopeCartDrawer">
+
+  <!-- Post-Checkout Confirmation Overlay -->
+  <div class="scope-confirm-panel" id="scopeConfirmPanel">
+    <div class="confirm-check-circle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="confirm-title">Scope Sent!</div>
+    <p class="confirm-text" id="scopeConfirmText">I've received your request and will get back to you within 24 hours.</p>
+    <div class="confirm-actions">
+      <button class="btn btn-primary" onclick="resetScopeAfterCheckout()">Start a New Scope</button>
+      <button class="btn btn-secondary" onclick="closeConfirmPanel()">Keep Browsing</button>
+    </div>
+  </div>
+
+  <div class="drawer-header">
+    <div class="drawer-title">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Project Scope Cart</span>
+    </div>
+    <button class="drawer-close" onclick="toggleScopeDrawer(false)">✕</button>
+  </div>
+
+  <!-- Dynamic Sprint Tier / Bonus Progress Meter -->
+  <div style="background: #f4f3ef; border-bottom: 1px solid var(--border-default); padding: 10px 14px;">
+    <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;" id="drawerMeterText">
+      <span style="display: flex; align-items: center; gap: 4px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        Add <strong>1 service</strong> to start your proposal!
+      </span>
+    </div>
+    <div style="width: 100%; height: 5px; background: #e2ded4; border-radius: var(--r-full); overflow: hidden;">
+      <div id="drawerMeterFill" style="width: 0%; height: 100%; background: var(--shopify-green); transition: width 0.3s ease; border-radius: var(--r-full);"></div>
+    </div>
+  </div>
+
+  <!-- Cart Items List -->
+  <div class="drawer-items-list" id="scopeItemsContainer">
+    <div class="drawer-empty-msg">
+      <p>Your project scope is empty.</p>
+      <p style="margin-top: 5px; font-size: 11px;">Click <strong>"+ Add to Scope"</strong> on any service to build your custom proposal.</p>
+    </div>
+  </div>
+
+  <!-- In-Cart Upsells -->
+  <div style="background: #f4f3ef; border-top: 1px solid var(--border-default); padding: 10px 14px;">
+    <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+      Recommended Sprint Add-ons
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="background: #ffffff; border: 1px solid var(--border-default); border-radius: var(--r-md); padding: 6px 10px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div style="font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 4px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Speed Boost (Core Web Vitals)
+          </div>
+          <div style="font-size: 9.5px; color: var(--text-tertiary);">Sub-1.2s LCP (3-5 Days)</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" style="padding: 3px 8px; font-size: 10.5px;" onclick="addService('Core Web Vitals Speed Boost', '3-5 Days', 8000)">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-footer-actions">
+    <div class="promo-row">
+      <input type="text" id="promoCodeInput" class="newsletter-input" placeholder="Promo code (try FIRST10)"/>
+      <button class="btn btn-secondary btn-sm" onclick="applyPromoCode()">Apply</button>
+    </div>
+    <div class="promo-msg" id="promoMsg"></div>
+
+    <div class="scope-summary-rows">
+      <div class="summary-row">
+        <span id="scopeItemCountLabel">0 items</span>
+        <strong id="scopeSubtotal">₹0</strong>
+      </div>
+      <div class="summary-row summary-discount" id="scopeDiscountRow" style="display: none;">
+        <span>Discount</span>
+        <strong id="scopeDiscountAmt">-₹0</strong>
+      </div>
+      <div class="summary-row summary-total">
+        <span>Est. Total</span>
+        <strong id="scopeTotalPrice">₹0</strong>
+      </div>
+      <div class="summary-row">
+        <span>Est. Delivery</span>
+        <span style="color: var(--text-primary); font-weight: 600;" id="scopeEstTime">Custom Timeline</span>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" style="width: 100%; padding: 8px;" onclick="checkoutWhatsApp()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+      Checkout Scope via WhatsApp ↗
+    </button>
+    <button class="btn btn-secondary" style="width: 100%; padding: 7px;" onclick="checkoutEmail()">
+      Send Scope via Email ✉
+    </button>
+  </div>
+</div>
+
+<!-- 12. STICKY MOBILE CONVERSION BAR -->
+<div class="mobile-sticky-bar">
+  <div>
+    <div style="font-size: 11.5px; font-weight: 600;">Suraj Kumar</div>
+    <div style="font-size: 9px; color: var(--shopify-green); display: flex; align-items: center; gap: 4px;">
+      <span class="status-indicator"></span> Available for Hire
+    </div>
+  </div>
+  <div style="display: flex; gap: 6px;">
+    <button class="btn btn-secondary btn-sm" onclick="toggleScopeDrawer(true)" style="padding: 4px 8px; font-size: 10.5px;">Cart (<span id="mobileCartCount">0</span>)</button>
+    <a href="https://wa.me/919968034137" target="_blank" class="btn btn-primary btn-sm" style="padding: 4px 10px; font-size: 10.5px;">WhatsApp</a>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION STACK -->
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- JAVASCRIPT ENGINE -->
+<script>
+let cartScope = [];
+let appliedPromo = null; // { code, percent }
+const PROMO_CODES = { 'FIRST10': 10, 'SCOPE15': 15 };
+
+function toggleScopeDrawer(open) {
+  const drawer = document.getElementById('scopeCartDrawer');
+  const overlay = document.getElementById('scopeOverlay');
+  if (open) {
+    drawer.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    closeConfirmPanel();
+  }
+}
+
+function addService(name, turnaround, price) {
+  const exists = cartScope.some(item => item.name === name);
+  if (!exists) {
+    cartScope.push({ name, turnaround, price: price || 0 });
+    updateScopeCart();
+    showToast(price ? `Added "${name}" — ₹${price.toLocaleString('en-IN')}` : `Added "${name}" to your scope`);
+    bumpCartCount();
+  } else {
+    showToast(`"${name}" is already in your scope`);
+  }
+  toggleScopeDrawer(true);
+}
+
+// Toast notifications
+function showToast(message) {
+  const stack = document.getElementById('toastStack');
+  if (!stack) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span class="toast-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>${message}`;
+  stack.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 250);
+  }, 2200);
+}
+
+// Cart icon "bump" feedback
+function bumpCartCount() {
+  ['navScopeCount', 'mobileCartCount'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('bump');
+    void el.offsetWidth; // restart animation
+    el.classList.add('bump');
+  });
+}
+
+function removeService(idx) {
+  cartScope.splice(idx, 1);
+  updateScopeCart();
+}
+
+function calculateEstimatedDelivery(items) {
+  if (!items || items.length === 0) return 'Custom Timeline';
+  if (items.length === 1) return `Approx. ${items[0].turnaround}`;
+
+  let minDays = 0;
+  let maxDays = 0;
+
+  items.forEach(item => {
+    const t = (item.turnaround || '').toLowerCase();
+    if (t.includes('day')) {
+      const nums = t.match(/\d+/g);
+      if (nums && nums.length >= 2) {
+        minDays += parseInt(nums[0]);
+        maxDays += parseInt(nums[1]);
+      } else {
+        minDays += 3; maxDays += 5;
+      }
+    } else if (t.includes('week')) {
+      const nums = t.match(/\d+/g);
+      if (nums && nums.length >= 2) {
+        minDays += parseInt(nums[0]) * 5;
+        maxDays += parseInt(nums[1]) * 5;
+      } else {
+        minDays += 10; maxDays += 15;
+      }
+    }
+  });
+
+  if (maxDays <= 6) {
+    return `Approx. ${minDays}-${maxDays} Days`;
+  }
+  const minWeeks = Math.max(1, Math.round(minDays / 5 * 0.7));
+  const maxWeeks = Math.max(minWeeks + 1, Math.round(maxDays / 5 * 0.75));
+  return `Approx. ${minWeeks}-${maxWeeks} Weeks`;
+}
+
+function updateScopeCart() {
+  const navCount = document.getElementById('navScopeCount');
+  const mobileCount = document.getElementById('mobileCartCount');
+  const itemCountLabel = document.getElementById('scopeItemCountLabel');
+  const subtotalEl = document.getElementById('scopeSubtotal');
+  const discountRow = document.getElementById('scopeDiscountRow');
+  const discountAmtEl = document.getElementById('scopeDiscountAmt');
+  const totalPriceEl = document.getElementById('scopeTotalPrice');
+  const estTime = document.getElementById('scopeEstTime');
+  const container = document.getElementById('scopeItemsContainer');
+  const meterFill = document.getElementById('drawerMeterFill');
+  const meterText = document.getElementById('drawerMeterText');
+
+  navCount.textContent = cartScope.length;
+  if (mobileCount) mobileCount.textContent = cartScope.length;
+
+  // Pricing: subtotal, promo discount, total
+  const subtotal = cartScope.reduce((sum, item) => sum + (item.price || 0), 0);
+  const discount = appliedPromo ? Math.round(subtotal * appliedPromo.percent / 100) : 0;
+  const total = subtotal - discount;
+
+  if (itemCountLabel) itemCountLabel.textContent = `${cartScope.length} item${cartScope.length === 1 ? '' : 's'}`;
+  if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+  if (discountRow) discountRow.style.display = discount > 0 ? 'flex' : 'none';
+  if (discountAmtEl && appliedPromo) discountAmtEl.textContent = `-₹${discount.toLocaleString('en-IN')} (${appliedPromo.code})`;
+  if (totalPriceEl) totalPriceEl.textContent = `₹${total.toLocaleString('en-IN')}`;
+
+  if (cartScope.length === 0) {
+    meterFill.style.width = '0%';
+    meterText.innerHTML = `<span style="display:flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Add <strong>1 service</strong> to start your proposal!</span>`;
+    estTime.textContent = 'Custom Timeline';
+    container.innerHTML = `
+      <div class="drawer-empty-msg">
+        <p>Your project scope is empty.</p>
+        <p style="margin-top: 5px; font-size: 11px;">Click <strong>"+ Add to Scope"</strong> on any service to build your proposal.</p>
+      </div>
+    `;
+    return;
+  } else if (cartScope.length === 1) {
+    meterFill.style.width = '50%';
+    meterText.innerHTML = `<span style="display:flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Add <strong>1 more service</strong> to unlock <strong>Free Speed Audit</strong>!</span>`;
+  } else {
+    meterFill.style.width = '100%';
+    meterText.innerHTML = `<span style="display:flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Unlocked:</strong> Free Core Web Vitals Audit & Support!</span>`;
+  }
+
+  estTime.textContent = calculateEstimatedDelivery(cartScope);
+  let html = '';
+  cartScope.forEach((item, index) => {
+    html += `
+      <div class="cart-item-card">
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-time">Turnaround: ${item.turnaround}</div>
+        </div>
+        <div class="cart-item-price-block">
+          ${item.price ? `<span class="cart-item-price">₹${item.price.toLocaleString('en-IN')}</span>` : ''}
+          <button class="cart-item-del" onclick="removeService(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+// Promo code
+function applyPromoCode() {
+  const input = document.getElementById('promoCodeInput');
+  const msg = document.getElementById('promoMsg');
+  if (!input || !msg) return;
+  const code = input.value.trim().toUpperCase();
+
+  if (!code) {
+    appliedPromo = null;
+    msg.textContent = 'Enter a code above to apply a discount.';
+    msg.style.color = 'var(--text-tertiary)';
+  } else if (PROMO_CODES[code]) {
+    appliedPromo = { code, percent: PROMO_CODES[code] };
+    msg.textContent = `✓ Code "${code}" applied — ${PROMO_CODES[code]}% off your scope`;
+    msg.style.color = 'var(--shopify-green)';
+  } else {
+    appliedPromo = null;
+    msg.textContent = `"${code}" is not a valid code.`;
+    msg.style.color = '#ef4444';
+  }
+  updateScopeCart();
+}
+
+// Post-checkout confirmation panel
+function showConfirmPanel(message) {
+  const panel = document.getElementById('scopeConfirmPanel');
+  const text = document.getElementById('scopeConfirmText');
+  if (text && message) text.textContent = message;
+  if (panel) panel.classList.add('active');
+}
+
+function closeConfirmPanel() {
+  const panel = document.getElementById('scopeConfirmPanel');
+  if (panel) panel.classList.remove('active');
+}
+
+function resetScopeAfterCheckout() {
+  cartScope = [];
+  appliedPromo = null;
+  const promoInput = document.getElementById('promoCodeInput');
+  const promoMsg = document.getElementById('promoMsg');
+  if (promoInput) promoInput.value = '';
+  if (promoMsg) promoMsg.textContent = '';
+  updateScopeCart();
+  closeConfirmPanel();
+}
+
+function buildScopePricingSummary() {
+  const subtotal = cartScope.reduce((sum, item) => sum + (item.price || 0), 0);
+  const discount = appliedPromo ? Math.round(subtotal * appliedPromo.percent / 100) : 0;
+  const total = subtotal - discount;
+  if (subtotal <= 0) return '';
+  let lines = `\nEst. Subtotal: ₹${subtotal.toLocaleString('en-IN')}`;
+  if (discount > 0) lines += `\nDiscount (${appliedPromo.code}): -₹${discount.toLocaleString('en-IN')}`;
+  lines += `\nEst. Total: ₹${total.toLocaleString('en-IN')}`;
+  return lines;
+}
+
+function checkoutWhatsApp() {
+  const phone = "919968034137";
+  let text = "Hi Suraj, I am looking to hire you for the following Shopify scope:\n\n";
+  if (cartScope.length > 0) {
+    cartScope.forEach((item, idx) => {
+      text += `${idx + 1}. ${item.name} (${item.turnaround})${item.price ? ` — ₹${item.price.toLocaleString('en-IN')}` : ''}\n`;
+    });
+    text += buildScopePricingSummary();
+  } else {
+    text += "- Shopify Full-Stack App / Theme Customization Consultation\n";
+  }
+  text += "\n\nPlease let me know your availability and estimated proposal.";
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+  showConfirmPanel("I've received your scope via WhatsApp and will reply within 24 hours.");
+}
+
+function checkoutEmail() {
+  let subject = "Shopify Project Scope Inquiry — Suraj Kumar";
+  let body = "Hi Suraj,\n\nI would like to request a proposal for the following services:\n\n";
+  if (cartScope.length > 0) {
+    cartScope.forEach((item, idx) => {
+      body += `- ${item.name} (${item.turnaround})${item.price ? ` — ₹${item.price.toLocaleString('en-IN')}` : ''}\n`;
+    });
+    body += buildScopePricingSummary();
+  } else {
+    body += "- Custom Shopify Development & CRO Services\n";
+  }
+  body += "\n\nPlease get back to me with next steps.\n\nBest regards,";
+  window.location.href = `mailto:skpjony@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  showConfirmPanel("Your scope has been drafted in an email — send it and I'll reply within 24 hours.");
+}
+
+// Showcase Switcher with Curated Accurate Imagery
+const showcaseData = {
+  canva: {
+    badge: "Official Portfolio Deck",
+    title: "Suraj Kumar — Visual Portfolio Deck",
+    desc: "Explore complete visual slides, live client case studies, custom Liquid architectures, and client testimonials on my verified Canva portfolio.",
+    btnText: "Launch Live Portfolio",
+    img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80",
+    footerLeft: "150+ Brands Scaled",
+    url: "https://surajony.my.canva.site/"
+  },
+  gemstones: {
+    badge: "Flagship Full-Stack App",
+    title: "Only Natural Gemstones (Shubh Gems)",
+    desc: "Full-stack Vedic gemstone e-commerce platform with dynamic metal rates matrix, 3-way customizer flow, and parent-child atomic cart bundling.",
+    btnText: "Explore Gemstone Customizer",
+    img: "https://onlynaturalgemstones.com/cdn/shop/files/home_page_top_banner_desktop_ong.png?format=webp&width=1200",
+    footerLeft: "Remix / Node App + Dawn 16.0",
+    url: "https://onlynaturalgemstones.com"
+  },
+  odette: {
+    badge: "Fashion & Apparel DTC",
+    title: "Odette.in — Women's Western Wear",
+    desc: "High-converting fashion store with dynamic size swatches, custom lookbook metafields, sticky mobile add-to-cart, and +28% conversion lift.",
+    btnText: "Visit Odette.in",
+    img: "https://cdn.shopify.com/s/files/1/0267/7728/8764/files/universal_banner_odette.jpg?v=1771929171&width=1200",
+    footerLeft: "+28% Conversion Rate Lift",
+    url: "https://odette.in"
+  },
+  avimee: {
+    badge: "Health & Ayurveda DTC",
+    title: "AvimeeHerbal.com — Top Hair Care",
+    desc: "Scale-up Ayurvedic brand featuring a bespoke multi-tier bundle builder, interactive diagnostic hair quiz, and recurring subscription checkouts.",
+    btnText: "Visit AvimeeHerbal.com",
+    img: "https://avimeeherbal.com/cdn/shop/files/website_banner_copy_c94ba59f-a27f-4b11-9e8c-68ebdf6d7182.png?v=1779436118&width=1200",
+    footerLeft: "+42% Average Order Value",
+    url: "https://avimeeherbal.com"
+  },
+  cellbell: {
+    badge: "Ergonomic Furniture & Tech",
+    title: "Cellbell.in — Gaming & Ergonomic Chairs",
+    desc: "Premier seating brand featuring interactive 3D chair configurator, visual mega menu with collection photography, and live pin-code logistics estimation.",
+    btnText: "Visit Cellbell.in",
+    img: "https://cellbell.in/cdn/shop/files/CellbellCrownLuxuary1.png?width=1200",
+    footerLeft: "3.4x Add to Cart Uplift",
+    url: "https://cellbell.in"
+  }
+};
+
+function switchShowcase(key, url, btn) {
+  document.querySelectorAll('.browser-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const data = showcaseData[key] || showcaseData.canva;
+  document.getElementById('showcaseBadge').textContent = data.badge;
+  document.getElementById('showcaseTitle').textContent = data.title;
+  document.getElementById('showcaseDesc').textContent = data.desc;
+  document.getElementById('showcaseBtn').innerHTML = `${data.btnText} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>`;
+  document.getElementById('showcaseBtn').href = data.url;
+  document.getElementById('showcaseImg').src = data.img;
+  document.getElementById('showcaseFooterLeft').innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--shopify-green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${data.footerLeft}`;
+  document.getElementById('showcaseFooterLink').href = data.url;
+}
+
+// Customizer Simulator
+let baseGemPrice = 42500;
+let flowAddon = 0;
+let metalAddon = 0;
+let selectedFlowName = "Loose Gemstone";
+let selectedMetalName = "18K Yellow Gold";
+
+function setFlow(flowId, name, price, btn) {
+  document.querySelectorAll('.flow-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedFlowName = name;
+  flowAddon = price - baseGemPrice;
+  updateCustomizerPrice();
+}
+
+function setMetal(name, delta, btn) {
+  document.querySelectorAll('.metal-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedMetalName = name;
+  metalAddon = delta;
+  updateCustomizerPrice();
+}
+
+function updateCustomizerPrice() {
+  const total = baseGemPrice + flowAddon + metalAddon;
+  document.getElementById('customizerLivePrice').textContent = `₹ ${total.toLocaleString('en-IN')}`;
+}
+
+function addCustomGemToScope() {
+  const total = baseGemPrice + flowAddon + metalAddon;
+  addService(`Shubh Gems: ${selectedFlowName} in ${selectedMetalName}`, '1-2 Weeks', total);
+}
+
+// Case Studies Filter
+// Shared filter helper: drives both the Case Studies tabs and the Services collection tabs
+function filterCards(cat, btn, tabGroupSelector, cardSelector) {
+  document.querySelectorAll(tabGroupSelector).forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll(cardSelector);
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category') || card.getAttribute('data-collection');
+    if (cat === 'all' || cardCat === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function filterCollections(cat, btn) {
+  filterCards(cat, btn, '.coll-tab', '.case-card');
+}
+
+// Hero "shop by category" pills: scroll straight to the matching standalone section
+function jumpToCollection(event, sectionId) {
+  event.preventDefault();
+  const target = document.getElementById(sectionId);
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Animated hero metric counters (count up when scrolled into view)
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const duration = 1200;
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = `${prefix}${(target * eased).toFixed(decimals)}${suffix}`;
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+function initMetricCounters() {
+  const card = document.querySelector('.hero-metrics-card');
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!card || !counters.length) return;
+
+  let animated = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        counters.forEach(animateCounter);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(card);
+}
+document.addEventListener('DOMContentLoaded', initMetricCounters);
+</script>
 
 </body>
 </html>
