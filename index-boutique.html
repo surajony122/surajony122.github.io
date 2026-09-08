@@ -174,9 +174,11 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.
 .case-editorial{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:48px;padding:44px 0;border-bottom:1px solid var(--line)}
 .case-editorial.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)}
 .case-editorial.flip .case-media{order:2}
-.case-media{position:relative;aspect-ratio:4/3;background:#f2f2f2;overflow:hidden}
+.case-media{position:relative;aspect-ratio:4/3;background:#f2f2f2;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.case-media-cell{position:relative;overflow:hidden;background:#111}
 .case-media-bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(28px) brightness(.82);transform:scale(1.15)}
 .case-media-fg{position:relative;width:100%;height:100%;object-fit:contain;z-index:1}
+.case-media-cell iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
 .case-head-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:6px}
 .case-name{font-family:var(--font-serif);font-weight:400;font-size:32px;text-transform:uppercase}
 .case-link{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);white-space:nowrap}
@@ -191,6 +193,9 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.
 .case-compact:nth-child(1){padding-left:0;border-right:1px solid var(--line)}
 .case-compact:nth-child(2){border-right:1px solid var(--line)}
 .case-compact:nth-child(3){padding-right:0}
+.case-compact-media{position:relative;aspect-ratio:16/9;background:#f2f2f2;overflow:hidden;margin-bottom:16px}
+.case-compact-media .case-media-bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(28px) brightness(.82);transform:scale(1.15)}
+.case-compact-media .case-media-fg{position:relative;width:100%;height:100%;object-fit:contain;z-index:1}
 .case-compact h4{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .case-compact-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
 .case-compact-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
@@ -709,21 +714,24 @@ const EXPLORER = [
 ];
 
 const CASE_STUDIES = [
-  { id:'cs-ong', name:'Only Natural Gemstones', cat:'jewellery', catLabel:'Jewellery · Enterprise build · Remix / Node / Prisma', link:'https://onlynaturalgemstones.com', img:IMG.ong, flip:false, editorial:true,
+  { id:'cs-ong', name:'Only Natural Gemstones', cat:'jewellery', catLabel:'Jewellery · Enterprise build · Remix / Node / Prisma', link:'https://onlynaturalgemstones.com', flip:false, editorial:true,
+    media:[{type:'image', src:IMG.ong}, {type:'image', src:'assets/clients/ong-showroom.jpg'}],
     fe:['Live 3-way product customizer UI','Real-time price preview on selection','Astrological / personalization input flow','Mobile-first PDP with certification badges'],
     be:['Remix + Node.js app on App Proxy','Live metal-rate computation engine','Prisma + PostgreSQL data model','Parent-child bundle logic for variants'] },
-  { id:'cs-cellbell', name:'Cellbell', cat:'furniture', catLabel:'Furniture · Very high complexity · ~5 weeks · OS 2.0 build', link:'https://cellbell.in', img:IMG.cellbell, flip:true, editorial:true,
+  { id:'cs-cellbell', name:'Cellbell', cat:'furniture', catLabel:'Furniture · Very high complexity · ~5 weeks · OS 2.0 build', link:'https://cellbell.in', flip:true, editorial:true,
+    media:[{type:'image', src:IMG.cellbell}, {type:'video', src:'https://www.youtube.com/embed/QSEBgiEfyj8?autoplay=1&mute=1&controls=0&loop=1&playlist=QSEBgiEfyj8&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3'}],
     fe:['Mega menu with category imagery and sub-collections','Product configurator section for variant selection','Custom cart drawer with dynamic upsell logic','Advanced Liquid templating across OS 2.0 sections'],
     be:['Metaobject-driven specification comparison tables','Logistics API integration for live delivery estimates','Variant and inventory data modelling','Upsell rules wired to cart-level conditions'] },
-  { id:'cs-zeraki', name:'Zeraki Jewels', cat:'jewellery', catLabel:'Jewellery · High complexity · ~3 weeks · PDP & cart work', link:'https://zerakijewels.com', img:IMG.zeraki, flip:false, editorial:true,
+  { id:'cs-zeraki', name:'Zeraki Jewels', cat:'jewellery', catLabel:'Jewellery · High complexity · ~3 weeks · PDP & cart work', link:'https://zerakijewels.com', flip:false, editorial:true,
+    media:[{type:'image', src:IMG.zeraki}, {type:'image', src:'assets/clients/zeraki-faces.jpg'}],
     fe:['Metal type and gemstone swatch selector on the PDP','Ring size guide modal with custom illustration','Collection filtering by material, gemstone, price, occasion','High-resolution jewellery image optimisation'],
     be:['Gift packaging add-on flow at cart level','Loyalty and rewards app integration for repeat purchase','Variant option data model for metals and stones','Filter and facet configuration behind the collection UI'] }
 ];
 
 const CASE_COMPACT = [
-  { name:'Odette', cat:'fashion', catLabel:'Fashion · Ongoing', link:'https://odette.in', fe:'CRO-focused PDP improvements, metafield-driven content blocks, responsive QA per deploy.', be:'App integrations, speed audits and release monitoring.' },
-  { name:'Avimee Herbal', cat:'beauty', catLabel:'Beauty & health · ~4 weeks', link:'https://avimeeherbal.com', fe:'Live bundle sections with dynamic pricing, quiz-based recommender, Core Web Vitals tuning.', be:'Custom checkout and subscription billing logic.' },
-  { name:'House of Gulab', cat:'fashion', catLabel:'Fashion · ~5 weeks', link:'https://houseofgulab.com', fe:'Fully custom coded theme, product-wise templates, custom size guide.', be:'Metafield pre-order flow, payment gateway and structured data.' }
+  { name:'Odette', cat:'fashion', catLabel:'Fashion · Ongoing', link:'https://odette.in', img:'https://odette.in/cdn/shop/files/Homepage_Banner_-_Half_-_Dresses.jpg', fe:'CRO-focused PDP improvements, metafield-driven content blocks, responsive QA per deploy.', be:'App integrations, speed audits and release monitoring.' },
+  { name:'Avimee Herbal', cat:'beauty', catLabel:'Beauty & health · ~4 weeks', link:'https://avimeeherbal.com', img:'https://avimeeherbal.com/cdn/shop/files/1_c21727da-bb1e-417d-ace0-2a7e0b85f259.png', fe:'Live bundle sections with dynamic pricing, quiz-based recommender, Core Web Vitals tuning.', be:'Custom checkout and subscription billing logic.' },
+  { name:'House of Gulab', cat:'fashion', catLabel:'Fashion · ~5 weeks', link:'https://houseofgulab.com', img:IMG.gulab, fe:'Fully custom coded theme, product-wise templates, custom size guide.', be:'Metafield pre-order flow, payment gateway and structured data.' }
 ];
 
 const PROJECTS = [
@@ -858,12 +866,21 @@ function renderExplorerBody(id){
   `;
 }
 
+function caseMediaCell(m, name){
+  if (m.type === 'video') {
+    return `<div class="case-media-cell"><iframe src="${m.src}" title="${name} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>`;
+  }
+  return `<div class="case-media-cell">
+    <div class="case-media-bg" style="background-image:url('${m.src}')"></div>
+    <img class="case-media-fg" loading="lazy" decoding="async" src="${m.src}" alt="${name}"/>
+  </div>`;
+}
+
 function renderCaseStudies(){
   document.getElementById('caseEditorials').innerHTML = CASE_STUDIES.map(c => `
     <article class="case-editorial${c.flip ? ' flip':''}" data-cat="${c.cat}">
       <div class="case-media">
-        <div class="case-media-bg" style="background-image:url('${c.img}')"></div>
-        <img class="case-media-fg" loading="lazy" decoding="async" src="${c.img}" alt="${c.name}"/>
+        ${c.media.map(m => caseMediaCell(m, c.name)).join('')}
       </div>
       <div>
         <div class="case-head-row">
@@ -881,6 +898,10 @@ function renderCaseStudies(){
 
   document.getElementById('caseCompacts').innerHTML = CASE_COMPACT.map(c => `
     <div class="case-compact" data-cat="${c.cat}">
+      <div class="case-compact-media">
+        <div class="case-media-bg" style="background-image:url('${c.img}')"></div>
+        <img class="case-media-fg" loading="lazy" decoding="async" src="${c.img}" alt="${c.name}"/>
+      </div>
       <div class="case-compact-top"><h4>${c.name}</h4><a href="${c.link}" target="_blank" class="case-link">↗</a></div>
       <div class="case-compact-meta">${c.catLabel}</div>
       <p><strong>Frontend:</strong> ${c.fe} <strong>Backend:</strong> ${c.be}</p>
