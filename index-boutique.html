@@ -121,8 +121,9 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
 .svc-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 28px 28px;display:flex;flex-direction:column;gap:16px;transition:background .15s ease}
 .svc-card:hover{background:var(--bg-soft)}
-.svc-media{position:relative;aspect-ratio:4/5;background:#f2f2f2;overflow:hidden}
-.svc-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.svc-media{position:relative;aspect-ratio:4/3;background:#f2f2f2;overflow:hidden}
+.svc-media-bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(28px) brightness(.82);transform:scale(1.15)}
+.svc-media-fg{position:relative;width:100%;height:100%;object-fit:contain;z-index:1}
 .svc-ribbon{position:absolute;top:10px;left:10px;background:#fff;border:1px solid var(--ink);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;z-index:2}
 .svc-num{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
 .svc-title{font-size:16.5px;font-weight:500;letter-spacing:.005em}
@@ -173,8 +174,9 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.
 .case-editorial{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:48px;padding:44px 0;border-bottom:1px solid var(--line)}
 .case-editorial.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr)}
 .case-editorial.flip .case-media{order:2}
-.case-media{position:relative;aspect-ratio:3/4;background:#f2f2f2;overflow:hidden}
-.case-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.case-media{position:relative;aspect-ratio:4/3;background:#f2f2f2;overflow:hidden}
+.case-media-bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(28px) brightness(.82);transform:scale(1.15)}
+.case-media-fg{position:relative;width:100%;height:100%;object-fit:contain;z-index:1}
 .case-head-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:6px}
 .case-name{font-family:var(--font-serif);font-weight:400;font-size:32px;text-transform:uppercase}
 .case-link{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);white-space:nowrap}
@@ -220,9 +222,10 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,4.
 .brand-cell:hover{background:var(--bg-soft)}
 .brand-photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .brand-photo-card{position:relative;overflow:hidden;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:block}
-.brand-photo-media{position:relative;aspect-ratio:4/5;background:#f2f2f2;overflow:hidden}
-.brand-photo-media img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:transform .4s ease}
-.brand-photo-card:hover .brand-photo-media img{transform:scale(1.03)}
+.brand-photo-media{position:relative;aspect-ratio:4/3;background:#f2f2f2;overflow:hidden}
+.brand-photo-media-bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(28px) brightness(.82);transform:scale(1.15)}
+.brand-photo-media-fg{position:relative;width:100%;height:100%;object-fit:contain;z-index:1;transition:transform .4s ease}
+.brand-photo-card:hover .brand-photo-media-fg{transform:scale(1.03)}
 .brand-photo-info{padding:16px 18px}
 .brand-photo-name{font-family:var(--font-serif);font-size:19px;text-transform:uppercase;letter-spacing:.02em}
 .brand-photo-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-top:4px}
@@ -760,7 +763,8 @@ function renderMajor(){
     <article class="svc-card">
       <div class="svc-media">
         ${s.ribbon ? `<span class="svc-ribbon">${s.ribbon}</span>` : ''}
-        <img loading="lazy" decoding="async" src="${IMG_CYCLE[i % IMG_CYCLE.length]}" alt="${s.title}"/>
+        <div class="svc-media-bg" style="background-image:url('${IMG_CYCLE[i % IMG_CYCLE.length]}')"></div>
+        <img class="svc-media-fg" loading="lazy" decoding="async" src="${IMG_CYCLE[i % IMG_CYCLE.length]}" alt="${s.title}"/>
       </div>
       <div class="svc-num">${s.num} — Build</div>
       <div class="svc-title">${s.title}</div>
@@ -857,7 +861,10 @@ function renderExplorerBody(id){
 function renderCaseStudies(){
   document.getElementById('caseEditorials').innerHTML = CASE_STUDIES.map(c => `
     <article class="case-editorial${c.flip ? ' flip':''}" data-cat="${c.cat}">
-      <div class="case-media"><img loading="lazy" decoding="async" src="${c.img}" alt="${c.name}"/></div>
+      <div class="case-media">
+        <div class="case-media-bg" style="background-image:url('${c.img}')"></div>
+        <img class="case-media-fg" loading="lazy" decoding="async" src="${c.img}" alt="${c.name}"/>
+      </div>
       <div>
         <div class="case-head-row">
           <h3 class="case-name">${c.name}</h3>
@@ -916,7 +923,10 @@ function renderReviews(){
 function renderBrands(){
   document.getElementById('brandPhotoGrid').innerHTML = BRAND_PHOTOS.map(b => `
     <a class="brand-photo-card" href="${b.url}" target="_blank">
-      <div class="brand-photo-media"><img loading="lazy" decoding="async" src="${b.img}" alt="${b.name}"/></div>
+      <div class="brand-photo-media">
+        <div class="brand-photo-media-bg" style="background-image:url('${b.img}')"></div>
+        <img class="brand-photo-media-fg" loading="lazy" decoding="async" src="${b.img}" alt="${b.name}"/>
+      </div>
       ${b.badge ? `<span class="brand-photo-badge">${b.badge}</span>` : ''}
       <div class="brand-photo-overlay">
         <div class="brand-photo-overlay-name">${b.name}</div>
