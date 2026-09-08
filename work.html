@@ -76,8 +76,8 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(34px,5v
 .result-count{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-soft);margin-top:10px}
 
 /* work grid */
-.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.work-card{position:relative;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;transition:background .15s ease}
+.grid-3{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.work-card{position:relative;overflow:hidden;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;transition:background .15s ease}
 .work-card:hover{background:var(--bg-soft)}
 .work-media{position:relative;aspect-ratio:4/5;background:#f2f2f2;overflow:hidden}
 .work-media img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:transform .4s ease}
@@ -95,12 +95,12 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(34px,5v
 .work-empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--gray);font-size:12.5px}
 
 /* hover detail overlay — brand name, product, agency */
-.work-overlay{position:absolute;inset:0;background:rgba(255,255,255,.96);transform:translateY(100%);pointer-events:none;transition:transform .3s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:var(--ink);z-index:3}
+.work-overlay{position:absolute;inset:0;background:rgba(10,10,10,.6);transform:translateY(100%);pointer-events:none;transition:transform .3s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff;z-index:3}
 .work-card:hover .work-overlay{transform:translateY(0)}
-.work-overlay-name{font-family:var(--font-serif);font-size:20px;text-transform:uppercase;line-height:1.15;margin-bottom:12px}
-.work-overlay-row{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
-.work-overlay-row strong{display:block;color:var(--ink);font-weight:500;font-size:12px;letter-spacing:.01em;text-transform:none;margin-top:3px;line-height:1.4}
-.work-overlay-cta{font-size:9px;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid var(--line);padding-top:12px;color:var(--ink)}
+.work-overlay-name{font-family:var(--font-serif);font-size:18px;text-transform:uppercase;line-height:1.15;margin-bottom:10px}
+.work-overlay-row{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:8px}
+.work-overlay-row strong{display:block;color:#fff;font-weight:500;font-size:11px;letter-spacing:.01em;text-transform:none;margin-top:3px;line-height:1.4}
+.work-overlay-cta{font-size:9px;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;color:#fff}
 
 /* roll call */
 .rollcall-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -922,8 +922,7 @@ const WORK_DATA = [
     "image": "assets/clients/wishluck.jpg",
     "imageType": "photo"
   }
-];
-const NO_LINK_BRANDS = ["108", "Aurvikah", "Baankala", "Blushade", "CMD", "CStore", "Capital Solution", "Darji Fashion", "Deeproots", "Deer Doe", "Delta", "Desi Jutti", "Design Man", "Firky Fashions", "GenZ", "Goya", "Herbkind", "IMG", "Inayat", "Kadhira", "Kolor Therapy", "Marianne Decor", "MediEnd", "Mini West", "Nrjstore", "POE", "Panteasy", "Prolink", "Railingo", "Sapper", "Shopaarambh", "Sleepline", "St Jones", "Taghouse", "Talisman", "The House of Zoop", "Think Biz Consult", "Trrendo", "Type7", "UFO India", "Urbane Elegance", "VP", "VS Jewels", "Vishal Prints", "Wayven", "Weekend Boots", "YSS", "Yellowsquash", "Zarimo", "Zivanche Zaadran", "Zori World"];
+];const NO_LINK_BRANDS = ["108", "Aurvikah", "Baankala", "Blushade", "CMD", "CStore", "Capital Solution", "Darji Fashion", "Deeproots", "Deer Doe", "Delta", "Desi Jutti", "Design Man", "Firky Fashions", "GenZ", "Goya", "Herbkind", "IMG", "Inayat", "Kadhira", "Kolor Therapy", "Marianne Decor", "MediEnd", "Mini West", "Nrjstore", "POE", "Panteasy", "Prolink", "Railingo", "Sapper", "Shopaarambh", "Sleepline", "St Jones", "Taghouse", "Talisman", "The House of Zoop", "Think Biz Consult", "Trrendo", "Type7", "UFO India", "Urbane Elegance", "VP", "VS Jewels", "Vishal Prints", "Wayven", "Weekend Boots", "YSS", "Yellowsquash", "Zarimo", "Zivanche Zaadran", "Zori World"];
 
 /* ================= RENDER ================= */
 const CATEGORIES = ['All', 'Fashion', 'Jewellery', 'Beauty & Wellness', 'Home & Living', 'Food & Beverage', 'Other'];
