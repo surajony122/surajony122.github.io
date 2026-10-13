@@ -68,6 +68,7 @@ h1.display{font-family:var(--font-serif);font-weight:400;font-size:clamp(34px,5v
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .filter-tab{border:1px solid var(--line);padding:9px 16px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
 .filter-tab.active{border-color:var(--ink);background:var(--ink);color:#fff}
+.filter-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-top:32px}
 .filter-tab:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 .search-row{margin-top:18px}
 .search-input{width:100%;max-width:420px;border:1px solid var(--line);padding:12px 16px;font-size:12.5px;font-family:inherit;outline:none;background:#fff}
@@ -165,10 +166,10 @@ footer{margin-top:96px;border-top:1px solid var(--ink);padding:56px 40px 40px;di
 <section class="section-shell">
   <div class="eyebrow">The Full Archive</div>
   <h1 class="display">All Client Work</h1>
-  <p class="lede">Every documented Shopify &amp; WordPress engagement from five years across two agencies — Digisidekick (2023–2026) and Uniqoe Media (2021–2022). 70 live, linkable stores below with real product photography and banners pulled from each site — hover any card for the brand, product and agency; the rest are listed by name further down.</p>
+  <p class="lede">Every documented Shopify &amp; WordPress engagement from five years across two agencies — Digisidekick (2023–2026) and Uniqoe Media (2021–2022) — plus direct freelance clients. 90 live, linkable stores below — filter by where I worked, with real product photography and banners pulled from each site — hover any card for the brand, product and agency; the rest are listed by name further down.</p>
   <div class="stat-row">
-    <div><div class="stat-n">70+</div><div class="stat-l">Linked live stores</div></div>
-    <div><div class="stat-n">65</div><div class="stat-l">Real product photos</div></div>
+    <div><div class="stat-n">90</div><div class="stat-l">Linked live stores</div></div>
+    <div><div class="stat-n">3</div><div class="stat-l">Ways to filter</div></div>
     <div><div class="stat-n">6</div><div class="stat-l">Categories</div></div>
     <div><div class="stat-n">120+</div><div class="stat-l">Brands total on file</div></div>
   </div>
@@ -176,7 +177,10 @@ footer{margin-top:96px;border-top:1px solid var(--ink);padding:56px 40px 40px;di
 
 <!-- FILTERABLE GRID -->
 <section class="section-shell">
-  <div class="filter-tabs" id="filterTabs"></div>
+  <div class="filter-label">Where I worked</div>
+  <div class="filter-tabs" id="agencyTabs" style="margin-top:10px"></div>
+  <div class="filter-label" style="margin-top:22px">Category</div>
+  <div class="filter-tabs" id="filterTabs" style="margin-top:10px"></div>
   <div class="search-row"><input type="text" id="searchInput" class="search-input" placeholder="Search by brand or product…"/></div>
   <div class="result-count" id="resultCount"></div>
   <div class="grid-3" id="workGrid" style="margin-top:16px;border-top:1px solid var(--line);border-left:1px solid var(--line)"></div>
@@ -196,7 +200,7 @@ footer{margin-top:96px;border-top:1px solid var(--ink);padding:56px 40px 40px;di
 <footer>
   <div>
     <div class="footer-word">Suraj</div>
-    <p class="footer-blurb">Senior Shopify Developer & Team Lead. Available for full-time remote roles, freelance projects and Shopify Plus consulting.</p>
+    <p class="footer-blurb">Ecommerce Growth Architect — Shopify & AI. Available for full-time remote roles, freelance projects and Shopify Plus consulting.</p>
   </div>
   <div class="footer-col">
     <div class="footer-col-label">Contact</div>
@@ -218,733 +222,52 @@ footer{margin-top:96px;border-top:1px solid var(--ink);padding:56px 40px 40px;di
   </div>
   <div class="footer-bottom">
     <span>© 2026 Suraj Kumar</span>
-    <span>Full-Stack Shopify App Architect</span>
+    <span>Ecommerce Growth Architect — Shopify &amp; AI</span>
   </div>
 </footer>
 
+<script src="assets/work-data.js"></script>
 <script>
-/* ===== DATA — extracted from "with kiniks.xlsx"; imagery is a real mobile-viewport screenshot of each live site ===== */
-const WORK_DATA = [
-  {
-    "name": "Autodecode",
-    "url": "https://autodecode.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Genuine car spare parts & service kits",
-    "badge": null,
-    "image": "assets/clients/autodecode.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Bagaan",
-    "url": "https://www.bagaanorigin.com/",
-    "agency": "Digi Sidekick",
-    "category": "Food & Beverage",
-    "product": "Fresh fruits, vegetables & farm produce",
-    "badge": null,
-    "image": "assets/clients/bagaan.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Beantree",
-    "url": "https://www.beantreefoods.com/",
-    "agency": "Uniqoe Media",
-    "category": "Food & Beverage",
-    "product": "Healthy snacks & clean-eating foods",
-    "badge": null,
-    "image": "assets/clients/beantree.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Billi Hu",
-    "url": "https://bilihu.in/",
-    "agency": "Uniqoe Media",
-    "category": "Food & Beverage",
-    "product": "Specialty roasted coffee beans",
-    "badge": null,
-    "image": "assets/clients/billi-hu.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Book Spring India",
-    "url": "https://bookspringindia.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Affordable pre-loved books",
-    "badge": null,
-    "image": "assets/clients/book-spring-india.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "By the Bay",
-    "url": "https://shopbythebay.com/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Women’s fashion for every occasion",
-    "badge": null,
-    "image": "assets/clients/by-the-bay.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Cats&Bows",
-    "url": "https://catsandbows.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Hand-made bow hair accessories",
-    "badge": null,
-    "image": "assets/clients/cats-bows.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Celestial Perfume",
-    "url": "https://celestialperfume.in/",
-    "agency": "Digi Sidekick",
-    "category": "Beauty & Wellness",
-    "product": "Long-lasting Italian-inspired perfumes",
-    "badge": null,
-    "image": "assets/clients/celestial-perfume.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Cellbell",
-    "url": "https://cellbell.in/",
-    "agency": "Digi Sidekick",
-    "category": "Home & Living",
-    "product": "Ergonomic gaming & office chairs",
-    "badge": null,
-    "image": "assets/clients/cellbell.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Charmacy India",
-    "url": "https://charmacyworld.com/",
-    "agency": "Digi Sidekick",
-    "category": "Beauty & Wellness",
-    "product": "Vegan, cruelty-free cosmetics",
-    "badge": null,
-    "image": "assets/clients/charmacy-india.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Dashia",
-    "url": "https://www.dashia.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Contemporary women’s fashion",
-    "badge": null,
-    "image": "assets/clients/dashia.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Desi SASS",
-    "url": "https://desisass.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Handcrafted apparel, indigenous weaves",
-    "badge": null,
-    "image": "assets/clients/desi-sass.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Designerpret",
-    "url": "https://designerpret.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Designer ready-to-wear fashion",
-    "badge": null,
-    "image": "assets/clients/designerpret.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Desire Label",
-    "url": "https://www.desirelabel.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Women’s fashion label",
-    "badge": null,
-    "image": "assets/clients/desire-label.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Diksha",
-    "url": "https://dikshafashion.co.uk/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Fusion & ethnic wear",
-    "badge": null,
-    "image": "https://dikshafashion.co.uk/_next/image?url=https%3A%2F%2Fapi.dikshafashion.co.uk%2Fuploads%2Fcustom-images%2Fdiksha-products%2Fdiksha-product-020.jpeg&w=3840&q=75",
-    "imageType": "photo"
-  },
-  {
-    "name": "Dira by Diksha",
-    "url": "https://dirabydiksha.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Fusion & ethnic wear",
-    "badge": null,
-    "image": "assets/clients/dira-by-diksha.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Earthofab",
-    "url": "https://earthofab.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Co-ord sets, kurta sets & dresses",
-    "badge": null,
-    "image": "https://earthofab.com/cdn/shop/files/Anakali_Mobile_Banner.jpg?v=1743595768&width=1200",
-    "imageType": "photo"
-  },
-  {
-    "name": "Ecomally",
-    "url": "https://ecomally.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "D2C brand-building services",
-    "badge": null,
-    "image": "assets/clients/ecomally.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Ekastories",
-    "url": "https://www.ekastories.com/",
-    "agency": "Uniqoe Media",
-    "category": "Fashion",
-    "product": "Fashion & lifestyle brand",
-    "badge": null,
-    "image": null,
-    "imageType": "none"
-  },
-  {
-    "name": "Fabric Forever",
-    "url": "https://fabricforever.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Premium sewing & apparel fabrics",
-    "badge": null,
-    "image": "assets/clients/fabric-forever.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "House of Gulab",
-    "url": "https://houseofgulab.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Luxury Indian ethnic couture",
-    "badge": null,
-    "image": "assets/clients/house-of-gulab.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Ink Hub",
-    "url": "https://www.inkhub.in/",
-    "agency": "Digi Sidekick",
-    "category": "Beauty & Wellness",
-    "product": "Semi-permanent tattoos",
-    "badge": null,
-    "image": "assets/clients/ink-hub.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Italian Shoe",
-    "url": "https://italianshoescompany.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Handmade Italian leather shoes",
-    "badge": null,
-    "image": "assets/clients/italian-shoe.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Just Lil Things",
-    "url": "https://www.justlilthings.in/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Millennial fashion jewellery",
-    "badge": null,
-    "image": "assets/clients/just-lil-things.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Kasturi",
-    "url": "https://kasturicreations.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Ethnic wear for women",
-    "badge": null,
-    "image": "assets/clients/kasturi.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Kimara",
-    "url": "https://kimara.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Women’s fashion",
-    "badge": null,
-    "image": "assets/clients/kimara.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Knot Your Type",
-    "url": "https://www.knotyourtype.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Beginner embroidery kits",
-    "badge": null,
-    "image": "assets/clients/knot-your-type.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Kreshya",
-    "url": "https://kreshya.com/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Contemporary silver jewellery",
-    "badge": null,
-    "image": "assets/clients/kreshya.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Kyle",
-    "url": "https://www.kylexshahida.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Loungewear, kimonos & designer dresses",
-    "badge": null,
-    "image": "assets/clients/kyle.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Lady Boss",
-    "url": "https://ladybossbyegoss.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Genuine leather footwear for women",
-    "badge": null,
-    "image": "assets/clients/lady-boss.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Lili Origin",
-    "url": "https://www.liliorigin.com/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Handcrafted fashion jewellery & hampers",
-    "badge": null,
-    "image": "assets/clients/lili-origin.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "LoveDKY",
-    "url": "https://lovedky.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Graphic t-shirts for women",
-    "badge": null,
-    "image": "assets/clients/lovedky.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Lumosique",
-    "url": "https://lumosique.com/",
-    "agency": "Digi Sidekick",
-    "category": "Beauty & Wellness",
-    "product": "Home lighting & decor",
-    "badge": null,
-    "image": "assets/clients/lumosique.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Machismo",
-    "url": "https://machismoworld.com/",
-    "agency": "Digi Sidekick",
-    "category": "Beauty & Wellness",
-    "product": "Men’s grooming & skincare",
-    "badge": null,
-    "image": "assets/clients/machismo.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Maharani Saree",
-    "url": "https://maharanisareeshop.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Traditional Indian sarees",
-    "badge": null,
-    "image": "assets/clients/maharani-saree.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Masakali.Co",
-    "url": "https://shopmasakali.co/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Floral dresses & co-ord sets",
-    "badge": null,
-    "image": "assets/clients/masakali-co.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Modern Sahiba",
-    "url": "https://modernsahiba.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Kurtas, co-ords & designer dresses",
-    "badge": null,
-    "image": "assets/clients/modern-sahiba.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "My Stella",
-    "url": "https://mystella.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Denim, trousers & workwear for women",
-    "badge": null,
-    "image": "assets/clients/my-stella.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Mysanskritam",
-    "url": "https://mysanskritam.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Kurtis for women",
-    "badge": null,
-    "image": "assets/clients/mysanskritam.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Navi",
-    "url": "https://shop.navi.gg/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Gaming merchandise",
-    "badge": null,
-    "image": null,
-    "imageType": "none"
-  },
-  {
-    "name": "Nova Jewels",
-    "url": "https://www.novajewels.shop/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Jewellery & accessories",
-    "badge": null,
-    "image": "assets/clients/nova-jewels.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Odette",
-    "url": "https://odette.in/",
-    "agency": "Uniqoe Media",
-    "category": "Fashion",
-    "product": "Women’s fashion & accessories",
-    "badge": null,
-    "image": "assets/clients/odette.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Paras Plastic",
-    "url": "https://www.parasplastics.co.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Industrial plastic products",
-    "badge": null,
-    "image": "assets/clients/paras-plastic.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Pluch Designs",
-    "url": "https://www.pluchdesigns.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Western & Indian women’s wear",
-    "badge": null,
-    "image": "assets/clients/pluch-designs.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Prisachi",
-    "url": "https://www.prisachi.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Contemporary women’s clothing",
-    "badge": null,
-    "image": "assets/clients/prisachi.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Resha",
-    "url": "https://www.reshaindia.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Indian textiles & craft",
-    "badge": null,
-    "image": "assets/clients/resha.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "SF",
-    "url": "https://sf-clothing.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Streetwear clothing",
-    "badge": null,
-    "image": "assets/clients/sf.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Saylo",
-    "url": "https://www.sayloai.com/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "AI character chat app",
-    "badge": null,
-    "image": "assets/clients/saylo.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Sazvit",
-    "url": "https://sazvit.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Contemporary fashion",
-    "badge": null,
-    "image": "assets/clients/sazvit.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Serenity Jewels",
-    "url": "https://serenityjewels.in/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Piercing studs, hoops & titanium jewellery",
-    "badge": null,
-    "image": "assets/clients/serenity-jewels.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Showsha",
-    "url": "https://showshaindia.in/",
-    "agency": "Uniqoe Media",
-    "category": "Fashion",
-    "product": "Fashion brand",
-    "badge": null,
-    "image": "assets/clients/showsha.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Shree Mall",
-    "url": "https://shreemall.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Sarees, gowns & ethnic wear",
-    "badge": null,
-    "image": "assets/clients/shree-mall.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Sidechic",
-    "url": "https://www.sidechic.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Women’s fashion",
-    "badge": null,
-    "image": "assets/clients/sidechic.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Skillcircle",
-    "url": "https://skillcircle.in/",
-    "agency": "Uniqoe Media",
-    "category": "Other",
-    "product": "Digital marketing training institute",
-    "badge": null,
-    "image": "assets/clients/skillcircle.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Style Jaipur",
-    "url": "https://stylejaipur.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Ethnic & traditional women’s wear",
-    "badge": null,
-    "image": "assets/clients/style-jaipur.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Sudathi",
-    "url": "https://sudathi.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Contemporary Indian fashion",
-    "badge": null,
-    "image": "assets/clients/sudathi.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Sunbaby",
-    "url": "https://www.sunbabyindia.com/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Baby & kids products",
-    "badge": null,
-    "image": "assets/clients/sunbaby.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Sutra",
-    "url": "https://sutraindia.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Textile & apparel brand",
-    "badge": null,
-    "image": "assets/clients/sutra.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Swing Saga",
-    "url": "https://swingsaga.com/",
-    "agency": "Digi Sidekick",
-    "category": "Home & Living",
-    "product": "Macramé swings & home décor",
-    "badge": null,
-    "image": "assets/clients/swing-saga.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "TBFO",
-    "url": "https://www.tbfo.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Dresses & co-ords (Shark Tank India)",
-    "badge": "Shark Tank India",
-    "image": "assets/clients/tbfo.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "The Alternate",
-    "url": "https://www.thealternate.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Vegan men’s shoes & accessories",
-    "badge": null,
-    "image": "assets/clients/the-alternate.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "The Foomer",
-    "url": "https://thefoomer.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Men’s fashion",
-    "badge": null,
-    "image": "assets/clients/the-foomer.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Tistabene",
-    "url": "https://www.tistabene.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Men’s clothing",
-    "badge": null,
-    "image": "assets/clients/tistabene.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Tonoto",
-    "url": "https://tonoto.in/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Handmade jewellery, outfits & bags",
-    "badge": null,
-    "image": "assets/clients/tonoto.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Trapin",
-    "url": "https://trapin.co/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Travel gear & accessories",
-    "badge": null,
-    "image": "assets/clients/trapin.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Vanshika Jewels",
-    "url": "https://vanshikajewels.com/",
-    "agency": "Digi Sidekick",
-    "category": "Jewellery",
-    "product": "Premium Indian jewellery",
-    "badge": null,
-    "image": "assets/clients/vanshika-jewels.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "VishnuWeaves",
-    "url": "https://vishnuweaves.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Traditional handloom weaves",
-    "badge": null,
-    "image": "assets/clients/vishnuweaves.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Warrior World",
-    "url": "https://warriorworld.in/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Men’s streetwear (Shark Tank India)",
-    "badge": "Shark Tank India",
-    "image": "assets/clients/warrior-world.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "WeaveKala",
-    "url": "https://weavekala.com/",
-    "agency": "Digi Sidekick",
-    "category": "Fashion",
-    "product": "Artisan-woven fashion",
-    "badge": null,
-    "image": "assets/clients/weavekala.jpg",
-    "imageType": "photo"
-  },
-  {
-    "name": "Wishluck",
-    "url": "https://www.wishluck.in/",
-    "agency": "Digi Sidekick",
-    "category": "Other",
-    "product": "Educational kids’ toys",
-    "badge": null,
-    "image": "assets/clients/wishluck.jpg",
-    "imageType": "photo"
-  }
-];const NO_LINK_BRANDS = ["108", "Aurvikah", "Baankala", "Blushade", "CMD", "CStore", "Capital Solution", "Darji Fashion", "Deeproots", "Deer Doe", "Delta", "Desi Jutti", "Design Man", "Firky Fashions", "GenZ", "Goya", "Herbkind", "IMG", "Inayat", "Kadhira", "Kolor Therapy", "Marianne Decor", "MediEnd", "Mini West", "Nrjstore", "POE", "Panteasy", "Prolink", "Railingo", "Sapper", "Shopaarambh", "Sleepline", "St Jones", "Taghouse", "Talisman", "The House of Zoop", "Think Biz Consult", "Trrendo", "Type7", "UFO India", "Urbane Elegance", "VP", "VS Jewels", "Vishal Prints", "Wayven", "Weekend Boots", "YSS", "Yellowsquash", "Zarimo", "Zivanche Zaadran", "Zori World"];
-
 /* ================= RENDER ================= */
 const CATEGORIES = ['All', 'Fashion', 'Jewellery', 'Beauty & Wellness', 'Home & Living', 'Food & Beverage', 'Other'];
 let activeCat = 'All';
+let activeAgency = 'All';
 let activeQuery = '';
+const AGENCIES = [
+  { key:'All', label:'All' },
+  { key:'Digi Sidekick', label:'Digi Sidekick' },
+  { key:'Uniqoe Media', label:'Uniqoe Media' },
+  { key:'Direct', label:'Direct clients' }
+];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const byAgency = () => activeAgency === 'All' ? WORK_DATA : WORK_DATA.filter(d => d.agency === activeAgency);
 
-function renderFilterTabs(){
-  const counts = { All: WORK_DATA.length };
-  WORK_DATA.forEach(d => { counts[d.category] = (counts[d.category] || 0) + 1; });
-  const el = document.getElementById('filterTabs');
-  el.innerHTML = CATEGORIES.map((c,i) => `<button class="filter-tab${i===0?' active':''}" data-cat="${c}">${c} (${counts[c] || 0})</button>`).join('');
-  el.addEventListener('click', e => {
+function renderAgencyTabs(){
+  const el = document.getElementById('agencyTabs');
+  el.innerHTML = AGENCIES.map(a => {
+    const n = a.key === 'All' ? WORK_DATA.length : WORK_DATA.filter(d => d.agency === a.key).length;
+    return `<button class="filter-tab${a.key===activeAgency?' active':''}" data-agency="${a.key}">${a.label} (${n})</button>`;
+  }).join('');
+  el.onclick = e => {
     const btn = e.target.closest('.filter-tab');
     if (!btn) return;
-    el.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    activeAgency = btn.dataset.agency;
+    renderAgencyTabs(); renderFilterTabs(); renderGrid();
+  };
+}
+
+function renderFilterTabs(){
+  const pool = byAgency();
+  const counts = { All: pool.length };
+  pool.forEach(d => { counts[d.category] = (counts[d.category] || 0) + 1; });
+  const el = document.getElementById('filterTabs');
+  el.innerHTML = CATEGORIES.map((c,i) => `<button class="filter-tab${c===activeCat?' active':''}" data-cat="${c}">${c} (${counts[c] || 0})</button>`).join('');
+  el.onclick = e => {
+    const btn = e.target.closest('.filter-tab');
+    if (!btn) return;
     activeCat = btn.dataset.cat;
-    renderGrid();
-  });
+    renderFilterTabs(); renderGrid();
+  };
 }
 
 function mediaFor(d){
@@ -980,7 +303,7 @@ function cardFor(d){
           <div class="work-flip-back-glass">
             <div class="work-flip-back-name">${d.name}</div>
             <div class="work-flip-back-row">Product<strong>${d.product || '—'}</strong></div>
-            <div class="work-flip-back-row">Agency<strong>${d.agency || '—'}</strong></div>
+            <div class="work-flip-back-row">Agency<strong>${d.agency === 'Direct' ? 'Direct client (freelance)' : (d.agency || '—')}</strong></div>
             <div class="work-flip-back-cta">Visit Site ↗</div>
           </div>
         </div>
@@ -990,14 +313,15 @@ function cardFor(d){
 }
 
 function renderGrid(){
-  let list = activeCat === 'All' ? WORK_DATA : WORK_DATA.filter(d => d.category === activeCat);
+  let list = byAgency();
+  if (activeCat !== 'All') list = list.filter(d => d.category === activeCat);
   if (activeQuery) {
     const q = activeQuery.toLowerCase();
     list = list.filter(d => d.name.toLowerCase().includes(q) || (d.product || '').toLowerCase().includes(q));
   }
   const el = document.getElementById('workGrid');
-  el.innerHTML = list.length ? list.map(cardFor).join('') : `<div class="work-empty">No projects match "${activeQuery}" in this category.</div>`;
-  document.getElementById('resultCount').textContent = `Showing ${list.length} of ${WORK_DATA.length}`;
+  el.innerHTML = list.length ? list.map(cardFor).join('') : `<div class="work-empty">No projects match "${esc(activeQuery)}" with these filters.</div>`;
+  document.getElementById('resultCount').textContent = `Showing ${list.length} of ${byAgency().length}`;
 }
 
 function renderRollCall(){
@@ -1009,6 +333,10 @@ document.getElementById('searchInput').addEventListener('input', e => {
   renderGrid();
 });
 
+const params = new URLSearchParams(location.search);
+if (AGENCIES.some(a => a.key === params.get('agency'))) activeAgency = params.get('agency');
+if (CATEGORIES.includes(params.get('cat'))) activeCat = params.get('cat');
+renderAgencyTabs();
 renderFilterTabs();
 renderGrid();
 renderRollCall();
